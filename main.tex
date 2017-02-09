@@ -1,45 +1,30 @@
 \documentclass[twocolumn,aps,prl,showpacs]{revtex4-1}
 
-\usepackage{epsfig}
-\usepackage{graphics}
-%\documentclass[aps,prl,preprint,superscriptaddress]{revtex4}
-%\documentclass[aps,prl,twocolumn,groupedaddress]{revtex4}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage[disable]{todonotes}
 
-% You should use BibTeX and apsrev.bst for references
-% Choosing a journal automatically selects the correct APS% BibTeX style file (bst file), so only uncomment the line
-% below if necessary.
+\usepackage{hyperref}
+\usepackage{cleveref}
 
-%\bibliographystyle{apsrev}
-%\usepackage{graphicx}
-\newcommand{\hc}{\hat{c}} \newcommand{\bfr}{{\bf r}}
-\newcommand{\bfR}{{\bf R}} \newcommand{\bfk}{{\bf k}}
-\newcommand{\bfK}{{\bf K}} \newcommand{\bfq}{{\bf q}}
-\newcommand{\bfQ}{{\bf Q}} \newcommand{\bfd}{{\bf d}}
-\newcommand{\bfx}{{\bf x}} \newcommand{\bfy}{{\bf y}}
-\newcommand{\bfz}{{\bf z}} \newcommand{\ha}{\hat{a}}
-\newcommand{\hb}{\hat{b}} \newcommand{\hphi}{\hat{\phi}}
-\newcommand{\hpsi}{\hat{\psi}} \newcommand{\hPhi}{\hat{\Phi}}
-\newcommand{\hPsi}{\hat{\Psi}} \newcommand{\ddt}{\frac{d}{dt}}
-\newcommand{\ddr}{\frac{\partial}{\partial r}}
-\newcommand{\ddtau}{\frac{d}{d\tau}}
-\newcommand{\beq}{\begin{equation}} \newcommand{\eeq}{\end{equation}}
-\newcommand{\beqa}{\begin{eqnarray}}
-\newcommand{\eeqa}{\end{eqnarray}} \newcommand{\ba}{\begin{array}}
-\newcommand{\ea}{\end{array}} \newcommand{\nn}{\nonumber\\}
-
+\input{definitions}
 
 \begin{document}
 
 \title{Collective Rabi dynamics of electromagnetically-coupled quantum dot ensembles}
 
-\author{Connor Glosser$^{1,2}$, B. Shanker$^2$, and Carlo
-Piermarocchi$^1$} \affiliation{$^1$Department of Physics \& Astronomy, Michigan State University\\
- 567 Wilson Road, East Lansing MI 48824, USA\\$^2$Department of Electrical \& Computer Engineering, Michigan State University\\
- 428 South Shaw Lane, East Lansing MI 48824, USA}
+\author{Connor Glosser$^{1,2}$, B. Shanker$^2$, and Carlo Piermarocchi$^1$}
+\affiliation{
+  $^1$Department of Physics \& Astronomy, Michigan State University\\
+ 567 Wilson Road, East Lansing MI 48824, USA\\
+ $^2$Department of Electrical \& Computer Engineering, Michigan State University\\
+ 428 South Shaw Lane, East Lansing MI 48824, USA
+}
 
 \date{\today}
 \pacs{1.1}
-
 
 \begin{abstract}
   \input{sections/00-abstract}
@@ -48,9 +33,10 @@ Piermarocchi$^1$} \affiliation{$^1$Department of Physics \& Astronomy, Michigan 
 \maketitle 
 
 \input{sections/01-introduction}
-\input{sections/02-computational_approach}
-\input{sections/03-results}
-\input{sections/04-discussion}
+\input{sections/02-problem_statement}
+\input{sections/03-computational_approach}
+\input{sections/04-results}
+\input{sections/05-discussion}
 
 \begin{thebibliography}{99} 
 \bibitem{stievater} Todd

@@ -1,0 +1,40 @@
+\section{\label{section:problem statement}Problem Statement}
+We wish to consider the evolution of a \qd{} in response to an externally produced electric field.
+If we concern ourselves only with electric dipole transitions in a two-level system, we may write the time-dependence of the dot's quantum state as
+\begin{equation}
+  i \hbar \dv{\hat{\rho}}{t} = \commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
+  \label{eq:liouville}
+\end{equation}
+Here, $\hat{\mathcal{H}}(t)$ represents a local Hamiltonian that governs the internal two-level structure of the \qd{} as well as its interaction with an electromagnetic field while $\hat{\mathcal{D}}$ provides dissipation terms that account for emission effects phenomenologically.
+Formally,
+\begin{subequations}
+  \begin{align}
+    \hat{\mathcal{H}}(t) &\equiv \mqty(0 & \hbar \chi(t) \\ \hbar \chi^*(t) & \hbar \omega_0) \label{eq:hamiltonian}\\
+    \hat{\mathcal{D}}\qty[\hat{\rho}] &\equiv \mqty( \qty(\rho_{00} + 1)/{T_1} & \rho_{01}/{T_2} \\ \rho_{10}/{T_2} & \rho_{11}/T_1 ) \label{eq:dissipator}
+  \end{align}
+\end{subequations}
+where \todo{Expression tree; bad form?}$\chi(t) \equiv \vb{d} \cdot \vb{E}(\vb{r}, t)/\hbar$, $\vb{d} \equiv \matrixel{1}{e \hat{\vb{r}}}{0}$, and $\ket{0}$ \& $\ket{1}$ represent the highest valence and lowest conduction states of the \qd{}.
+Finally, the $T_1$ and $T_2$ constants represent phenomenalogical emission and relaxation times~\cite{}.
+Assuming $c/\omega_0 \gg \sqrt{\expval{\hat{\vb{r}}^2}}$, we may neglect the spatial variation in $\vb{E}(\vb{r}, t)$ in calculating $\chi(t)$ and thereby consider each \qd{} as a localized point in space.
+
+The evolution of \cref{eq:liouville} for a \qd{} located at $\vb{r}_j$ gives rise to a dipole polarization that perturbs an incident electric field, $\vb{E}_0(\vb{r}, t)$, through secondary emission effects.
+Writing this polarization as
+\begin{equation}
+  \begin{aligned}
+    \vb{P}(\vb{r}, t) &= \Tr[\hat{\rho} \cdot \hat{\vb{d}}] \delta(\vb{r} - \vb{r}_j) \\
+                      &= 2 \Re[\rho_{01}\vb{d}]\delta(\vb{r} - \vb{r}_j),
+  \end{aligned}
+\end{equation}
+we may compute the total electric field at any point through the dyadic electric field Green's function\cite{Rothwell2008}
+\begin{widetext}
+  \begin{equation}
+    \vb{E}(\vb{r}, t) \equiv \vb{E}_0(\vb{r}, t) - \frac{\mu_0}{4\pi} \int
+      \qty(I - \bar{\vb{r}} \bar{\vb{r}}) \frac{\ddot{\vb{P}}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}} +
+      \qty(I - 3\bar{\vb{r}} \bar{\vb{r}}) \frac{c \dot{\vb{P}}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^2} +
+      \qty(I - 3\bar{\vb{r}} \bar{\vb{r}}) \frac{c^2 \vb{P}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^3}
+    \dd[3]{\vb{r}'}
+    \label{eq:total field}
+  \end{equation}
+\end{widetext}
+where $\bar{\vb{r}} = \vb{r} - \vb{r}'/\abs{\vb{r} - \vb{r}'}$ and $t_R = t - \abs{\bar{\vb{r}}}/c$.
+In a system composed of many such dots, the additional convolution appearing in \cref{eq:total field} serves to couple the the evolution of \cref{eq:liouville} for each \qd{} by way of the off-diagonal matrix elements in \cref{eq:hamiltonian}.
