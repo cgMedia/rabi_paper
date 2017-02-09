@@ -28,10 +28,10 @@ Writing this polarization as
 we may compute the total electric field at any point through the dyadic electric field Green's function\cite{Rothwell2008}
 \begin{widetext}
   \begin{equation}
-    \vb{E}(\vb{r}, t) \equiv \vb{E}_0(\vb{r}, t) - \frac{\mu_0}{4\pi} \int
-      \qty(I - \bar{\vb{r}} \bar{\vb{r}}) \frac{\ddot{\vb{P}}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}} +
-      \qty(I - 3\bar{\vb{r}} \bar{\vb{r}}) \frac{c \dot{\vb{P}}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^2} +
-      \qty(I - 3\bar{\vb{r}} \bar{\vb{r}}) \frac{c^2 \vb{P}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^3}
+    \vb{E}(\vb{r}, t) \equiv \vb{E}_0(\vb{r}, t) - \frac{1}{4\pi\varepsilon} \int
+      \qty(I - \bar{\vb{r}} \bar{\vb{r}}) \frac{\ddot{\vb{P}}(\vb{r}', t_R)}{c^2\abs{\vb{r} - \vb{r}'}} +
+      \qty(I - 3\bar{\vb{r}} \bar{\vb{r}}) \frac{\dot{\vb{P}}(\vb{r}', t_R)}{c\abs{\vb{r} - \vb{r}'}^2} +
+      \qty(I - 3\bar{\vb{r}} \bar{\vb{r}}) \frac{\vb{P}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^3}
     \dd[3]{\vb{r}'}
     \label{eq:total field}
   \end{equation}
