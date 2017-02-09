@@ -17,7 +17,7 @@ where \todo{Expression tree; bad form?}$\chi(t) \equiv \vb{d} \cdot \vb{E}(\vb{r
 Finally, the $T_1$ and $T_2$ constants represent phenomenalogical emission and relaxation times~\cite{}.
 Assuming $c/\omega_0 \gg \sqrt{\expval{\hat{\vb{r}}^2}}$, we may neglect the spatial variation in $\vb{E}(\vb{r}, t)$ in calculating $\chi(t)$ and thereby consider each \qd{} as a localized point in space.
 
-The evolution of \cref{eq:liouville} for a \qd{} located at $\vb{r}_j$ gives rise to a dipole polarization that perturbs an incident electric field, $\vb{E}_0(\vb{r}, t)$, through secondary emission effects.
+As $\expval{\hat{A}} = \Tr[\hat{\rho}\hat{A}]$ yields the expectation value of an operator $\hat{A}$ in a density matrix formulation, the evolution of \cref{eq:liouville} for a \qd{} located at $\vb{r}_j$ gives rise to a classical polarization $\vb{P} = \expval{\hat{\vb{P}}}$ that produces additional radiation through secondary emission effects.
 Writing this polarization as
 \begin{equation}
   \begin{aligned}
@@ -37,4 +37,4 @@ we may compute the total electric field at any point through the dyadic electric
   \end{equation}
 \end{widetext}
 where $\bar{\vb{r}} = \vb{r} - \vb{r}'/\abs{\vb{r} - \vb{r}'}$ and $t_R = t - \abs{\bar{\vb{r}}}/c$.
-In a system composed of many such dots, the additional convolution appearing in \cref{eq:total field} serves to couple the the evolution of \cref{eq:liouville} for each \qd{} by way of the off-diagonal matrix elements in \cref{eq:hamiltonian}.
+In a system composed of multiple dots, the additional convolution appearing in \cref{eq:total field} serves to couple the the evolution of \cref{eq:liouville} for each \qd{} by way of the off-diagonal matrix elements in \cref{eq:hamiltonian}.
