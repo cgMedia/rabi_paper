@@ -37,34 +37,24 @@ Piermarocchi$^1$} \affiliation{$^1$Department of Physics \& Astronomy, Michigan 
  567 Wilson Road, East Lansing MI 48824, USA\\$^2$Department of Electrical \& Computer Engineering, Michigan State University\\
  428 South Shaw Lane, East Lansing MI 48824, USA}
 
-
 \date{\today}
-
-\begin{abstract}
-Rabi oscillation is one of the key signatures of the inherent nonlinearity of optical excitations in quantum dots, and has no classical analogue. In contrast to atomic systems, ensembles of quantum dots realize spatial configurations characterized by quenched randomness. Using a highly-efficient integral formulation to solve 3D Maxwell-Bloch equations in an ensemble of 10$^5$ quantum dots, we observe features in the collective dynamics due to the interplay of  randomness-induced localization, non-equilibrium excitation, and electromagnetic coupling between the dots. In particular, localized multiplets of dots that exchange energy, as well as dots that dynamically couple to screen the effect of the external excitation are observed.
-\end{abstract}
 \pacs{1.1}
 
+
+\begin{abstract}
+  \input{sections/00-abstract}
+\end{abstract}
+
 \maketitle 
- Semiconductor structures containing a large number of quantum dots represent ideal systems for exploring light-matter interactions in regimes where non-equilibrium, non-linearity, and randomness lead to new phenomena. Rabi oscillation is a characterstic feature resulting from the fact that optical excitations, or excitons, in  quantum dots behave like two-level atoms. Rabi oscillation in single  dots has been observed using time resolved~\cite{stievater, shih} and spectral methods~\cite{kamada}.  In these experiments,  the excitation typically involve a large collection of dots, but the signal from a single dot is isolated using optical masks or spectral methods. Compared to atomic systems, quantum dots are characterized by stronger dipolar transitions, and light-induced dipolar oscillations generate secondary fields that can be locally very strong and depend on the random spatial configurations. We therefore expect that, at least in some regions of the  sample, these secondary fields lead to a collective modified behavior in the exciton dynamics.  Signatures of collective effects due to the long-range electromagnetic coupling have been observed in the photoluminescence emission from ensembles of quantum dots~\cite{forchel}. 
 
-Here, we developed a microscopic computational framework to discover signatures of collective effects in strongly driven quantum dots. Current full-wave solution strategies for Maxwell Bloch equations resort to finite-difference or other mesh-based strategies\cite{Vanneste2001, Fratalocchi2008} for propagating fields throughout the simulation domain---techniques undermined by their computational overhead and numerical sensitivities\cite{Baczewski2013}.  We turn our attention to an integral approach that facilitates fast and accurate field calculations by allowing direct communication of field quantities between quantum dots.  Moreover, by solving the exciton dynamics on each dot through a predictor-corrector scheme, we take exactly into account propagation and .... what are the other advantages? 
-
-In analogy to the super- and sub-radiant regimes in the linear case, we find that in some instances the Rabi oscillation of a set of strongly coupled dots features additional oscillations due to an exchange of energy between the dot, and in other cases the dynamical creation of dark multiplets that screen completely the dots from Rabi rotation. ....Anything else we can mention?
-
-
-{\it Computational Approach} The computational approach is based on...
-
-
-{\it Results} Presents some cases of (i) energy exchange, (ii) screening, (iii) flashy plots of the electric field with localisation.  Show that all the effects need the presence of the many dots and disapper in the case of two dots.
-
-
-{\it Discussion}
+\input{sections/01-introduction}
+\input{sections/02-computational_approach}
+\input{sections/03-results}
+\input{sections/04-discussion}
 
 \begin{thebibliography}{99} 
 \bibitem{stievater} Todd
 {\it PRL.} {\bf 6}, 919 (2020).
-\end{thebibliography} \end{document}
+\end{thebibliography}
 
-
-
+\end{document}
