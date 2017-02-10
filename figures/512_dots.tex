@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      xlabel = {Time (\si{\pico\second})},
+      ylabel = {Population ($\rho_{00}$)},
+    ]
+
+    \addplot graphics[xmin=0, xmax=10, ymin=0, ymax=1]{figures/rendered_512_dots.pdf};
+
+  \end{axis}
+
+\end{tikzpicture}
