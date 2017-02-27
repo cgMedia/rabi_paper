@@ -1,12 +1,39 @@
 \section{Computational approach}
-\begin{figure}
-  \centering
-  \input{figures/frame_comparison.tex}
-  \caption{\label{fig:frame comparison}
-    Validity of the rotating-frame approximation within an integral equation framework.
-    The fixed- and rotating-frame populations for a collection of quantum dots display nearly identical trajectories.
-  }
-\end{figure}
+
+\subsection{The rotating-wave approximation}
+
+Models of lone \qds{} or \qd{} ensembles in which the separation between dots far exceeds a typical interaction length (perhaps through a finite-difference time-domain grid) often use a rotating-wave approximation to great effect in eliminating high-frequency terms in the solution to \cref{eq:liouville} with only a small change in the resulting dynamics.
+Assuming the incident radiation takes the form
+\begin{equation}
+  \vb{E}(t) = \tilde{\vb{E}}(t) \cos(\omega_L t)
+  \label{eq:field envelope}
+\end{equation}
+where $\tilde{\vb{E}}(t)$ represents a slowly-varying envelope function, we introduce a unitary transformation $\tilde{\rho} = \hat{U} \hat{\rho} \hat{U}^\dagger$ where $\hat{U} = \mathrm{diag}(1, e^{i \omega_L t})$ to produce a rotating-frame version of \cref{eq:liouville},
+\begin{equation}
+  i \hbar \pdv{\tilde{\rho}}{t} = \commutator{\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V}}{\tilde{\rho}} - \hat{\mathcal{D}}\qty[\tilde{\rho}]; \quad V \equiv U \dot{U}^\dagger,
+  \label{eq:rotating liouville}
+\end{equation}
+and treating treating $\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V} \equiv \tilde{\mathcal{H}}$ as a ``rotating-frame Hamiltonian.''
+If the electric field appearing inside of $\tilde{\mathcal{H}}$ takes the form of \cref{eq:field envelope}, the resulting equation contains terms proportional to $e^{i \qty(\omega_0 \pm \omega_L) t}$.
+By neglecting the $e^{i \qty(\omega_0 + \omega_L) t}$ terms under the assumption that they oscillate quickly and will therefore integrate out over any appreciable timescales, we produce a governing equation much more amenible to numerical integration as it contains only smooth (low-frequency) quantities.
+
+
+\subsection{Solution of the Liouville equation}
+
+Solving \cref{eq:liouville} for each of $n_s$ \qds{} amounts to solving $n_s$ coupled first-order differential equations in time.
+The coupling term in \cref{eq:hamiltonian} and the retardation factor in \cref{eq:total field} add additional complexity, however, making ``straightforward'' solution methods (such as RK4 or other midstep methods) ill-suited for the problem at hand.
+Due to its extreme accuracy and inherent bandlimitedness, we make use of the highly-tuned predictor/corrector scheme detailed in~\cite{Glaser2009} to numerically solve \cref{eq:liouville} for each \qd{} in the system.
+\begin{equation}
+  \rho_i(t) \approx \sum_{j = 1}^{n_\lambda} w_j e^{\lambda_j t}
+\end{equation}
+where each of the $\lambda_j$ take on appropriately chosen complex values, 
+
+\begin{equation}
+  \rho_i(t_{k + 1}) = \sum_{\ell = 1}^k \qty[\mathcal{P} \ell^{\qty(0)} \rho_i(t_i) + \mathcal{P} \ell^{\qty(1)} \dot{\rho}_i(t_i)]
+\end{equation}
+
+
+\subsection{Evaluation of radiated fields}
 
 As the \qds{} in our system contain a discrete set of internal energy levels, they interact with only a narrow band of frequencies in the radiation field and we may treat $\vb{E}(t)$ as a slowly-varying envelope modulated by a sinusoid of frequency $\omega_L$:
 \begin{equation}
@@ -14,8 +41,3 @@ As the \qds{} in our system contain a discrete set of internal energy levels, th
   \label{eq:modulated field}
 \end{equation}
 
-Introducing a unitary transformation $\tilde{\rho} = U \hat{\rho} U^\dagger$ where $U = \mathrm{diag}(1, e^{i \omega_L t})$ produces a rotating-frame version of \cref{eq:liouville}
-\begin{equation}
-  i \hbar \pdv{\tilde{\rho}}{t} = \commutator{U \hat{\mathcal{H}} U^\dagger - i \hbar V}{\tilde{\rho}}; \quad V \equiv U \dot{U}^\dagger.
-  \label{eq:rotating liouville}
-\end{equation}

@@ -1,6 +1,6 @@
 \section{\label{section:problem statement}Problem Statement}
 We wish to consider the evolution of a \qd{} in response to an externally produced electric field.
-If we concern ourselves only with electric dipole transitions in a two-level system, we may write the time-dependence of the dot's quantum state as
+If we concern ourselves only with electric dipole transitions in a two-level system, we may write the time-dependence of the \qd's state as
 \begin{equation}
   i \hbar \dv{\hat{\rho}}{t} = \commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
   \label{eq:liouville}
@@ -25,7 +25,7 @@ Writing this polarization as
                       &= 2 \Re[\rho_{01}\vb{d}]\delta(\vb{r} - \vb{r}_j),
   \end{aligned}
 \end{equation}
-we may compute the total electric field at any point through the dyadic electric field Green's function\cite{Rothwell2008}
+we may compute the total electric field at any point through the dyadic electric field Green's function~\cite{Rothwell2009}
 \begin{widetext}
   \begin{equation}
     \vb{E}(\vb{r}, t) \equiv \vb{E}_0(\vb{r}, t) - \frac{1}{4\pi\varepsilon} \int
@@ -36,5 +36,5 @@ we may compute the total electric field at any point through the dyadic electric
     \label{eq:total field}
   \end{equation}
 \end{widetext}
-where $\bar{\vb{r}} = \vb{r} - \vb{r}'/\abs{\vb{r} - \vb{r}'}$ and $t_R = t - \abs{\bar{\vb{r}}}/c$.
+where $\bar{\vb{r}} = \vb{r} - \vb{r}'/\abs{\vb{r} - \vb{r}'}$ and $t_R = t - \abs{\vb{r} - \vb{r}'}/c$.
 In a system composed of multiple dots, the additional convolution appearing in \cref{eq:total field} serves to couple the the evolution of \cref{eq:liouville} for each \qd{} by way of the off-diagonal matrix elements in \cref{eq:hamiltonian}.

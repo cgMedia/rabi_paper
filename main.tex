@@ -1,5 +1,6 @@
 \documentclass[twocolumn,aps,prl,showpacs]{revtex4-1}
 
+\usepackage{amsfonts}
 \usepackage[disable]{todonotes}
 \usepackage{filecontents}
 \usepackage{graphicx}
@@ -42,9 +43,13 @@
 \input{sections/04-results}
 \input{sections/05-discussion}
 
-\begin{thebibliography}{99} 
-\bibitem{stievater} Todd
-{\it PRL.} {\bf 6}, 919 (2020).
-\end{thebibliography}
+%\begin{thebibliography}{99} 
+%\bibitem{stievater} Todd
+%{\it PRL.} {\bf 6}, 919 (2020).
+%\end{thebibliography}
+
+\bibliography{refs/random_lasing_reflist}
+\bibliographystyle{plain}
+\end{document}
 
 \end{document}
