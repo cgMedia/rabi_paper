@@ -56,7 +56,7 @@ As the predictor/corrector method presented here possesses superior accuracy pro
 To evaluate \cref{eq:radiated envelope} between every pair of points we make use of variable-order Lagrange interpolation.
 Such a scheme easily accommodates both retardation effects between \qds{} separated by a non-integer number of timesteps as well as the first and second time derivatives of $\vb{P}$.
 To make the interpolation calculation as efficient as possible at each timestep, we store only $\qty{f, \vb{c}}$ for every pair of \qds{} where
-$f \equiv \lfloor \abs{\Delta \vb{r}}/(c \, \Delta t) \rfloor$ and gives the start of the ``interpolation window'' (e.g.\ \qds{} separated by $3.2\Delta t$ require knowledge of each others' histories $3, 4, 5, \ldots, w + 3 - 1$ steps in the past to produce $\vb{E}$ in the present) and 
+$f \equiv \lfloor \abs{\Delta \vb{r}}/(c \, \Delta t) \rfloor$ and gives the start of the ``interpolation window'' of width $w$ (\cref{fig:interpolation}) and 
 \begin{widetext}
 \begin{equation}
   \qty(\vb{c})_n = -\frac{\vb{d}_j}{4\pi \epsilon} \cdot \qty[\qty(I - 3\bar{\vb{r}}\bar{\vb{r}}) \qty(\frac{\ell_n(s)}{\abs{\vb{r}_j - \vb{r}_i}^3} + \frac{\dot{\ell}_n(s) + i \omega_L \ell_n(s)}{c \abs{\vb{r}_j - \vb{r}_i}^2}) +
