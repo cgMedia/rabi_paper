@@ -51,12 +51,22 @@ Moreover, the coupling term in \cref{eq:hamiltonian} and the retardation factor 
 The necessity of a midstep RHS evaluation in RK4 schemes, for instance, proves troublesome; as the RHS to evaluate a given $\dot{\hat{\rho}}_i$ between timesteps depends on every other $\hat{\rho}_j$ at the same timepoint, the system requires either an infinite number of step subdivisions or some sort of extrapolation scheme to advance by $\Delta t$.
 As the predictor/corrector method presented here possesses superior accuracy properties alongside a rigorous extrapolation scheme (by construction), it very naturally solves the system described by \cref{eq:rotating liouville,eq:radiated envelope}.
 
-
 \subsection{Evaluation of radiated fields}
 
-As the \qds{} in our system contain a discrete set of internal energy levels, they interact with only a narrow band of frequencies in the radiation field and we may treat $\vb{E}(t)$ as a slowly-varying envelope modulated by a sinusoid of frequency $\omega_L$:
+To evaluate \cref{eq:radiated envelope} between every pair of points we make use of variable-order Lagrange interpolation.
+Such a scheme easily accommodates both retardation effects between \qds{} separated by a non-integer number of timesteps as well as the first and second time derivatives of $\vb{P}$.
+To make the interpolation calculation as efficient as possible at each timestep, we store only $\qty{f, \vb{c}}$ for every pair of \qds{} where
+$f \equiv \lfloor \abs{\Delta \vb{r}}/(c \, \Delta t) \rfloor$ and gives the start of the ``interpolation window'' (e.g.\ \qds{} separated by $3.2\Delta t$ require knowledge of each others' histories $3, 4, 5, \ldots, w + 3 - 1$ steps in the past to produce $\vb{E}$ in the present) and 
+\begin{widetext}
 \begin{equation}
-  \vb{E}(t) = \tilde{\vb{E}}(t)\cos(\omega_L t).
-  \label{eq:modulated field}
+  \qty(\vb{c})_n = -\frac{\vb{d}_j}{4\pi \epsilon} \cdot \qty[\qty(I - 3\bar{\vb{r}}\bar{\vb{r}}) \qty(\frac{\ell_n(s)}{\abs{\vb{r}_j - \vb{r}_i}^3} + \frac{\dot{\ell}_n(s) + i \omega_L \ell_n(s)}{c \abs{\vb{r}_j - \vb{r}_i}^2}) +
+    \qty(I - \bar{\vb{r}}\bar{\vb{r}}) \frac{\ddot{\ell}_n(s) + 2i \omega_L \dot{\ell}_n(s) - \omega_L^2 \ell_n(s)}{c^2 \abs{\vb{r}_j - \vb{r}_i}}] \cdot \vb{d}_i e^{-i \omega_L \abs{\vb{r}_j - \vb{r}_i}/c}
+    \label{eq:interpolation coefs}
 \end{equation}
-
+\end{widetext}
+where
+\begin{align}
+  s         &\equiv \abs{\Delta \vb{r}}/\qty(c \, \Delta t) - \lfloor \abs{\Delta \vb{r}}/\qty(c \, \Delta t) \rfloor \label{eq:fractional part} \\
+  \ell_n(t) &\equiv \prod_{j = 0}^{-w} \frac{t - j}{n - j}; \quad j \not = n. \label{eq:lagrange polynomial}
+\end{align}
+Note that the product in \cref{eq:lagrange polynomial} runs over a negative window due to the nature of the backwards-looking interpolation.
