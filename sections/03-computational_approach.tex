@@ -70,3 +70,11 @@ where
   \ell_n(t) &\equiv \prod_{j = 0}^{-w} \frac{t - j}{n - j}; \quad j \not = n. \label{eq:lagrange polynomial}
 \end{align}
 Note that the product in \cref{eq:lagrange polynomial} runs over a negative window due to the nature of the backwards-looking interpolation.
+
+\begin{figure}
+  \input{figures/interpolation_window.tex}
+  \caption{\label{fig:interpolation}Illustration of interpolation for a $w = 4$ window.
+    An assumed signal takes $1.5\Delta t$ to travel from point A to B (dashed line).
+    To calculate the electric field at A in the present, we interpolate known values of a source quantity at B (black dots) about the fractional timestep with a sum of weighted basis polynomials (red lines, \cref{eq:lagrange polynomial}) evaluated at the fraction.
+  }
+\end{figure}
