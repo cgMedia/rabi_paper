@@ -18,9 +18,9 @@ Writing $\vb{P}(\vb{r}, t) = \tilde{\vb{P}}(\vb{r}, t)e^{i \omega_L t}$, the rad
 \begin{equation}
   \begin{gathered}
     \tilde{\vb{E}}_\text{rad}(\vb{r}, t) = -\frac{1}{4\pi \varepsilon} \int 
-    \qty(I -  \hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
-    \qty(I - 3\hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
-    \qty(I - 3\hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
+    \qty(\tensor{\mathrm{I}} -  \hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
+    \qty(\tensor{\mathrm{I}} - 3\hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
+    \qty(\tensor{\mathrm{I}} - 3\hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
     \, \dd[3]{\vb{r'}}.
   \end{gathered}
   \label{eq:radiated envelope}
@@ -69,7 +69,7 @@ where
   s         &\equiv \abs{\Delta \vb{r}}/\qty(c \, \Delta t) - \lfloor \abs{\Delta \vb{r}}/\qty(c \, \Delta t) \rfloor \label{eq:fractional part} \\
   \ell_n(t) &\equiv \prod_{j = 0}^{-w} \frac{t - j}{n - j}; \quad j \not = n. \label{eq:lagrange polynomial}
 \end{align}
-Note that the product in \cref{eq:lagrange polynomial} runs over a negative window due to the nature of the backwards-looking interpolation.
+Note that the product in \cref{eq:lagrange polynomial} runs over a negative window due to the backwards-looking interpolation.
 
 \begin{figure}
   \input{figures/interpolation_window.tex}
