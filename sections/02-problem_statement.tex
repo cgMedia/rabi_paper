@@ -25,16 +25,17 @@ Writing this polarization as
                       &= 2 \Re[\rho_{01}\vb{d}]\delta(\vb{r} - \vb{r}_j),
   \end{aligned}
 \end{equation}
-we may compute the total electric field at any point through the dyadic electric field Green's function~\cite{Rothwell2009}
-\begin{widetext}
-  \begin{equation}
-    \vb{E}(\vb{r}, t) \equiv \vb{E}_0(\vb{r}, t) - \frac{1}{4\pi\varepsilon} \int
-      \qty(\tensor{\mathrm{I}} - \bar{\vb{r}} \bar{\vb{r}}) \cdot \frac{\ddot{\vb{P}}(\vb{r}', t_R)}{c^2\abs{\vb{r} - \vb{r}'}} +
-      \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}} \bar{\vb{r}}) \cdot \frac{\dot{\vb{P}}(\vb{r}', t_R)}{c\abs{\vb{r} - \vb{r}'}^2} +
-      \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}} \bar{\vb{r}}) \cdot \frac{\vb{P}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^3}
-    \dd[3]{\vb{r}'}
-    \label{eq:total field}
-  \end{equation}
-\end{widetext}
-where $\bar{\vb{r}} \equiv \vb{r} - \vb{r}'/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
+we may compute the total electric field at any point through the dyadic electric field Green's function~\cite{Rothwell2009} 
+{\bf I would write this using G explicitly}
+\begin{equation}
+  \begin{gathered}
+  \vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) - \frac{1}{4\pi\varepsilon} \int
+    \qty(\tensor{\mathrm{I}} - \bar{\vb{r}} \bar{\vb{r}}) \cdot \frac{\ddot{\vb{P}}(\vb{r}', t_R)}{c^2\abs{\vb{r} - \vb{r}'}} + \\
+    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}} \bar{\vb{r}}) \cdot \frac{\dot{\vb{P}}(\vb{r}', t_R)}{c\abs{\vb{r} - \vb{r}'}^2} +
+    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}} \bar{\vb{r}}) \cdot \frac{\vb{P}(\vb{r}', t_R)}{\abs{\vb{r} - \vb{r}'}^3}
+  \dd[3]{\vb{r}'}
+  \label{eq:total field}
+  \end{gathered}
+\end{equation}
+where $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
 In a system composed of multiple dots, the additional convolution appearing in \cref{eq:total field} serves to couple the the evolution of \cref{eq:liouville} for each \qd{} by way of the off-diagonal matrix elements in \cref{eq:hamiltonian}.

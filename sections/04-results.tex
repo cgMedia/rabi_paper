@@ -1,6 +1,24 @@
-\section{Results}
-Presents some cases of (i) energy exchange, (ii) screening, (iii) flashy plots of the electric field with localisation.
-Show that all the effects need the presence of the many dots and disapper in the case of two dots.
+\section{Numerical Results}
+Here we detail the results of several investigations into coupled \qd{} behavior with the model presented thusfar.
+Our algorithm reliably handles tens of thousands of \qds{} and can simulate ten picoseconds of system dynamics in two days on a single processor.
+We perform simulations of systems of \qds{} randomly distributed throughout a cubic simulation volume at various densities.
+\Cref{table:parameters} gives approximate values of the system parameters.
+
+\begin{table}
+  \begin{ruledtabular}
+    \begin{tabular}{lll}
+      Quantity                 & Symbol         & Value                        \\ \hline
+      Transition frequency     & $\omega_0$     & $\SI{1500}{\milli\eV}/\hbar$ \\
+      Transition dipole moment & $\abs{\vb{d}}$ & \SI{10}{\elementarycharge\bohr} \\
+      Relaxation times         & $T_{1}, T_{2}$ & \SIlist{10;20}{\pico\second} \\
+      Laser frequency          & $\omega_L$     & $\SI{1500}{\milli\eV}/\hbar$ \\ \hline
+      Speed of light           & $c$            & \SI{299.792458}{\micro\meter\per\pico\second} \\
+      Reduced Planck constant  & $\hbar$        & \SI{0.65821193}{\milli\eV \pico\second} \\
+      Vacuum permeability      & $\mu_0$        & \SI{2.0133545e-4}{\milli\eV \pico\second\squared \per \elementarycharge \per \micro\meter}
+    \end{tabular}
+  \end{ruledtabular}
+  \caption{\label{table:parameters}Rough simulation parameters.}
+\end{table}
 
 \begin{figure}
   \input{figures/512_dots}
