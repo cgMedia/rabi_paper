@@ -184,6 +184,7 @@ TSWLatexianTemp*
 
 ## Editors:
 # WinEdt
+session.vim
 *.bak
 *.sav
 
