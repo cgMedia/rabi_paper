@@ -2,14 +2,14 @@ Semiconductor structures containing a large number of quantum dots offer ideal e
 Optical excitations (excitons) give rise to characteristic Rabi oscillations in \qds{} that mimic two-level atoms.
 Time-resolved~\cite{stievater,shih} and spectral~\cite{kamada} methods have revealed Rabi oscillations in many such systems.
 In these experiments, the excitation typically involves a large collection of dots while an optical mask isolates the signal from a single dot.
-\Qds{} have stronger dipolar transitions than atoms and their and light-induced dipolar oscillations generate strong secondary fields that depend on random spatial configurations.
+\Qds{} have stronger dipolar transitions than atoms and their light-induced oscillations generate strong secondary fields that depend on random spatial configurations.
 We therefore expect, at least in some regions of the sample, these secondary fields to produce modified collective behavior in the exciton dynamics.
 Signatures of collective effects due to long-range electromagnetic coupling have arisen in the photoluminescence emissions of ensembles of \qds{}~\cite{forchel}.
 
 Here, we develop a computational framework to discover signatures of collective effects in strongly-driven quantum dots with a microscopic formalism.
-Current solution strategies for Maxwell-Bloch systems either resort to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as a finite-difference time-domain model)~\cite{Vanneste2001, Fratalocchi2008} for full-wave models of the simulation domain---techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
+Current solution strategies for Maxwell-Bloch systems either resort to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as finite-difference time-domain models)~\cite{Vanneste2001, Fratalocchi2008} for full-wave models of the simulation domain---techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
 We turn our attention to an integral approach that facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{} without the need for a computationally-burdensome radiation grid.
-Moreover, a highly-tuned predictor-corrector scheme facilitates an accurate account of propagation and phase effects between \qds{} even for very close particles. 
+Moreover, a highly-tuned predictor-corrector scheme provides an accurate account of the propagation and phase effects between \qds{}, even for very close particles.
 
 We find that in some instances the Rabi oscillation of a set of strongly coupled dots features additional oscillations due to an exchange of energy between the dot or dynamical creation of dark multiplets that completely screen the dots from Rabi rotation.
 

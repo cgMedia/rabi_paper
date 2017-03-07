@@ -17,15 +17,16 @@ Writing $\vb{P}(\vb{r}, t) = \tilde{\vb{P}}(\vb{r}, t)e^{i \omega_L t}$, the rad
 \begin{widetext}
 \begin{equation}
   \begin{gathered}
-    \tilde{\vb{E}}_\text{rad}(\vb{r}, t) = -\frac{1}{4\pi \varepsilon} \int 
-    \qty(\tensor{\mathrm{I}} -  \hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
-    \qty(\tensor{\mathrm{I}} - 3\hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
-    \qty(\tensor{\mathrm{I}} - 3\hat{\vb{r}}\hat{\vb{r}}) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
+    \tilde{\vb{E}}_\text{rad}(\vb{r}, t) = -\frac{1}{4\pi \varepsilon} \int
+    \qty(\tensor{\mathrm{I}} -  \bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
+    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
+    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
     \, \dd[3]{\vb{r'}}.
   \end{gathered}
   \label{eq:radiated envelope}
 \end{equation}
 \end{widetext}
+where $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
 Critically, \cref{eq:radiated envelope} maintains the phase relationship between every pair of \qds{} for arbitrarily large timesteps via the $e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}$ factors that appear.
 Without this transformation, the evolution of \cref{eq:liouville} would require $c \, \Delta t$ at least as small as the minimum separation between \qds{}---roughly three orders of magnitude smaller than the $\Delta t$ required to resolve the maximum frequency in \cref{eq:rotating liouville}.
 
@@ -56,7 +57,7 @@ As the predictor/corrector method presented here possesses superior accuracy pro
 To evaluate \cref{eq:radiated envelope} between every pair of points we make use of variable-order Lagrange interpolation.
 Such a scheme easily accommodates both retardation effects between \qds{} separated by a non-integer number of timesteps as well as the first and second time derivatives of $\vb{P}$.
 To make the interpolation calculation as efficient as possible at each timestep, we store only $\qty{f, \vb{c}}$ for every pair of \qds{} where
-$f \equiv \lfloor \abs{\Delta \vb{r}}/(c \, \Delta t) \rfloor$ and gives the start of the ``interpolation window'' of width $w$ (\cref{fig:interpolation}) and 
+$f \equiv \lfloor \abs{\Delta \vb{r}}/(c \, \Delta t) \rfloor$ and gives the start of the ``interpolation window'' of width $w$ (\cref{fig:interpolation}) and
 \begin{widetext}
 \begin{equation}
   \qty(\vb{c})_n = -\frac{\vb{d}_j}{4\pi \epsilon} \cdot \qty[\qty(I - 3\bar{\vb{r}}\bar{\vb{r}}) \qty(\frac{\ell_n(s)}{\abs{\vb{r}_j - \vb{r}_i}^3} + \frac{\dot{\ell}_n(s) + i \omega_L \ell_n(s)}{c \abs{\vb{r}_j - \vb{r}_i}^2}) +
