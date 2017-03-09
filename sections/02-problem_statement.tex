@@ -1,11 +1,11 @@
 \section{\label{section:problem statement}Problem Statement}
-We wish to consider the evolution of a \qd{} in response to an externally produced electric field.
-If we concern ourselves only with electric dipole transitions in a two-level system, we may write the time-dependence of the \qd's state as
+We wish to consider the evolution of a set of \qds{} in response to a time-varying electric field.
+If we concern ourselves only with electric dipole transitions in a resonant (or nearly-resonant) system, we may write the time-dependence of a given \qd's state a
 \begin{equation}
-  i \hbar \dv{\hat{\rho}}{t} = \commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
+  \dv{\hat{\rho}}{t} = \frac{-i}{\hbar}\commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
   \label{eq:liouville}
 \end{equation}
-Here, $\hat{\mathcal{H}}(t)$ represents a local Hamiltonian that governs the internal two-level structure of the \qd{} as well as its interaction with an electromagnetic field while $\hat{\mathcal{D}}$ provides dissipation terms that account for emission effects phenomenologically.
+Here, $\hat{\mathcal{H}}(t)$ represents a local Hamiltonian that governs the internal two-level structure of the \qd{} as well as its interaction with an external electromagnetic field, while $\hat{\mathcal{D}}$ provides dissipation terms that account for emission effects phenomenologically.
 Formally,
 \begin{subequations}
   \begin{align}
@@ -15,24 +15,25 @@ Formally,
 \end{subequations}
 where \todo{Expression tree; bad form?}$\chi(t) \equiv \vb{d} \cdot \hat{\vb{E}}(\vb{r}, t)/\hbar$, $\vb{d} \equiv \matrixel{1}{e \hat{\vb{r}}}{0}$, and $\ket{0}$ \& $\ket{1}$ respectively represent the highest valence and lowest conduction states of the \qd{} under consideration.
 Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxation times~\cite{}.
-Assuming the radiation in the system contains only wavelengths much longer than the size of any given \qd{} we may neglect the spatial variation in $\vb{E}(\vb{r}, t)$ in calculating $\chi(t)$ and thereby consider each \qd{} as a localized point in space.
+As the radiation in the system contains only wavelengths much longer than the size of any given \qd{} we neglect the spatial variation in $\vb{E}(\vb{r}, t)$ in calculating $\chi(t)$ and thereby consider each \qd{} as a localized point in space.
 
-As $\expval{\hat{A}} = \Tr[\hat{\rho}\hat{A}]$ yields the expectation value of an operator $\hat{A}$ in a density matrix formulation, the evolution of \cref{eq:liouville} for a \qd{} located at $\vb{r}_j$ gives rise to a classical polarization density $\vb{P} = \expval{\hat{\vb{P}}}$ that produces additional radiation through secondary emission effects.
-Writing $\vb{P}$ as
+To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of negligible single-photon effects or other quantum correlations.
+Such an approximation preserves the discrete energy structure of each \qd{}, however electromagnetic quantities behave like their classical analogues;
+as such, we define a source polarization as
 \begin{equation}
   \begin{aligned}
-    \vb{P}(\vb{r}, t) &= \Tr[\hat{\rho} \hat{\vb{d}}] \delta(\vb{r} - \vb{r}_j) \\
-                      &= 2 \Re[\rho_{01}\vb{d}]\delta(\vb{r} - \vb{r}_j),
+    \vb{P}(\vb{r}, t) &\equiv \sum_\ell \Tr[\hat{\rho}_\ell \hat{\vb{d}}_\ell] \delta(\vb{r} - \vb{r}_\ell) \\
+                      &= \sum_\ell 2 \Re[\rho_\ell^{01}\vb{d}_\ell]\delta(\vb{r} - \vb{r}_\ell)
   \end{aligned}
 \end{equation}
-we may compute the total electric field at any point with a Green's function formulation
+and we may compute the total electric field at any point with a Green's function formulation
 \begin{equation}
   \vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \int \hat{G}(\vb{r} - \vb{r}'; t - t')\vb{P}(\vb{r}', t') \dd[3]{\vb{r}'} \dd{t'}.
   \label{eq:total field}
 \end{equation}
 In three dimensions,
 \begin{equation}
-  \hat{G} = \mathcal{F}_{\omega \to t}^{-1}\qty[ \qty(\tensor{I} + \frac{\nabla \nabla}{\qty(\omega/c)^2})\frac{-e^{i \omega \abs{\vb{r} - \vb{r}'}/c}}{4\pi \epsilon \abs{\vb{r} - \vb{r}'}} ]
+  \hat{G} \equiv \mathcal{F}_{\omega \to t}^{-1}\qty[ \qty(\tensor{I} + \frac{\nabla \nabla}{\qty(\omega/c)^2})\frac{-e^{i \omega \abs{\vb{r} - \vb{r}'}/c}}{4\pi \epsilon \abs{\vb{r} - \vb{r}'}} ]
   \label{eq:dyadic}
 \end{equation}
 (where $\mathcal{F}_{\omega \to t}^{-1}$ denotes an inverse Fourier transform with respect to $\omega$) and relates $\vb{E}$ to $\vb{P}$, $\dot{\vb{P}}$, and $\ddot{\vb{P}}$~\cite{Rothwell2009}.
