@@ -75,7 +75,8 @@ Note that the product in \cref{eq:lagrange polynomial} runs over a negative wind
 \begin{figure}
   \input{figures/interpolation_window.tex}
   \caption{\label{fig:interpolation}Illustration of interpolation for a $w = 4$ window.
-    An assumed signal takes $1.5\Delta t$ to travel from point A to B (dashed line).
-    To calculate the electric field at A in the present, we interpolate known values of a source quantity at B (black dots) about the fractional timestep with a sum of weighted basis polynomials (red lines, \cref{eq:lagrange polynomial}) evaluated at the fraction.
+    An assumed signal takes $1.5\Delta t$ to travel from between points.
+    Due to the translational invariance of the basis polynomials, evaluations of \cref{eq:lagrange polynomial} (and its derivatives) need only occur once at the fractional part of $\abs{\Delta \vb{r}}/(c \, \Delta t)$ (red dots) between each pair of points.
+    The interpolated signal then becomes a sum of these values weighted by the known samples (black dots).
   }
 \end{figure}
