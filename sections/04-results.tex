@@ -11,26 +11,18 @@ We perform simulations of systems of \qds{} randomly distributed throughout a cu
       Transition frequency     & $\omega_0$     & $\SI{1500}{\milli\eV}/\hbar$ \\
       Transition dipole moment & $\abs{\vb{d}}$ & \SI{10}{\elementarycharge\bohr} \\
       Relaxation times         & $T_{1}, T_{2}$ & \SIlist{10;20}{\pico\second} \\
-      Laser frequency          & $\omega_L$     & $\SI{1500}{\milli\eV}/\hbar$ \\ \hline
+      Laser frequency          & $\omega_L$     & $\SI{1500}{\milli\eV}/\hbar$ \\
+      Number density           & $n$            & $< \SI{1.6e4}{\micro\meter\tothe{-3}}$ \\
+      \hline
       Speed of light           & $c$            & \SI{299.792458}{\micro\meter\per\pico\second} \\
       Reduced Planck constant  & $\hbar$        & \SI{0.65821193}{\milli\eV \pico\second} \\
-      Vacuum permeability      & $\mu_0$        & \SI{2.0133545e-4}{\milli\eV \pico\second\squared \per \elementarycharge \per \micro\meter}
+      Vacuum permeability      & $\mu_0$        & \SI{2.013e-4}{\milli\eV \pico\second\squared \per \elementarycharge \per \micro\meter}
     \end{tabular}
   \end{ruledtabular}
-  \caption{\label{table:parameters}Rough simulation parameters.}
+  \caption{\label{table:parameters}Approximate simulation parameters.}
 \end{table}
 
 \begin{figure}
-  \input{figures/512_dots}
-  \caption{\label{fig:population dynamics}Population dynamics of 512 interacting \qds{}.
-    The majority of the \qds{} follow a trajectory prescribed by the incident pulse; several pairs of dots, however, become strongly correlated due to the small distance between particles.
-  }
-\end{figure}
-
-\begin{figure}
-  \input{figures/neighborhood_full}
-\end{figure}
-
-\begin{figure}
   \input{figures/density_stats}
+  \caption{\label{fig:density stats}
 \end{figure}
