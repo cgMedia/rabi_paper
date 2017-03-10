@@ -649,6 +649,7 @@ time        lbound               ubound               p1                  p2    
 \end{filecontents}
 
 \usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{colorbrewer}
 \usetikzlibrary{patterns}
 \usetikzlibrary{pgfplots.groupplots}
 
@@ -664,27 +665,36 @@ time        lbound               ubound               p1                  p2    
       width=\columnwidth,
       height=0.618034\columnwidth,
       xlabel={Time (\si{\pico\second})},
-      %enlarge x limits=0.05,
-      %enlarge y limits=0.15
+      xmin = 0, xmax = 30,
+      ymin = 0, ymax = 1,
+      enlargelimits = 0.10,
+      cycle list/Paired-6
   ]
-  \nextgroupplot[ylabel={Population (low density)}]
-    \addplot[smooth] table[x = time, y = lbound] {low_density_stats.dat};
-    \addplot[smooth] table[x = time, y = ubound] {low_density_stats.dat};
+  \nextgroupplot[ylabel={}, cycle list/Set1-5]
+    \addplot[smooth, name path=lower, dashed, thin, opacity=0.4] table[x = time, y = lbound] {low_density_stats.dat};
+    \addplot[smooth, name path=upper, dashed, thin, opacity=0.4] table[x = time, y = ubound] {low_density_stats.dat};
 
-    \addplot+[smooth, no marks] table[x = time, y = p1] {low_density_stats.dat};
-    \addplot+[smooth, no marks] table[x = time, y = p2] {low_density_stats.dat};
-    \addplot+[smooth, no marks] table[x = time, y = p3] {low_density_stats.dat};
-    \addplot+[smooth, no marks] table[x = time, y = p4] {low_density_stats.dat};
-    \addplot+[smooth, no marks] table[x = time, y = p5] {low_density_stats.dat};
+    \addplot[color=gray, opacity=0.3] fill between[of = lower and upper];
 
-  \nextgroupplot[ylabel={Population (high density)}] 
-    \addplot[smooth] table[x = time, y = lbound] {high_density_stats.dat};
-    \addplot[smooth] table[x = time, y = ubound] {high_density_stats.dat};
-
-    \foreach \n in {3, ..., 43} 
+    \foreach \n in {3, ..., 7}
     {
-      \addplot+[smooth, no marks] table[x = time, y index={\n}] {high_density_stats.dat};
+      \addplot+[smooth, thick, no marks] table[x = time, y index={\n}] {low_density_stats.dat};
     }
+
+    \node at (axis cs:25,0.1) {$n = \SI{4.741e3}{\micro\meter\tothe{-3}}$};
+
+  \nextgroupplot[ylabel={}]
+    \addplot[smooth, name path=lower, dashed, thin, opacity=0.4] table[x = time, y = lbound] {high_density_stats.dat};
+    \addplot[smooth, name path=upper, dashed, thin, opacity=0.4] table[x = time, y = ubound] {high_density_stats.dat};
+
+    \addplot[color=gray, opacity=0.3] fill between[of = lower and upper];
+
+    \foreach \n in {3, ..., 43}
+    {
+      \addplot+[smooth, thick, no marks] table[x = time, y index={\n}] {high_density_stats.dat};
+    }
+
+    \node at (axis cs:25,0.1) {$n = \SI{1.6e4}{\micro\meter\tothe{-3}}$};
 
   \end{groupplot}
 
