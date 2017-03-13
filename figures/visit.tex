@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+  \begin{axis}[grid=major, width=\linewidth,
+    %xmin = -0.2, xmax = 0.2,
+    %ymin = -0.2, ymax = 0.2,
+    %zmin = -0.2, zmax = 0.2,
+    x dir=reverse, %indicate left-handed coordinate system
+    3d box,
+    colormap/bluered,
+    colorbar,
+    colorbar style = {
+      ymin = 0,
+      ymax = 0.5,
+      plot graphics/ymin=0,
+      plot graphics/ymax=0.5,
+    }
+  ]
+    \addplot3 graphics[points={% important
+        (-0.15, 0.15, 0.2) => (273, 2160)
+        (0.15, 0.15, 0.2)  => (1825, 1898)
+        (0.15, -0.15, 0.2) => (1826, 264)
+        (0.15, 0.15, -0.2) => (2862, 2596)
+      }] {figures/render_no_box.png};
+  \end{axis}
+\end{tikzpicture}
