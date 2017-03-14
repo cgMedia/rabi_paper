@@ -11,6 +11,9 @@
 *.out
 *.toc
 *.swp
+*.dat
+*.bib
+*.dep
 
 ## Intermediate documents:
 build/
