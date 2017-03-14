@@ -1,7 +1,7 @@
 \documentclass[twocolumn,aps,pra,showpacs,superscriptaddress]{revtex4-1}
 
-\usepackage{amsfonts}
 \usepackage[disable]{todonotes}
+\usepackage{amsfonts}
 \usepackage{filecontents}
 \usepackage{graphicx}
 \usepackage{lipsum}
@@ -10,6 +10,7 @@
 \usepackage{pgfplots}
 \usepackage{physics}
 \usepackage{siunitx}
+\usepackage[caption=false]{subfig}
 
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -19,7 +20,9 @@
 \pgfplotsset{compat=1.4}
 
 \usepgfplotslibrary{external}
+\usepgfplotslibrary{colorbrewer}
 \tikzexternalize
+\usetikzlibrary{pgfplots.groupplots}
 
 \listfiles
 
