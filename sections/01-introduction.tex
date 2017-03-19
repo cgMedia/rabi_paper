@@ -9,8 +9,15 @@ Signatures of collective effects due to long-range electromagnetic coupling have
 
 Here, we develop a computational framework to discover signatures of collective effects in strongly-driven quantum dots with a microscopic formalism.
 Current solution strategies for Maxwell-Bloch systems either resort to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as finite-difference time-domain method )~\cite{Vanneste2001, Fratalocchi2008} for full-wave models of the simulation domain---techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
-In this paper, we develop integral equation based approach that facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}. This provides three salient advantages: (i) there is need for a computational grid to propagate fields, and as a result, there is no numerical dispersion, (ii) the radiation/Sommenfeld radiation condition is explicitly included in the Green's function, and (iii) both near and far fields are modeled to high accuracy unlike differential equation methods that rely on an underlying grid. \textcolor{red}{
-Moreover, a highly-tuned predictor-corrector scheme provides an accurate account of the propagation and phase effects between \qds{}, even for very close particles.THIS IS VERY ODD; people do not know as yet what the challenges are and why are proposing what we are doing} 
+In this paper, we develop integral equation-based approach that facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}.
+This direct communication affords three salient advantages:
+  \begin{inparaenum}[(i)]
+    \item directly propagating fields between points removes the need need for a computational grid to propagate fields, thereby improving accuracy by eliminating numerical dispersion,
+    \item the propagator explicitly includes the Sommerfeld radiation condition, and
+    \item an integral equation methodology models both near and far fields to very high accuracy (unlike differential equation methods that rely on an underlying grid).
+  \end{inparaenum}
+\textcolor{red}{Moreover, a highly-tuned predictor-corrector scheme provides an accurate account of the propagation and phase effects between \qds{}, even for very close particles.
+THIS IS VERY ODD; people do not know as yet what the challenges are and why are proposing what we are doing}
 
 We find that in some instances the Rabi oscillation of a set of strongly coupled dots features additional oscillations due to an exchange of energy between the dot or dynamical creation of dark multiplets that completely screen the dots from Rabi rotation.
 
