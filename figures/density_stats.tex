@@ -549,11 +549,17 @@ time     p1                 p2                 lone
       legend pos=south east,
       %cycle list/Set1-3
   ]
-  \nextgroupplot[ylabel style={align=center}, ylabel={Population\\($n = \SI{1.6e4}{\per \micro\meter \cubed}$)}]
-    %\addplot[smooth, name path=lower, dashed, thin, opacity=0.0] table[x = time, y = lbound] {high_density_stats.dat};
-    %\addplot[smooth, name path=upper, dashed, thin, opacity=0.0] table[x = time, y = ubound] {high_density_stats.dat};
-    %\addplot[opacity = 0.2] fill between[of = lower and upper];
+  \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(pair only)}]
+    \addplot+[smooth, thick, no marks] table[x = time, y = p1] {pair_density_stats.dat};
+    \addlegendentry{$\rho_{00}^{\qty(1)}$}
 
+    \addplot+[smooth, thick, no marks] table[x = time, y = p2] {pair_density_stats.dat};
+    \addlegendentry{$\rho_{00}^{\qty(2)}$}
+
+    \addplot[smooth, thick, dashed, no marks] table[x = time, y = lone] {pair_density_stats.dat};
+    \addlegendentry{Laser-only}
+
+  \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(neighborhood)}]
     \addplot+[smooth, thick, no marks] table[x = time, y = p1] {high_density_stats.dat};
     \addlegendentry{$\rho_{00}^{\qty(1)}$}
 
@@ -564,18 +570,8 @@ time     p1                 p2                 lone
     {
       \addplot[smooth, thick, opacity = 0.2] table[x = time, y index={\n}] {high_density_stats.dat};
     }
+    \addlegendentry{Neighborhood}
 
-  \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(pair only)}]
-    \addplot+[smooth, thick, no marks] table[x = time, y = p1] {pair_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(1)}$}
-
-    \addplot+[smooth, thick, no marks] table[x = time, y = p2] {pair_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(2)}$}
-
-    \addplot[smooth, thick, dashed, no marks] table[x = time, y = lone] {pair_density_stats.dat};
-    \addlegendentry{Default}
-
-    %\node[anchor=east] at (axis cs:32,0.02) {$n = \text{pair only}$};
 
   \end{groupplot}
 
