@@ -165,6 +165,8 @@ pythontex-files-*/
 *.dpth
 *.md5
 *.auxlock
+pgflibrarypgfplots.colorbrewer.code.tex
+tikzlibrarycolorbrewer.code.tex
 
 # todonotes
 *.tdo
