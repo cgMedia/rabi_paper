@@ -1,6 +1,6 @@
 \section{Computational approach}
 
-\subsection{\label{sec:rwa}The rotating-wave approximation}
+%\subsection{\label{sec:rwa}The rotating-wave approximation}
 
 Models of isolated \qds{} or \qd{} ensembles in which the separation between dots far exceeds a typical interaction length (perhaps through a finite-difference time-domain grid) often use a rotating-wave approximation to great effect in eliminating high-frequency terms in the solution to \cref{eq:liouville} with only a small change in the resulting dynamics.
 Assuming the incident radiation takes the form $\vb{E}(t) = \tilde{\vb{E}}(t) \cos(\omega_L t)$
@@ -30,7 +30,7 @@ where $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t
 Critically, \cref{eq:radiated envelope} maintains the phase relationship between every pair of \qds{} for arbitrarily large timesteps via the $e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}$ factors that appear.
 Without this transformation, the evolution of \cref{eq:liouville} would require $c \, \Delta t$ at least as small as the minimum separation between \qds{}---roughly three orders of magnitude smaller than the $\Delta t$ required to resolve the maximum frequency in \cref{eq:rotating liouville}.
 
-\subsection{Solution of the Liouville equation}
+%\subsection{Solution of the Liouville equation}
 
 Solving \cref{eq:liouville} for each of $n_s$ \qds{} amounts to solving $n_s$ implicitly coupled first-order differential equations in time.
 Due to its extreme accuracy and inherent bandlimitedness, we instead make use of the highly-tuned predictor/corrector scheme detailed in~\cite{Glaser2009} to numerically solve \cref{eq:liouville} for each \qd{} in the system.
@@ -52,6 +52,7 @@ Moreover, the coupling term in \cref{eq:hamiltonian} and the retardation factor 
 The necessity of a midstep RHS evaluation in RK4 schemes, for instance, proves troublesome; as the RHS to evaluate a given $\dot{\hat{\rho}}_i$ between timesteps depends on every other $\hat{\rho}_j$ at the same timepoint, the system requires either an infinite number of step subdivisions or some sort of extrapolation scheme to advance by $\Delta t$.
 As the predictor/corrector method presented here possesses superior accuracy properties alongside a rigorous extrapolation scheme (by construction), it very naturally solves the system described by \cref{eq:rotating liouville,eq:radiated envelope}.
 
+%\subsection{Evaluation of radiated fields}
 \subsection{Evaluation of radiated fields}
 
 To evaluate \cref{eq:radiated envelope} between every pair of points we make use of variable-order Lagrange interpolation.
