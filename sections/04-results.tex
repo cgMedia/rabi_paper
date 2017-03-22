@@ -23,17 +23,22 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
 
 \begin{figure}
   \input{figures/density_stats}
-  \caption{\label{fig:density stats}Population dynamics of adjacent \qds{} (top, shown with the trajectory of a \qd{} driven exclusively by the external laser in black) and identical \qds{} amidst 1022 neighboring particles.
-    The interaction between particles gives a greatly lessened response to the external pulse through a dynamical detuning of the two-dot system.
-    The majority of the neighboring particles in the 1024-dot system follow trajectories nearly identical to that prescribed by the laser (not shown for clarity); many-body effects, however, produce significant oscilliatory modes in the evolution of \qd{} clusters shown here in gray.
+  \caption{\label{fig:density stats}Population dynamics of adjacent \qds{} (top, shown with the trajectory of a \qd{} driven exclusively by the external laser in black) and a 1024-particle neighborhood (dots (1) and (2) maintain their separation and orientation between simulations).
+    The interaction between particles gives a greatly diminished response to the external pulse through a dynamical detuning of the two-dot system.
+    The majority of the neighboring particles in the 1024-dot system follow trajectories nearly identical to that prescribed by the laser (omitted for clarity); many-body effects, however, produce significant oscilliatory modes in the evolution of select \qds{} (shown in gray).
 }
 \end{figure}
+
+\Cref{fig:density stats} details the $\rho_{00}$ trajectory for a two- and 1024-particle simulation.
+In two-particle simulations, we observe significant departures from the trajectories predicted by solving \cref{eq:rotating liouville} for a prescribed external $\vb{E}_0(\vb{r}, t)$ exclusively.
+The interaction between two \qds{} consistently ``screens'' the external field due to a dynamical detuning produced in the multiplet, leading to a greatly diminished response without notable oscillations.
+The results of larger simulations appear considerably more interesting, however, due to the presence of many-body effects.
 
 \begin{figure}
   \centering
   \subfloat[Spatial distribution of $\abs{\vb{P}}$]{\input{figures/visit}} \\
   \subfloat[$\rho_{00}(t)$ for 1024 \qds{}]{\input{figures/visit_pop}} \\
-  \subfloat[Calculated inverse participation ratio]{\input{figures/visit_ipr}}
+  %\subfloat[Calculated inverse participation ratio]{\input{figures/visit_ipr}}
 
   \caption{\label{fig:polarization vis}Spatial distribution of polarization (indicated by $\abs{\tilde{\rho}_{01}}$ in both size and color) after a $\pi$-pulse has excited the system.
   While the distribution of $\abs{\vb{P}}$ varies significantly between dots, the regions of distinctly high and low polarization indicate localization phenomena arising from their electromagnetic interaction.}
