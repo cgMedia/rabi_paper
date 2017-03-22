@@ -533,7 +533,7 @@ time     p1                 p2                 lone
   \begin{groupplot}[
       group style={
           group name=my plots,
-          group size=1 by 3,
+          group size=1 by 2,
           xlabels at=edge bottom,
           xticklabels at=edge bottom,
           vertical sep=2pt,
@@ -559,6 +559,8 @@ time     p1                 p2                 lone
     \addplot[smooth, thick, dashed, no marks] table[x = time, y = lone] {pair_density_stats.dat};
     \addlegendentry{Laser-only}
 
+    \node[] at (axis cs: 0,0) {(a)};
+
   \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(neighborhood)}]
     \addplot+[smooth, thick, no marks] table[x = time, y = p1] {high_density_stats.dat};
     \addlegendentry{$\rho_{00}^{\qty(1)}$}
@@ -572,6 +574,7 @@ time     p1                 p2                 lone
     }
     \addlegendentry{Neighborhood}
 
+    \node[] at (axis cs: 0,0) {(b)};
 
   \end{groupplot}
 
