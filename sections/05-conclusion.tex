@@ -1,2 +1,10 @@
 \section{Conclusions \& Future work}
-\lipsum[1]
+Here we have presented a robust, fine-grained algorithm to solve for the dyanmics of a semiclassical ensemble of coupled \qds{} in response to an external laser pulse. 
+By making use of an integral equation kernel to propagate radiated fields, our model eschews inefficient radiation meshes in favor of a more efficient point-to-point communication strategy, facillitating simulations of many thousands of \qds{} in three dimensions.
+Our simulations predict very tightly coupled dynamics in dense \qd{} systems---these systems produce a number of clusters that evolve with frequencies not present in the incident field, and we have shown this behavior depends critically on the presence of many-body interactions.
+Additionally, many \qds{} interact so as to screen out the majority of the incident field, thereby changing very little from their initial configuration.
+
+Given prior work in this area, we predict superradiant and other similar phenomena will occcur in electrically large systems containing many millions of particles.
+Unfortunately, the na\"ive $n^2$ calculation between every pair of \qds{} given here presents a significant computational bottleneck in trying to investigate these dynamics.
+The primary focus of our ongoing research includes the development of an accelerated computational technique to reduce this cost so as to investigate these (and other similar) systems.
+Additionally, the framework presented here readily extends to model \qds{} with richer structure (such as energy degeneracies or biexcitons)---systems we hope to investigate soon.
