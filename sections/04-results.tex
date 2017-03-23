@@ -1,4 +1,4 @@
-\section{Numerical Results \& Discussion}
+\section{Numerical Results}
 \begin{table}
   \begin{ruledtabular}
     \begin{tabular}{lll}
@@ -42,10 +42,12 @@ Moreover, the shaded neighbor $\rho_{00}(t)$ show many-body coupling interaction
 \begin{figure}
   \centering
   \subfloat[\label{fig:visit src}$\rho_{00}(t)$ for 1024 \qds{} \textcolor{red}{Change to $\vb{P}(t)$---simulations in progress}]{\input{figures/visit_pop}} \\
-  \subfloat[\label{fig:visit}Spatial distribution of $\abs{\vb{P}}$ \textcolor{red}{Change to 10k---simulations in progress}]{\input{figures/visit}}
+  \subfloat[\label{fig:visit}Spatial distribution of $\abs{\vb{P}}$---each colored point depicts the state of one \qd{} with both size and color. Rendered with VisIt~\cite{visit}. \textcolor{red}{Change to 10k figure---simulations in progress}]{\input{figures/visit}}
 
-  \caption{\label{fig:polarization vis}Spatial distribution of polarization (indicated by $\abs{\tilde{\rho}_{01}}$ in both size and color) after a $\pi$-pulse has excited the system.
-  While the distribution of $\abs{\vb{P}}$ varies significantly between dots, the regions of distinctly high and low polarization indicate localization phenomena arising from their electromagnetic interaction.}
+  \caption{\label{fig:polarization vis}Spatial distribution of polarization after a $\pi$-pulse has excited the system.
+  While the distribution of $\abs{\vb{P}}$ varies significantly between dots, the regions of distinctly high and low polarization indicate localization phenomena arising from their electromagnetic interaction.
+  \Cref{fig:visit} specifically has no perspective effects; dots ap
+}
 \end{figure}
 
 \begin{figure}
@@ -56,12 +58,15 @@ Moreover, the shaded neighbor $\rho_{00}(t)$ show many-body coupling interaction
 
 \Cref{fig:polarization vis} details the polarization distribution in a large-scale \textcolor{red}{Replace with 10k figure---simulations in progress} simulation in both space and time.
 Here, ten thousand \qds{} randomly fill a $\SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter}$ box and inherit the remainder of their parameters from the simulation detailed above.
+This simulation contains coupling/screening features similar to those in \cref{fig:density stats},
+though \cref{fig:visit} further reveals the mechanism behind these phenomena.
+Regions of high polarization (indicated as large points) appear clustered together, suggesting the coupling/screening behavior depends strongly on the geometry or ``randomness'' of a particular region: \qds{} in regions of anomalously high density demonstrate significantly richer behavior---a proximity induced localization effect.
 
-\Cref{fig:visit src} contains coupling/screening features similar to those in \cref{fig:density stats}.
-Plotting the spatial distribution of $\abs*{\tilde{\vb{P}}}$ gives some indication as to the mechanism behind these phenomena---
+Borrowing from standard measures of localization (in which one calculates various integrals of $\vb{E}$ over the simulation volume), we have adapted the inverse participation ratio (IPR) as
 \begin{equation}
-  \text{IPR} \equiv \frac{\displaystyle \int \abs*{\tilde{\vb{P}}}^4 \dd[3]\vb{r}}{\displaystyle \qty(\int \abs*{\tilde{\vb{P}}}^2 \dd[3]\vb{r})^2}
+  \text{IPR}(t) = \frac{\sum_\ell \abs{\vb{p}_\ell(t)}^4}{\qty(\sum_\ell \abs{\vb{p}_\ell(t)}^2)^2}
   \label{eq:ipr}
 \end{equation}
-
-\lipsum
+to provide a quantitative description of these phenomena.
+\Cref{fig:ipr} shows this quantity for the system in \cref{fig:polarization vis}.
+The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors.
