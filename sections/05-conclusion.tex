@@ -1,10 +1,10 @@
-\section{Conclusions \& Future work}
-Here we have presented a robust, fine-grained algorithm to solve for the dyanmics of a semiclassical ensemble of coupled \qds{} in response to an external laser pulse. 
-By making use of an integral equation kernel to propagate radiated fields, our model eschews inefficient radiation meshes in favor of a more efficient point-to-point communication strategy, facillitating simulations of many thousands of \qds{} in three dimensions.
+\section{Conclusions}
+Here we have presented a robust, fine-grained algorithm to solve for the dynamics of an ensemble of \qds{} that are coupled in response to an external laser pulse. 
+By making use of an integral equation kernel to propagate radiated fields, our model eschews inefficient radiation meshes in favor of a more efficient point-to-point communication strategy, facilitating simulations of many thousands of \qds{} in three dimensions.
 Our simulations predict very tightly coupled dynamics in dense \qd{} systems---these systems produce a number of clusters that evolve with frequencies not present in the incident field, and we have shown this behavior depends critically on the presence of many-body interactions.
-Additionally, many \qds{} interact so as to screen out the majority of the incident field, thereby changing very little from their initial configuration.
+Additionally, many \qds{} interact so as to screen out the majority of the incident field, thereby changing very little from their initial configuration. For area pulses that are multiple of $\pi$, the effective reduction of the pulse area induces a dynamic localization of the polarization in regions of the sample where many-dot effects are stronger. 
 
-Given prior work in this area, we predict superradiant and other similar phenomena will occcur in electrically large systems containing many millions of particles.
-Unfortunately, the na\"ive $n^2$ calculation between every pair of \qds{} given here presents a significant computational bottleneck in trying to investigate these dynamics.
-The primary focus of our ongoing research includes the development of an accelerated computational technique to reduce this cost so as to investigate these (and other similar) systems.
-Additionally, the framework presented here readily extends to model \qds{} with richer structure (such as energy degeneracies or biexcitons)---systems we hope to investigate soon.
+Given prior work in this area, we predict that our approach can reproduce superradiance features, which can be  described using Maxwell-Bloch semi-classical approaches \cite{haroche review}, such as pulse ringings \cite{Burnham-Chiao PR 188 667 1969,MacGillivray1976} occurring in systems containing many millions of dots of size comparable or larger than the optical wavelength. A  microscopic numerical approach such as the one proposed here will be able to investigate the role of many-dot interactions in these phenomena. Unfortunately, the na\"ive $n^2$ calculation between every pair of \qds{} given here presents a significant computational bottleneck in trying to investigate these dynamics. The primary focus of our ongoing research includes the development of an accelerated computational technique extending the approach introduced in this paper to further reduce this cost so as to investigate these (and other similar) systems. Additionally, the framework presented here readily extends to model \qds{} with richer structure (such as energy degeneracies or bi-excitons).
+
+\acknowledgments  We acknowledge support by the National Science Foundation grant ECCS-1408115. 
+%“Computational analysis of nonlinear electromagnetics in disordered photonic systems” .

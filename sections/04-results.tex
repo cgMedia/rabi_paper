@@ -25,7 +25,7 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
   \input{figures/density_stats}
   \caption{\label{fig:density stats}Population dynamics of adjacent \qds{} (top, shown with the trajectory of a \qd{} driven exclusively by the external laser in black) and a 1024-particle neighborhood (dots (1) and (2) maintain their separation and orientation between simulations).
     The interaction between particles gives a greatly diminished response to the external pulse through a dynamical detuning of the two-dot system.
-    The majority of the neighboring particles in the 1024-dot system follow trajectories nearly identical to that prescribed by the laser (omitted for clarity); many-body effects, however, produce significant oscilliatory modes in the evolution of select \qds{} (shown in gray).
+    The majority of the neighboring particles in the 1024-dot system follow trajectories nearly identical to that prescribed by the laser (omitted for clarity); many-body effects, however, produce significant oscillatory modes in the evolution of selected \qds{} (shown in gray).
     Note that $\rho_{00}^{\qty(1)}$ and $\rho_{00}^{\qty(2)}$ appear to have \emph{two} coherent modes in the presence of multiple dots: a high-frequency oscillation between the pair, as well as a low-frequency oscillation of the group about a decaying envelope.
 }
 \end{figure}
@@ -34,8 +34,8 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
 The \qds{} fill a $\SI{0.4}{\micro\meter} \times \SI{0.4}{\micro\meter} \times \SI{0.4}{\micro\meter}$ box; experience a \SI{1}{\pico\second} laser pulse calibrated as a so-called ``$\pi$-pulse'' for perfectly resonant, undamped \qds{}; and otherwise use the parameters given in \cref{table:parameters}.
 
 The two-particle simulations produce significant departures from the trajectories predicted by solving \cref{eq:rotating liouville} with a prescribed external $\vb{E}_0(\vb{r}, t)$ alone.
-The interaction between two \qds{} consistently ``screens'' the external field leading to a greatly diminished response without notable oscillations.
-The results of larger simulations appear considerably more interesting (\cref{fig:density stats}(b)) due to the presence of many-body interactions.
+The interaction between two \qds{} consistently screens the external field leading to a greatly diminished Rabi rotation response without notable oscillations.
+The results of larger simulations appear considerably more interesting (\cref{fig:density stats}(b)) due to the presence of many-dot interactions.
 The highlighted trajectories in \cref{fig:density stats}(b) contain a number of frequency components not present in the incident radiation or the dynamics of a two-particle system.
 Moreover, the shaded neighbor $\rho_{00}(t)$ show many-body coupling interactions (in the curves with distinct oscillations) as well as additional screening effects (in the curves that deviate very little from $1$).
 
@@ -53,7 +53,7 @@ Moreover, the shaded neighbor $\rho_{00}(t)$ show many-body coupling interaction
 \begin{figure}
   \centering
   \input{figures/visit_ipr}
-  \caption{\label{fig:ipr} Inverse partitipation ratio for the system shown in \cref{fig:polarization vis}}
+  \caption{\label{fig:ipr} Inverse participation ratio for the system shown in \cref{fig:polarization vis}}
 \end{figure}
 
 \Cref{fig:polarization vis} details the polarization distribution in a large-scale \textcolor{red}{Replace with 10k figure---simulations in progress} simulation in both space and time.
@@ -62,11 +62,11 @@ This simulation contains coupling/screening features similar to those in \cref{f
 though \cref{fig:visit} further reveals the mechanism behind these phenomena.
 Regions of high polarization (indicated as large points) appear clustered together, suggesting the coupling/screening behavior depends strongly on the geometry or ``randomness'' of a particular region: \qds{} in regions of anomalously high density demonstrate significantly richer behavior---a proximity induced localization effect.
 
-Borrowing from standard measures of localization (in which one calculates various integrals of $\vb{E}$ over the simulation volume), we have adapted the inverse participation ratio (IPR) as
+Borrowing from standard measures of localization (in which one calculates various integrals of $\vb{E}$ over the simulation volume), we have adapted the inverse participation ratio (IPR)  of the dot polarization as
 \begin{equation}
   \text{IPR}(t) = \frac{\sum_\ell \abs{\vb{p}_\ell(t)}^4}{\qty(\sum_\ell \abs{\vb{p}_\ell(t)}^2)^2}
   \label{eq:ipr}
 \end{equation}
 to provide a quantitative description of these phenomena.
 \Cref{fig:ipr} shows this quantity for the system in \cref{fig:polarization vis}.
-The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors.
+The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors. Moreover, this dynamical localization effect features oscillations, indicating that many-dot effects contribute to the dynamics within a relatively narrow spectral region. 

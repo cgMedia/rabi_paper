@@ -1,6 +1,6 @@
 \section{\label{section:problem statement}Problem Statement}
 We wish to consider the evolution of a set of \qds{} in response to a time-varying electric field.
-If we concern ourselves only with electric dipole transitions in a resonant (or nearly-resonant) system, we may write the time-dependence of a given \qd's state a
+If we concern ourselves only with electric dipole transitions in a resonant (or nearly-resonant) system, we may write the time-dependence of a given \qd's state as
 \begin{equation}
   \dv{\hat{\rho}}{t} = \frac{-i}{\hbar}\commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
   \label{eq:liouville}
@@ -18,13 +18,13 @@ Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxat
 As the radiation in the system contains only wavelengths much longer than the size of any given \qd{} we neglect the spatial variation in $\vb{E}(\vb{r}, t)$ in calculating $\chi(t)$ and thereby consider each \qd{} as a localized point in space.
 
 To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of negligible single-photon effects or other quantum correlations.
-Such an approximation preserves the discrete energy structure of each \qd{}, however electromagnetic quantities behave like their classical analogues;
+Such an approximation preserves the quantum two-level energy structure of each \qd{}, however electromagnetic quantities behave like their classical analogues;
 as such, we define a source polarization as
 \begin{equation}
   \begin{aligned}
     \vb{P}(\vb{r}, t) &\equiv \sum_\ell \vb{p}_\ell \delta(\vb{r} - \vb{r}_\ell) \\
                       &= \sum_\ell \Tr[\hat{\rho}_\ell \hat{\vb{d}}_\ell] \delta(\vb{r} - \vb{r}_\ell) \\
-                      &= \sum_\ell 2 \Re[\rho_\ell^{01}\vb{d}_\ell]\delta(\vb{r} - \vb{r}_\ell) \\
+                      &= \sum_\ell 2 \Re[\rho_{\ell,01}\vb{d}_\ell]\delta(\vb{r} - \vb{r}_\ell) \\
   \end{aligned}
 \end{equation}
 and we may compute the total electric field at any point with a Green's function formulation
