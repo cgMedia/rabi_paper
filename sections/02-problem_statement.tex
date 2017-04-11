@@ -1,5 +1,5 @@
 \section{\label{section:problem statement}Problem Statement}
-We wish to consider the evolution of a set of \qds{} in response to a time-varying electric field.
+Consider the evolution of a set of \qds{} in response to a time-varying electric field.
 If we concern ourselves only with electric dipole transitions in a resonant (or nearly-resonant) system, we may write the time-dependence of a given \qd's state as
 \begin{equation}
   \dv{\hat{\rho}}{t} = \frac{-i}{\hbar}\commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
@@ -32,10 +32,10 @@ and we may compute the total electric field at any point with a Green's function
   \vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \int \hat{G}(\vb{r} - \vb{r}'; t - t')\vb{P}(\vb{r}', t') \dd[3]{\vb{r}'} \dd{t'}.
   \label{eq:total field}
 \end{equation}
-In three dimensions,
+\textcolor{red}{check equation} three dimensions,
 \begin{equation}
   \hat{G} \equiv \mathcal{F}_{\omega \to t}\qty[ \qty(\tensor{\mathrm{I}} + \frac{\nabla \nabla}{\qty(\omega/c)^2})\frac{-e^{i \omega \abs{\vb{r} - \vb{r}'}/c}}{4\pi \epsilon \abs{\vb{r} - \vb{r}'}} ]
   \label{eq:dyadic}
 \end{equation}
-(where $\mathcal{F}_{\omega \to t}$ denotes an inverse Fourier transform with respect to $\omega$) and relates $\vb{E}$ to $\vb{P}$, $\dot{\vb{P}}$, and $\ddot{\vb{P}}$~\cite{Rothwell2009}.
+(where $\mathcal{F}_{\omega \to t}$ denotes an inverse Fourier transform and relates $\vb{E}$ to $\vb{P}$ (and its temporal derivatives) ~\cite{Shanker volume integral dispersive paper} \cite{Rothwell2009}. 
 Thus, in a system composed of multiple dots, \cref{eq:total field} couples the the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
