@@ -6,7 +6,7 @@ Models of isolated \qds{} or \qd{} ensembles in which the separation between dot
 Assuming the incident radiation takes the form $\vb{E}(t) = \tilde{\vb{E}}(t) \cos(\omega_L t)$
 where $\tilde{\vb{E}}(t)$ represents a slowly-varying envelope function, we introduce a unitary transformation $\tilde{\rho} = \hat{U} \hat{\rho} \hat{U}^\dagger$ where $\hat{U} = \mathrm{diag}(1, e^{i \omega_L t})$ to transform \cref{eq:liouville} into a rotating frame,
 \begin{equation}
-  i \hbar \pdv{\tilde{\rho}}{t} = \commutator{\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V}}{\tilde{\rho}} - \hat{\mathcal{D}}\qty[\tilde{\rho}], \quad \hat{V} \equiv \hat{U} \pdv{\hat{U}^\dagger}{t},
+  \pdv{\tilde{\rho}}{t} = \frac{-i}{\hbar} \commutator{\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V}}{\tilde{\rho}} - \hat{\mathcal{D}}\qty[\tilde{\rho}], \quad \hat{V} \equiv \hat{U} \pdv{\hat{U}^\dagger}{t},
   \label{eq:rotating liouville}
 \end{equation}
 motivating $\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V} \equiv \tilde{\mathcal{H}}$ as a ``rotating-frame Hamiltonian.''
