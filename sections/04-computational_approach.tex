@@ -1,4 +1,8 @@
 \section{Computational Approach}
+\begin{figure}
+  \input{figures/time_basis_function}
+  \caption{\label{fig:interpolation basis} Nonorthogonal and $C^0$-continuous temporal basis function $T_0(t)$ constructed from intervals of fourth-order Lagrange polynomials.}
+\end{figure}
 To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qds{} at $N_t$ equally-spaced timesteps, we begin with a suitable representation of $\tilde{\vb{P}}(\vb{r}, t)$ in spatial and temporal basis functions, i.e.~
 \begin{equation}
   \tilde{\vb{P}}(\vb{r}, t) \equiv \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \alpha_{\ell m} \vb{S}_\ell(\vb{r}) T_m(t).
@@ -8,8 +12,8 @@ To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qd
 As the wavelength of any radiation in the system far exceeds the dimensions of any \qd{}, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$.
 Additionally, such a discretization has the benefit of discretizing \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes.
 The $T_m(t)$ require a little more care, however, as they facillitate the derivatives in \cref{eq:radiated envelope} as well as interpolation of $\tilde{\vb{P}}$ for noninteger retardation factors.
-We thus make use of a Lagrange interpolation scheme of sufficiently high order as to capture $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$.
-
+We thus make use of a Lagrange interpolation scheme of sufficiently high order as to capture $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$, forming temporal basis functions similar to the one shown in \cref{fig:interpolation basis}.
+We note that $T_m(t) = T(t - m \, \Delta t)$, thus we require only one evaluation of $\partial_t^\qty(i) T(t)$ for every pair of \qds{}.
 
 \noindent\rule[0.5ex]{\linewidth}{1pt}
 
