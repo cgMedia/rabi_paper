@@ -3,22 +3,19 @@
   \input{figures/time_basis_function}
   \caption{\label{fig:interpolation basis} Nonorthogonal and $C^0$-continuous temporal basis function $T_0(t)$ constructed from intervals of fourth-order Lagrange polynomials.}
 \end{figure}
-To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qds{} at $N_t$ equally-spaced timesteps, we begin with a suitable representation of $\tilde{\vb{P}}(\vb{r}, t)$ in spatial and temporal basis functions, i.e.~
+To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qds{} at $N_t$ equally-spaced timesteps, we begin with a suitable representation of $\tilde{\vb{P}}(\vb{r}, t)$ in terms of spatial and temporal basis functions, i.e.~
 \begin{equation}
   \tilde{\vb{P}}(\vb{r}, t) \equiv \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \alpha_{\ell m} \vb{S}_\ell(\vb{r}) T_m(t).
-  \label{eq:basis functions}
+  \label{eq:basis function representation}
 \end{equation}
-
 As the wavelength of any radiation in the system far exceeds the dimensions of any \qd{}, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$.
-Additionally, such a discretization has the benefit of discretizing \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes.
-The $T_m(t)$ require a little more care, however, as they facillitate the derivatives in \cref{eq:radiated envelope} as well as interpolation of $\tilde{\vb{P}}$ for noninteger retardation factors.
-We thus make use of a Lagrange interpolation scheme of sufficiently high order as to capture $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$, forming temporal basis functions similar to the one shown in \cref{fig:interpolation basis}.
-We note that $T_m(t) = T(t - m \, \Delta t)$, thus we require only one evaluation of $\partial_t^\qty(i) T(t)$ for every pair of \qds{}.
+Such a discretization has the additional benefit of discretizing \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes.
+Furthermore, we require the $T_m(t)$ to have causal and interpolatory properties to allow calculation of $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$ at the current timestep. 
+As such, we have elected to use a set of backwards-looking Lagrange polynomials of sufficiently high order, forming temporal basis functions similar to the one shown in \cref{fig:interpolation basis}.
 
-\noindent\rule[0.5ex]{\linewidth}{1pt}
-
-Solving \cref{eq:liouville} for each of $n_s$ \qds{} amounts to solving $n_s$ implicitly coupled first-order differential equations in time.
-Due to its extreme accuracy and inherent bandlimitedness, we instead make use of the highly-tuned predictor/corrector scheme detailed in~\cite{Glaser2009} to numerically solve \cref{eq:liouville} for each \qd{} in the system.
+The causality of $T_m(t)$ and the finite support of both $T_m(t)$ and $\vb{S}_\ell(\vb{r})$ mean \cref{eq:basis function representation,eq:radiated envelope} combine to produce a lower-triangular block Toeplitz matrix relating the $\alpha_{\ell m}$ to $\vb{E}$ at each \qd{} at every timestep in the simulation.
+Solving \cref{eq:rotating liouville} then amounts to an iterative procedure of using this matrix to produce $\vb{E}$ at the current timesep, followed by one step of an ODE solution to predict $\vb{P}$ one step in the future.
+For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009} due to its extreme accuracy and inherent bandlimitedness.
 Approximating $\hat{\rho}_i(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
 \begin{equation}
   \hat{\rho}_i(t_{k + 1}) \coloneqq \sum_{\ell = 1}^k \mathcal{P}_\ell^{\qty(0)} \hat{\rho}_i(t_\ell) + \mathcal{P}_\ell^{\qty(1)} \dot{\hat{\rho}}_i(t_\ell),
@@ -30,6 +27,8 @@ and several iterated corrector steps,
   \label{eq:corrector}
 \end{equation}
 where the $\mathcal{P}_\ell^{\qty(0, 1)}$ and $\mathcal{C}_\ell^{\qty(0, 1)}$ coefficients arise from a least-squares solution to a system of complex-valued exponentials on a semidisk in the left complex plane.
+
+\noindent\rule[0.5ex]{\linewidth}{1pt}
 
 The approximation used in \cref{eq:rotating liouville} facilitates large timesteps that encompass many \qds{}.
 These dots interact continuously over each timestep, thus a suitable integrator should accommodate multiple scattering events occurring within the same time interval---a feat accomplished naturally through iterated applications of \cref{eq:corrector}.
