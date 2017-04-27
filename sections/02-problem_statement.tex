@@ -27,15 +27,20 @@ as such, we define a source polarization as
                       &= \sum_\ell 2 \Re[\rho_{\ell,01}\vb{d}_\ell]\delta(\vb{r} - \vb{r}_\ell) \\
   \end{aligned}
 \end{equation}
-and we may compute the total electric field at any point with a Green's function formulation
+and we may compute the total electric field at any point via $\vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \mathcal{L}\{\vb{P}(\vb{r}, t)\}$
+where $\vb{E}_0(\vb{r}, t)$ represents an incident laser field and
 \begin{equation}
-  \vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \int \!\! \hat{G}(\vb{r} - \vb{r}'; t - t') \, \vb{J}(\vb{r}', t') \dd[3]{\vb{r}'} \dd{t'}.
-  \label{eq:total field}
+  \begin{gathered}
+    \mathcal{L}\{\vb{P}(\vb{r}, t)\} \equiv
+      \frac{-1}{4\pi \epsilon} \int
+      \left(\tensor{\mathrm{I}} -  \hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \frac{\partial_t^2 \mathbf{P}(\mathbf{r}', t_R)}{c^2 \left|\mathbf{r}-\mathbf{r}'\right|} + \\
+      \left(\tensor{\mathrm{I}} - 3\hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \qty(
+        \frac{\partial_t   \mathbf{P}(\mathbf{r}', t_R)}{c   \left|\mathbf{r}-\mathbf{r}'\right|^2} +
+        \frac{             \mathbf{P}(\mathbf{r}', t_R)}{    \left|\mathbf{r}-\mathbf{r}'\right|^3}
+      )
+    \, \mathrm{d}^3 \mathbf{r'}
+  \end{gathered}
+  \label{eq:integral operator}
 \end{equation}
-\textcolor{red}{check equation} three dimensions,
-\begin{equation}
-  \hat{G} \equiv \mathcal{F}_{\omega \to t}\qty[ \qty(\tensor{\mathrm{I}} + \frac{\nabla \nabla}{\qty(\omega/c)^2})\frac{-e^{i \omega \abs{\vb{r} - \vb{r}'}/c}}{4\pi \epsilon \abs{\vb{r} - \vb{r}'}} ]
-  \label{eq:dyadic}
-\end{equation}
-(where $\mathcal{F}_{\omega \to t}$ denotes an inverse Fourier transform and relates $\vb{E}$ to $\vb{P}$ (and its temporal derivatives) ~\cite{Shanker volume integral dispersive paper} \cite{Rothwell2009}. 
-Thus, in a system composed of multiple dots, \cref{eq:total field} couples the the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
+with $\hat{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
+Thus, in a system composed of multiple dots, \cref{eq:integral operator} couples the the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
