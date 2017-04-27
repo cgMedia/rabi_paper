@@ -27,16 +27,16 @@ as such, we define a source polarization as
                       &= \sum_\ell 2 \Re[\rho_{\ell,01}\vb{d}_\ell]\delta(\vb{r} - \vb{r}_\ell) \\
   \end{aligned}
 \end{equation}
-and we may compute the total electric field at any point via $\vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \mathcal{L}\{ \vb{P}(\vb{r}, t) \}$
+and we may compute the total electric field at any point via $\vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \mathfrak{F}\{ \vb{P}(\vb{r}, t) \}$
 where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field and
 \begin{equation}
   \begin{gathered}
-    \mathcal{L}\{\vb{P}(\vb{r}, t)\} \equiv
+    \mathfrak{F}\{\vb{P}(\vb{r}, t)\} \equiv
       \frac{-1}{4\pi \epsilon} \int
-      \left(\tensor{\mathrm{I}} -  \hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \frac{\partial_t^2 \mathbf{P}(\mathbf{r}', t_R)}{c^2 \left|\mathbf{r}-\mathbf{r}'\right|} + \\
+      \left(\tensor{\mathrm{I}} -  \hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \frac{\partial_t^2 \mathbf{P}(\mathbf{r}', t_R)}{c^2 \abs{\mathbf{r}-\mathbf{r}'}} + \\
       \left(\tensor{\mathrm{I}} - 3\hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \qty(
-        \frac{\partial_t   \mathbf{P}(\mathbf{r}', t_R)}{c   \left|\mathbf{r}-\mathbf{r}'\right|^2} +
-        \frac{             \mathbf{P}(\mathbf{r}', t_R)}{    \left|\mathbf{r}-\mathbf{r}'\right|^3}
+        \frac{\partial_t   \mathbf{P}(\mathbf{r}', t_R)}{c \abs{\mathbf{r}-\mathbf{r}'}^2} +
+        \frac{             \mathbf{P}(\mathbf{r}', t_R)}{  \abs{\mathbf{r}-\mathbf{r}'}^3}
       )
     \, \mathrm{d}^3 \mathbf{r'}
   \end{gathered}
