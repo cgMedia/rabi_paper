@@ -73,9 +73,22 @@ The maximum IPR occurs some time after the pulse has passed through the system, 
 
 \begin{figure*}
   \centering
-  \includegraphics[width=\textwidth]{figures/tube/086_density_00.png} \\
-  \includegraphics[width=\textwidth]{figures/tube/086_density_01.png} \\
-  \includegraphics[width=\textwidth]{figures/tube/086_density_02.png} \\
-  \includegraphics[width=\textwidth]{figures/tube/086_density_03.png}
-  \caption{\label{fig:tubes} Time evolution of $\abs{\vb{P}}^2$ in a $R \times R \times Z$ tube.}
+  \subfloat{\includegraphics[width=\textwidth]{figures/tube/086_density_00.png}} \\
+  \subfloat{\includegraphics[width=\textwidth]{figures/tube/086_density_01.png}} \\
+  \subfloat{\includegraphics[width=\textwidth]{figures/tube/086_density_02.png}} \\
+  \subfloat{\includegraphics[width=\textwidth]{figures/tube/086_density_03.png}}
+  \caption{\label{fig:tubes}
+    Time evolution of $\abs{\tilde{\rho}_{01}}^2$ for \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \times \SI{0.2}{\micro\meter} \times \SI{4}{\micro\meter}$ cylinder.
+    The outlier blue/red particles correspond to adjacent \qds{} that couple strongly due to the $\vb{r}^{-3}$ term in \cref{eq:radiated envelope}.
+    The $\vb{r}^{-1}$ term also produces variations in $\abs{\tilde{\rho}_{01}}^2$ on the order of $\lambda$, seen here as regions of enhanced and suppressed polarization (most apparent at the ends of the cylinder).
+  }
 \end{figure*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/tube/086_density_end_on.png}
+  \caption{\label{fig:xy tube projcetion}
+    \textcolor{red}{Convert to \cref{fig:tubes} projections} Projection of \cref{fig:tubes} onto the face of the cylinder.
+    The uniformity of the dipole radiators breaks the cylindrical symmetry of the system, leading to regions of enhanced and suppressed polarization.
+  }
+\end{figure}
