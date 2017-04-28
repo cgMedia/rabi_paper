@@ -1,4 +1,5 @@
 \section{Computational Approach}
+
 \begin{figure}
   \input{figures/time_basis_function}
   \caption{\label{fig:interpolation basis} Nonorthogonal and $C^0$-continuous temporal basis function $T(t)$ constructed from intervals of fourth-order Lagrange polynomials.}
@@ -29,43 +30,22 @@ In this (block) matrix equation, $\mathcal{A}^{(k)}$ denotes the (spatial) colle
 \end{subequations}
 As $\mathcal{Z}$ represents a block Toeplitz and lower triangular matrix, \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(k)}$ given only $\mathcal{A}^{(k' \le k)}$.
 
-
-
-The finite support of the basis functions as well as the causality of $T(t)$ mean \cref{eq:basis function representation,eq:radiated envelope} combine to produce a lower-triangular block Toeplitz matrix relating the $\alpha_{\ell m}$ to $\tilde{\vb{E}}(\vb{r}_{\ell'}, m' \, \Delta t)$---the electric field envelope at each \qd{} for every timestep in the simulation.
-Solving \cref{eq:rotating liouville} then amounts to an iterative procedure of using this matrix to produce $\tilde{\vb{E}}(\vb{r}_\ell, m \, \Delta t)$ at the current timesep, followed by one step of an ODE solution to predict $\vb{P}$ one step in the future.
-For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009} due to its extreme accuracy and inherent bandlimitedness.
-Approximating $\hat{\rho}_i(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
+To link $\mathcal{A}^{(k)}$ with the density matrix in \cref{eq:rotating liouville}, we take
 \begin{equation}
-  \hat{\rho}_i(t_{k + 1}) \coloneqq \sum_{\ell = 1}^k \mathcal{P}_\ell^{\qty(0)} \hat{\rho}_i(t_\ell) + \mathcal{P}_\ell^{\qty(1)} \dot{\hat{\rho}}_i(t_\ell),
+  \alpha_{\ell m} \equiv \tilde{\rho}_{01}^{(\ell)}(t = m \, \Delta t)
+  \label{eq:polarization definition}
+\end{equation}
+as the off-diagonal matrix elements (coherences) of $\tilde{\rho}^{(\ell)}$ characterize the dipole radiating at $\vb{r}_\ell$.
+Consequently, determining $\mathcal{A}^{(k + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t = k \, \Delta t$ to $t = \qty(k + 1) \, \Delta t$.
+For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009}.
+Approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
+\begin{equation}
+  \tilde{\rho}(t_{k + 1}) \leftarrow \sum_{\ell = 1}^k \mathcal{P}_\ell^{\qty(0)} \tilde{\rho}(t_\ell) + \mathcal{P}_\ell^{\qty(1)} \dot{\tilde{\rho}}(t_\ell),
   \label{eq:predictor}
 \end{equation}
 and several iterated corrector steps,
 \begin{equation}
-  \hat{\rho}_i(t_{k + 1}) \coloneqq \mathcal{C}_{k+1}^{\qty(1)} \dot{\hat{\rho}}_i(t_{k + 1}) + \sum_{\ell = 1}^k \mathcal{C}_\ell^{\qty(0)} \hat{\rho}_i(t_i) + \mathcal{C}_\ell^{\qty(1)} \dot{\hat{\rho}}_i(t_\ell).
+  \tilde{\rho}(t_{k + 1}) \leftarrow \mathcal{C}_{k+1}^{\qty(1)} \dot{\tilde{\rho}}(t_{k + 1}) + \sum_{\ell = 1}^k \mathcal{C}_\ell^{\qty(0)} \tilde{\rho}(t) + \mathcal{C}_\ell^{\qty(1)} \dot{\tilde{\rho}}(t_\ell).
   \label{eq:corrector}
 \end{equation}
 where the $\mathcal{P}_\ell^{\qty(0, 1)}$ and $\mathcal{C}_\ell^{\qty(0, 1)}$ coefficients arise from a least-squares solution to a system of complex-valued exponentials on a semidisk in the left complex plane.
-
-\noindent\rule[0.5ex]{\linewidth}{1pt}
-
-The approximation used in \cref{eq:rotating liouville} facilitates large timesteps that encompass many \qds{}.
-These dots interact continuously over each timestep, thus a suitable integrator should accommodate multiple scattering events occurring within the same time interval---a feat accomplished naturally through iterated applications of \cref{eq:corrector}.
-Moreover, the coupling term in \cref{eq:hamiltonian} and the retardation factor in \cref{eq:total field} add significant complexities, making ``straightforward'' solution methods (such as RK4 or other midstep methods) ill-suited for the problem at hand.
-The necessity of a midstep RHS evaluation in RK4 schemes, for instance, proves troublesome; as the RHS to evaluate a given $\dot{\hat{\rho}}_i$ between timesteps depends on every other $\hat{\rho}_j$ at the same timepoint, the system requires either an infinite number of step subdivisions or some sort of extrapolation scheme to advance by $\Delta t$.
-As the predictor/corrector method presented here possesses superior accuracy properties alongside a rigorous extrapolation scheme (by construction), it very naturally solves the system described by \cref{eq:rotating liouville,eq:radiated envelope}.
-
-%\subsection{Evaluation of radiated fields}
-\begin{figure}
-  \input{figures/interpolation_window.tex}
-  \caption{\label{fig:interpolation}Illustration of interpolation with four basis polynomials.
-    An assumed signal takes $1.5\Delta t$ to travel from between points.
-    Evaluations of the basis polynomials (and their derivatives) need only occur once between each pair of points (red dots) due to their translational invariance.
-    The interpolated signal then becomes a sum of these values weighted by the known samples (black dots).
-  }
-\end{figure}
-
-To evaluate \cref{eq:radiated envelope} between every pair of points we make use of variable-order Lagrange interpolation scheme.
-Such a scheme easily accommodates both retardation effects between \qds{} separated by a non-integer number of timesteps as well as the first and second time derivatives of $\vb{P}$.
-To make the interpolation calculation as efficient as possible at each timestep, we store only an history index (integer) and several interpolation coefficients (complex doubles) for every pair of \qds{}.
-The history index corresponds to $\lfloor \abs{\Delta \vb{r}}/(c \, \Delta t) \rfloor$ and gives the start of the ``interpolation window'' used to reconstruct $\tilde{E}$ (\cref{fig:interpolation}).
-The interpolation coefficients hold $\vb{d}_i \cdot \tilde{\vb{E}}_\text{rad} \cdot \vb{d}_j$ for an interpolatory representation of the integrand in \cref{eq:radiated envelope} (i.e.\ $\tilde{\vb{P}}$ becomes the basis polynomials evaluated at the correct time and contains none of the system dynamics).
