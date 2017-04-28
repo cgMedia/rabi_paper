@@ -11,9 +11,9 @@ To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qd
 \end{equation}
 with $T_m(t) \equiv T(t - m \, \Delta t)$.
 As the wavelength of any radiation in the system far exceeds the dimensions of the \qds{} under consideration, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$.
-Such a discretization additionally discretizes \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes.
+Such a discretization additionally discretizes \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes with retardation.
 Furthermore, we require the $T_m(t)$ to have finite support as well as causal and interpolatory properties so as to recover $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$ at the current timestep.
-Accordingly, we have elected to use a set of backwards-looking Lagrange polynomials of order $\ge 4$, forming temporal basis functions similar to the one shown in \cref{fig:interpolation basis}.
+Accordingly, we have elected to use a set of backwards-looking Lagrange polynomials of order $\ge 4$, forming a temporal basis set with functions similar to the one shown in \cref{fig:interpolation basis}.
 These functions  reliably interpolate smooth functions with controllable error and have a long history of use in studies of electromagnetic systems~\cite{SHANKER,SHANKER,SHANKER}.
 Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the $\vb{S}_\ell$ and $T_m$ basis functions produces a marching-on-in-time system of the form
 \begin{equation}
@@ -23,8 +23,8 @@ Combining \cref{eq:radiated envelope,eq:basis function representation} and proje
 In this (block) matrix equation, $\mathcal{A}^{(k)}$ denotes the (spatial) collection of $\alpha_{\ell k}$ and
 \begin{subequations}
   \begin{align}
-    \mathcal{Z}^{(m)}_{ij} &= \big\langle \mathbf{S}_i(\vb{r}), \tilde{\mathfrak{F}}\{ \mathbf{S}_j(\mathbf{r}) T(m \, \Delta t) \} \big\rangle \\
-    \mathcal{F}^{(k)}_m &= \big\langle \mathbf{S}_m(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, k \, \Delta t) - \tilde{\mathbf{E}}_0(\vb{r}, k \, \Delta t) \big\rangle.
+    \mathcal{Z}^{(m)}_{\ell \ell'} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathfrak{F}}\{ \mathbf{S}_{\ell'}(\mathbf{r}) T(m \, \Delta t) \} \big\rangle \\
+    \mathcal{F}^{(m)}_\ell &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, m \, \Delta t) - \tilde{\mathbf{E}}_0(\vb{r}, m \, \Delta t) \big\rangle.
   \end{align}
   \label{eq:projections}
 \end{subequations}
