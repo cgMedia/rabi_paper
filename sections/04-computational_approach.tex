@@ -29,7 +29,7 @@ In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(k)}$ denotes th
   \label{eq:projections}
 \end{subequations}
 Here, $\langle \cdot, \cdot \rangle$ stands for a projection (inner product) operation.
-As $\mathcal{Z}$ represents a block Toeplitz and lower triangular matrix, \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
+As $\mathcal{Z}$ represents a block Toeplitz and lower triangular space time matrix (the uniform time stepping results in its Toeplitz nature), \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
 
 To link $\mathcal{A}^{(k)}$ with the density matrix in \cref{eq:rotating liouville}, we take
 \begin{equation}
@@ -50,3 +50,5 @@ and several iterated corrector steps,
   \label{eq:corrector}
 \end{equation}
 where the $\mathcal{P}_\ell^{\qty(0, 1)}$ and $\mathcal{C}_\ell^{\qty(0, 1)}$ coefficients arise from a least-squares solution to a system of complex-valued exponentials on a semidisk in the left complex plane.
+
+\textcolor{red}{To summarize, the  steps involved in computing interactions between quantum dots are as follows: keep going}
