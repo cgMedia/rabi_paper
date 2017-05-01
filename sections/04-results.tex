@@ -32,44 +32,47 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
 
 \Cref{fig:density stats} details $\rho_{00}(t)$ for one-, two-, and 1024-particle simulations.
 The \qds{} fill a $\SI{0.4}{\micro\meter} \times \SI{0.4}{\micro\meter} \times \SI{0.4}{\micro\meter}$ box; experience a \SI{1}{\pico\second} laser pulse calibrated as a so-called ``$\pi$-pulse'' for perfectly resonant, undamped \qds{}; and otherwise use the parameters given in \cref{table:parameters}.
-
-The two-particle simulations produce significant departures from the trajectories predicted by solving \cref{eq:rotating liouville} with a prescribed external $\vb{E}_0(\vb{r}, t)$ alone.
+The two-particle simulations produce significant departures from the trajectories predicted by solving \cref{eq:rotating liouville} with a prescribed external $\tilde{\vb{E}}_0(\vb{r}, t)$ alone.
 The interaction between two \qds{} consistently screens the external field leading to a greatly diminished Rabi rotation response without notable oscillations.
 The results of larger simulations appear considerably more interesting (\cref{fig:density stats}(b)) due to the presence of many-dot interactions.
 The highlighted trajectories in \cref{fig:density stats}(b) contain a number of frequency components not present in the incident radiation or the dynamics of a two-particle system.
 Moreover, the shaded neighbor $\rho_{00}(t)$ show many-body coupling interactions (in the curves with distinct oscillations) as well as additional screening effects (in the curves that deviate very little from $1$).
 
-\begin{figure}
-  \centering
-  \subfloat[\label{fig:visit src}$\rho_{00}(t)$ for 1024 \qds{} \textcolor{red}{Change to $\vb{P}(t)$---simulations in progress}]{\input{figures/visit_pop}} \\
-  \subfloat[\label{fig:visit}Spatial distribution of $\abs{\vb{P}}$---each colored point depicts the state of one \qd{} with both size and color. Rendered with VisIt~\cite{visit}. \textcolor{red}{Change to 10k figure---simulations in progress}]{\input{figures/visit}}
+%\begin{figure}
+  %\centering
+  %\subfloat[\label{fig:visit src}$\rho_{00}(t)$ for 1024 \qds{} \textcolor{red}{Change to $\vb{P}(t)$---simulations in progress}]{\input{figures/visit_pop}} \\
+  %\subfloat[\label{fig:visit}Spatial distribution of $\abs{\vb{P}}$---each colored point depicts the state of one \qd{} with both size and color. Rendered with VisIt~\cite{visit}. \textcolor{red}{Change to 10k figure---simulations in progress}]{\input{figures/visit}}
 
-  \caption{\label{fig:polarization vis}Spatial distribution of polarization after a $\pi$-pulse has excited the system.
-  While the distribution of $\abs{\vb{P}}$ varies significantly between dots, the regions of distinctly high and low polarization indicate localization phenomena arising from their electromagnetic interaction.
-  \Cref{fig:visit} specifically has no perspective effects; dots ap
-}
-\end{figure}
+  %\caption{\label{fig:polarization vis}Spatial distribution of polarization after a $\pi$-pulse has excited the system.
+  %While the distribution of $\abs{\vb{P}}$ varies significantly between dots, the regions of distinctly high and low polarization indicate localization phenomena arising from their electromagnetic interaction.
+  %\Cref{fig:visit} specifically has no perspective effects; dots ap
+%}
+%\end{figure}
 
-\begin{figure}
-  \centering
-  \input{figures/visit_ipr}
-  \caption{\label{fig:ipr} Inverse participation ratio for the system shown in \cref{fig:polarization vis}}
-\end{figure}
+%\begin{figure}
+  %\centering
+  %\input{figures/visit_ipr}
+  %\caption{\label{fig:ipr} Inverse participation ratio for the system shown in \cref{fig:polarization vis}}
+%\end{figure}
 
-\Cref{fig:polarization vis} details the polarization distribution in a large-scale \textcolor{red}{Replace with 10k figure---simulations in progress} simulation in both space and time.
-Here, ten thousand \qds{} randomly fill a $\SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter}$ box and inherit the remainder of their parameters from the simulation detailed above.
-This simulation contains coupling/screening features similar to those in \cref{fig:density stats},
-though \cref{fig:visit} further reveals the mechanism behind these phenomena.
-Regions of high polarization (indicated as large points) appear clustered together, suggesting the coupling/screening behavior depends strongly on the geometry or ``randomness'' of a particular region: \qds{} in regions of anomalously high density demonstrate significantly richer behavior---a proximity induced localization effect.
+%\Cref{fig:polarization vis} details the polarization distribution in a large-scale \textcolor{red}{Replace with 10k figure---simulations in progress} simulation in both space and time.
+%Here, ten thousand \qds{} randomly fill a $\SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter}$ box and inherit the remainder of their parameters from the simulation detailed above.
+%This simulation contains coupling/screening features similar to those in \cref{fig:density stats},
+%though \cref{fig:visit} further reveals the mechanism behind these phenomena.
+%Regions of high polarization (indicated as large points) appear clustered together, suggesting the coupling/screening behavior depends strongly on the geometry or ``randomness'' of a particular region: \qds{} in regions of anomalously high density demonstrate significantly richer behavior---a proximity induced localization effect.
 
-Borrowing from standard measures of localization (in which one calculates various integrals of $\vb{E}$ over the simulation volume), we have adapted the inverse participation ratio (IPR)  of the dot polarization as
-\begin{equation}
-  \text{IPR}(t) = \frac{\sum_\ell \abs{\vb{p}_\ell(t)}^4}{\qty(\sum_\ell \abs{\vb{p}_\ell(t)}^2)^2}
-  \label{eq:ipr}
-\end{equation}
-to provide a quantitative description of these phenomena.
-\Cref{fig:ipr} shows this quantity for the system in \cref{fig:polarization vis}.
-The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors. Moreover, this dynamical localization effect features oscillations, indicating that many-dot effects contribute to the dynamics within a relatively narrow spectral region. 
+%Borrowing from standard measures of localization (in which one calculates various integrals of $\vb{E}$ over the simulation volume), we have adapted the inverse participation ratio (IPR)  of the dot polarization as
+%\begin{equation}
+  %\text{IPR}(t) = \frac{\sum_\ell \abs{\vb{p}_\ell(t)}^4}{\qty(\sum_\ell \abs{\vb{p}_\ell(t)}^2)^2}
+  %\label{eq:ipr}
+%\end{equation}
+%to provide a quantitative description of these phenomena.
+%\Cref{fig:ipr} shows this quantity for the system in \cref{fig:polarization vis}.
+%The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors. Moreover, this dynamical localization effect features oscillations, indicating that many-dot effects contribute to the dynamics within a relatively narrow spectral region.
+
+While the behavior observed in \cref{fig:density stats}(b) arises largely from the short range $\vb{r}^{-3}$ term in \cref{eq:radiated envelope}, we also observe features arising from the $\vb{r}^{-1}$ term in larger simulations.
+\Cref{fig:tubes,fig:xy tube projection} depict $\abs{\rho_{01}(\vb{r})}^2$ for \num{10000} \qds{} distributed randomly throughout a right cylinder.
+
 
 \begin{figure*}
   \centering
@@ -87,8 +90,9 @@ The maximum IPR occurs some time after the pulse has passed through the system, 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{figures/tube/086_density_end_on.png}
-  \caption{\label{fig:xy tube projcetion}
+  \caption{\label{fig:xy tube projection}
     \textcolor{red}{Convert to \cref{fig:tubes} projections} Projection of \cref{fig:tubes} onto the face of the cylinder.
     The uniformity of the dipole radiators breaks the cylindrical symmetry of the system, leading to regions of enhanced and suppressed polarization.
   }
 \end{figure}
+
