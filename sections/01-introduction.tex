@@ -2,27 +2,26 @@
 Semiconductor structures containing a large number of quantum dots offer ideal environments for exploring light-matter interactions in regimes where non-equilibrium, non-linearity, and randomness lead to new phenomena.
 Optical excitations (excitons) give rise to characteristic Rabi oscillations in \qds{} that are equivalent to the ones observed in atomic systems.
 Time-resolved~\cite{Stievater2001,shih} and spectral~\cite{kamada} methods have revealed Rabi oscillations in many such systems.
-In these experiments, the excitation typically involves a large collection of dots while an optical mask or spectral filtering are used to isolates the signal from a single dot.
+In these experiments, the excitation typically involves a large collection of dots while an optical mask or spectral filtering are used to isolate the signal from a single dot.
 \Qds{} have stronger dipolar transitions than atoms, and their light-induced oscillations generate secondary fields that depend on random spatial configurations.
 We therefore expect, at least in some regions of the sample, these secondary fields to produce modified collective behavior in the exciton dynamics.
 
 The theory of light-matter interaction in ensembles of two level-systems has been heavily investigated in atomic and solid state optics, and different variants of Maxwell-Bloch equations \cite{Gross1982} have been used to describe characteristic features such as ringing in pulse propagation \cite{Burnham-Chiao PR 188 667 1969,MacGillivray1976} or emission fluctuations \cite{Haake1979}.
-One important aspect concerns the competition between the long-range radiative and the short-range dipole-dipole coupling\cite{Coffey1978}, which is known to introduce a dephasing mechanism (van der Waals dephasing\cite{Gross1982}).
+One important aspect concerns the competition between the long-range radiative and the short-range dipole-dipole coupling \cite{Coffey1978}, which is known to introduce a dephasing mechanism (van der Waals dephasing \cite{Gross1982}).
 The direct investigation of such competition within the Maxwell-Bloch equations is hampered by the fact that those are defined using spatial averages in a continuum formulations, often limited to geometries of reduced dimensionality, in which the short-range dynamics is not described.
-However, novel algorithmic approaches, as well as current computing capabilities, make nowadays possible a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
+However, novel algorithmic approaches, as well as current computing capabilities, make possible a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
 
-Here, we develop a computational framework to discover signatures of collective effects in strongly-driven quantum dots within a microscopic formalism, in which the effect of the radiation is studied at the level of each single dot.
+In this paper, we develop a computational framework to discover signatures of collective effects in strongly-driven quantum dots within a microscopic formalism, in which the effect of the radiation is studied at the level of each single dot.
 We describe three dimensional systems that contains up to $10^4$ dots and extend over volumes comparable to the light wavelength.
-We use a full-wave approach without resorting to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as finite-difference time-domain method)~\cite{Vanneste2001, Fratalocchi2008}, techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
-Our integral equation-based approach, facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}.
-This approach has been successfully used in other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems characterized by localized centers and nonlinear wave propagation.
-
-The direct communication affords three salient advantages:
+We use a full-wave approach without resorting to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as finite-difference time-domain method)~\cite{Vanneste2001,Fratalocchi2008}, techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
+Our integral equation-based approach together with a technique to evolve the  state of the  quantum dot, facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}.
+This approach has been successfully used in other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems characterized by localized centers and nonlinear wave propagation. Specifically, an time domain integral equation based full wave model used to propagate fields between \qds{} affords three salient advantages:
 \begin{inparaenum}[(i)]
-  \item directly propagating fields between points removes the need need for a computational grid to propagate fields, thereby improving accuracy by eliminating numerical dispersion,
-  \item the propagator explicitly includes the Sommerfeld radiation condition~\cite{Sommerfeld1949}, and
-  \item an integral equation methodology models both near and far fields with very high accuracy.
+  \item directly propagating fields between points removes the need for a computational grids to propagate fields, thereby improving accuracy by eliminating numerical dispersion,
+  \item the propagator explicitly includes the Sommerfeld radiation condition \cite{Stratton1948}, and
+  \item an integral equation methodology models both near and far fields to very high accuracy (unlike differential equation methods that rely on an underlying grid).
 \end{inparaenum}
+These  integral equations are paired with a  highly-tuned predictor-corrector scheme to provide an accurate account of the propagation and phase effects between \qds{}, even for very close particles. The entire system is stepped through in time to provide a self-consistent transient solution. 
 
 By explicitly describing each dot in the system, we found that the collective Rabi oscillation can induce significant coupling in sufficiently close \qds{}.
 This laser-induced inter-dot coupling manifests in different forms:
