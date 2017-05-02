@@ -37,18 +37,18 @@ To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouvil
   \label{eq:polarization definition}
 \end{equation}
 as the off-diagonal matrix elements (coherences) of $\tilde{\rho}_{\ell}$ characterize the dipole radiating at $\vb{r}_\ell$.
-Consequently, determining $\mathcal{A}^{(k + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t = k \, \Delta t$ to $t = \qty(k + 1) \, \Delta t$.
+Consequently, determining $\mathcal{A}^{(m + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t = m \, \Delta t$ to $t = \qty(m + 1) \, \Delta t$.
 For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009}.
-Defining $t_n \equiv n \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
+Defining $t_m \equiv m \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
 \begin{equation}
-  \tilde{\rho}_{\ell}(t_{k + 1}) \leftarrow \sum_{w = 0}^{W-1} \mathcal{P}_w^{\qty(0)} \tilde{\rho}_\ell(t_{k-w}) + \mathcal{P}_w^{\qty(1)} \, \partial_t \tilde{\rho}(t_{k-w}),
+  \tilde{\rho}_\ell(t_{m + 1}) \leftarrow \sum_{w = 0}^{W-1} \mathcal{P}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{P}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}),
   \label{eq:predictor}
 \end{equation}
 and several iterated corrector steps,
 \begin{equation}
   \begin{aligned}
-    \tilde{\rho}_\ell(t_{k + 1}) &\leftarrow \mathcal{C}_{k+1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{k+1}) \\
-                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{k-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{k-w}),
+    \tilde{\rho}_\ell(t_{m + 1}) &\leftarrow \mathcal{C}_{m+1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m+1}) \\
+                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}),
   \end{aligned}
   \label{eq:corrector}
 \end{equation}
@@ -56,5 +56,11 @@ where the $\mathcal{P}_w^{\qty(0, 1)}$ and $\mathcal{C}_w^{\qty(0, 1)}$ coeffici
 
 To summarize, each step of our solution strategy proceeds as follows:
 \begin{enumerate}
-  \item 
+  \item At step $m$, use \cref{eq:predictor,eq:polarization definition} to predict $\mathcal{A}^{(m + 1)}$.
+    This prediction depends only on the known history of the system and does not require the calculation of any electromagnetic interactions.
+  \item Use \cref{eq:zmatrix} to calculate $\mathcal{F}^{(m + 1)}$.
+    Having approximated $\mathcal{A}^{(m + 1)}$ in step 1, $\mathcal{F}^{(m + 1)}$ will contain information from \qds{} within $c \, \Delta t$ of each other.
+  \item Produce $\partial_t \tilde{\rho}(t_{m + 1})$ (and thus $\partial_t \mathcal{A}^{(m + 1)}$) by evaluating \cref{eq:rotating liouville} with the $\mathcal{F}^{(m+1)}$ found in step 2.
+  \item Correct $\mathcal{A}^{(m + 1)}$ with \cref{eq:corrector} and $\partial_t \mathcal{A}^{(m + 1)}$ found in step 3.
+    Repeat steps 2 through 4 until $\mathcal{A}^{(m + 1)}$ has sufficiently converged, then set $m \leftarrow m + 1$.
 \end{enumerate}
