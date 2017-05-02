@@ -29,9 +29,9 @@ In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(k)}$ denotes th
   \label{eq:projections}
 \end{subequations}
 Here, $\langle \cdot, \cdot \rangle$ stands for a projection (inner product) operation.
-As $\mathcal{Z}$ represents a block Toeplitz and lower triangular space time matrix (the uniform time stepping results in its Toeplitz nature), \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
+As $\mathcal{Z}$ represents a block Toeplitz and lower triangular space/time matrix (the uniform time stepping results in its Toeplitz nature), \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
 
-To link $\mathcal{A}^{(k)}$ with the density matrix in \cref{eq:rotating liouville}, we take
+To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouville}, we take
 \begin{equation}
   \tilde{\alpha}_{\ell m} \equiv \tilde{\rho}_{\ell, 01}(t = m \, \Delta t)
   \label{eq:polarization definition}
@@ -39,16 +39,22 @@ To link $\mathcal{A}^{(k)}$ with the density matrix in \cref{eq:rotating liouvil
 as the off-diagonal matrix elements (coherences) of $\tilde{\rho}_{\ell}$ characterize the dipole radiating at $\vb{r}_\ell$.
 Consequently, determining $\mathcal{A}^{(k + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t = k \, \Delta t$ to $t = \qty(k + 1) \, \Delta t$.
 For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009}.
-Approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
+Defining $t_n \equiv n \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
 \begin{equation}
-  \tilde{\rho}(t_{k + 1}) \leftarrow \sum_{\ell = 1}^k \mathcal{P}_\ell^{\qty(0)} \tilde{\rho}(t_\ell) + \mathcal{P}_\ell^{\qty(1)} \dot{\tilde{\rho}}(t_\ell),
+  \tilde{\rho}_{\ell}(t_{k + 1}) \leftarrow \sum_{w = 0}^{W-1} \mathcal{P}_w^{\qty(0)} \tilde{\rho}_\ell(t_{k-w}) + \mathcal{P}_w^{\qty(1)} \, \partial_t \tilde{\rho}(t_{k-w}),
   \label{eq:predictor}
 \end{equation}
 and several iterated corrector steps,
 \begin{equation}
-  \tilde{\rho}(t_{k + 1}) \leftarrow \mathcal{C}_{k+1}^{\qty(1)} \dot{\tilde{\rho}}(t_{k + 1}) + \sum_{\ell = 1}^k \mathcal{C}_\ell^{\qty(0)} \tilde{\rho}(t) + \mathcal{C}_\ell^{\qty(1)} \dot{\tilde{\rho}}(t_\ell).
+  \begin{aligned}
+    \tilde{\rho}_\ell(t_{k + 1}) &\leftarrow \mathcal{C}_{k+1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{k+1}) \\
+                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{k-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{k-w}),
+  \end{aligned}
   \label{eq:corrector}
 \end{equation}
-where the $\mathcal{P}_\ell^{\qty(0, 1)}$ and $\mathcal{C}_\ell^{\qty(0, 1)}$ coefficients arise from a least-squares solution to a system of complex-valued exponentials on a semidisk in the left complex plane.
+where the $\mathcal{P}_w^{\qty(0, 1)}$ and $\mathcal{C}_w^{\qty(0, 1)}$ coefficients arise from a least-squares solution to a system of complex-valued exponentials on a semidisk in the left complex plane.
 
-\textcolor{red}{To summarize, the  steps involved in computing interactions between quantum dots are as follows: keep going}
+To summarize, each step of our solution strategy proceeds as follows:
+\begin{enumerate}
+  \item 
+\end{enumerate}
