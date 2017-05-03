@@ -1,20 +1,20 @@
-\section{\label{sec:introduction}Introduction}
-Semiconductor structures containing a large number of quantum dots offer ideal environments for exploring light-matter interactions in regimes where non-equilibrium, non-linearity, and randomness lead to new phenomena.
-Optical excitations (excitons) give rise to characteristic Rabi oscillations in \qds{} that are equivalent to the ones observed in atomic systems.
+\section{\label{section:introduction}Introduction}
+Semiconductor structures containing a large number of \qds{} offer ideal environments for exploring light-matter interactions in regimes where non-equilibrium, non-linearity, and randomness lead to new phenomena.
+Optical excitations (excitons) produce characteristic Rabi oscillations in \qds{} that are equivalent to the ones observed in atomic systems.
 Time-resolved~\cite{Stievater2001,shih} and spectral~\cite{kamada} methods have revealed Rabi oscillations in many such systems.
-In these experiments, the excitation typically involves a large collection of dots while an optical masking or spectral filtering techniques isolate the signal from a single dot.
+In these experiments, the excitation typically involves a large collection of \qds{} while an optical masking or spectral filtering techniques isolate the signal from a single \qd{}.
 \Qds{} have stronger dipolar transitions than atoms, and their light-induced oscillations generate secondary fields that depend on random spatial configurations.
 We therefore expect, at least in some regions of the sample, these secondary fields to produce modified collective behavior in the exciton dynamics.
 
-The theory of light-matter interaction in ensembles of two level-systems has been heavily investigated in atomic and solid state optics, and different variants of Maxwell-Bloch equations \cite{Gross1982} have been used to describe characteristic features such as ringing in pulse propagation \cite{Burnham1969,MacGillivray1976} or emission fluctuations \cite{Haake1979}.
-One important aspect concerns the competition between the long-range radiative and the short-range dipole-dipole coupling \cite{Coffey1978}, which is known to introduce a dephasing mechanism (van der Waals dephasing \cite{Gross1982}).
+Researchers in atomic and solid-state optics have thoroughly investigated light-matter interactions in ensembles of two level systems, producing several variants of the Maxwell-Bloch equations~\cite{Gross1982} to describe characteristic features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
+The interplay between long-range radiative and short-range dipolar interactions in these formulations introduces a van der Waals dephasing mechanism~\cite{Coffey1978} \textcolor{red}{to do what?}.
 The direct investigation of such competition within the Maxwell-Bloch equations is hampered by the fact that those are defined using spatial averages in a continuum formulations, often limited to geometries of reduced dimensionality, in which the short-range dynamics is not described.
-However, novel algorithmic approaches, as well as current computing capabilities, make possible a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
+However, novel algorithmic approaches, as well as current computing capabilities, enable a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
 
-In this paper, we develop a computational framework to discover signatures of collective effects in strongly-driven quantum dots within a microscopic formalism, in which the effect of the radiation is studied at the level of each single dot.
-We describe three dimensional systems that contains up to $10^4$ dots and extend over volumes comparable to the light wavelength.
+In this paper, we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism, in which the effect of the radiation is studied at the level of individual \qds{}.
+We describe three dimensional systems that extend over dimensions comparable to the light wavelength containing up to $10^4$ \qds{}.
 We use a full-wave approach without resorting to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as finite-difference time-domain method)~\cite{Vanneste2001,Fratalocchi2008}, techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
-Our integral equation-based approach together with a technique to evolve the  state of the  quantum dot, facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}.
+Our integral equation-based approach together with a technique to evolve the  state of the \qd{}, facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}.
 This approach has been successfully used in other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems characterized by localized centers and nonlinear wave propagation.
 Specifically, an time domain integral equation based full wave model used to propagate fields between \qds{} affords three salient advantages:
 \begin{inparaenum}[(i)]
@@ -25,12 +25,12 @@ Specifically, an time domain integral equation based full wave model used to pro
 These  integral equations are paired with a  highly-tuned predictor-corrector scheme to provide an accurate account of the propagation and phase effects between \qds{}, even for very close particles.
 The entire system steps through time to provide a self-consistent transient solution. 
 
-By explicitly describing each dot in the system, we will numerically demonstrate  that the collective Rabi oscillation can induce significant coupling in sufficiently close \qds{}.
+By explicitly describing each \qd{} in the system, we will numerically demonstrate  that the collective Rabi oscillation can induce significant coupling in sufficiently close \qds{}.
 This laser-induced inter-dot coupling manifests itself in different forms:
 \begin{inparaenum}[(i)]
-  \item For isolated dot pairs, the polarization generated by the optical pulse is able to dynamically screen the dots from Rabi rotation.
+  \item For isolated \qd{} pairs, the polarization generated by the optical pulse is able to dynamically screen the \qds{} from Rabi rotation.
     We interpret this as the consequence of a time-dependent energy shift that brings the pair temporarily out of resonance with the external driving field.
-  \item For multiplets of dots, in addition to the screening, we observe oscillations in the free induction decay that are due to many-dot coupling.
+  \item For multiplets of \qds{}, in addition to the screening, we observe oscillations in the free induction decay that are due to many-dot coupling.
   \item For optical pulses of integer $\pi$ area, for which no polarization is expected in the system after the pulse, we observe that patterns of residual localized polarization remain in the system.
 \end{inparaenum}
 % This is due to the two effects described above, which effectively reduce the area pulse in some areas of the sample.
@@ -38,9 +38,9 @@ This laser-induced inter-dot coupling manifests itself in different forms:
 % This effect could be used, for instance, to selectively identify multiplets of dots that are dynamically coupled during Rabi oscillations.
 \textcolor{red}{I do not like this -- presents data and explanation before material is presented}
 
-The structure of this paper as follows: Section II contains the formulation of our semi-classical approach describing the quantum dots and how they dynamically couple due light-induced effects.
-We are focusing here on effects that arise from the non-equilibrium nature of the oscillations, and we consider only the homogeneous case of identical dots that are completely uncoupled in equilibrium.
-Section III contains the details of the our efficient computational method that allows for 3D simulations with over $10^4$ dots in reasonable time.
+The structure of this paper as follows: \cref{section:formulation} contains the formulation of our semi-classical approach describing the \qds{} and how they dynamically couple due light-induced effects.
+Here we focus on effects that arise from the non-equilibrium nature of the oscillations and consider only the homogeneous case of identical \qds{} that do not couple in equilibrium.
+\Cref{section:computational approach} contains the details of the our efficient computational method that allows for 3D simulations with over $10^4$ \qds{} in reasonable time.
 We share our efficient computational method, which could be used in other solid state or atomic systems, in \cite{githubpage}.
-Examples of our numerical experiments showing the effects (i)-(iii) described above are shown in Section IV@.
-We draw conclusions and discuss some future directions in Section V@.
+Examples of our numerical experiments showing the effects (i)-(iii) described above are shown in \cref{section:results}.
+We draw conclusions and discuss some future directions in \cref{section:conclusion}.
