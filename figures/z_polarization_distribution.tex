@@ -3340,10 +3340,14 @@
 
 \begin{tikzpicture}
   \begin{axis}[
-    ymin=0.08, ymax=0.12,
+    xmin=-2, xmax=2,
+    ymin=0.09, ymax=0.11,
     width=\columnwidth,
     height=0.618034\columnwidth,
     enlargelimits=0.1,
+    xlabel={$z$ (\si{\micro\meter})},
+    ylabel={$\abs{\tilde{\rho}_{01}}^2$},
+    yticklabel style={/pgf/number format/fixed},  
   ]
 
     \addplot[only marks, mark size=0.4] table {z_dep.dat};
