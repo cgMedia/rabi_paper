@@ -24,8 +24,8 @@ where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
   \begin{gathered}
     \mathfrak{F}\{\vb{P}(\vb{r}, t)\} \equiv
       \frac{-1}{4\pi \epsilon} \int
-      \left(\tensor{\mathrm{I}} -  \hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \frac{\partial_t^2 \mathbf{P}(\mathbf{r}', t_R)}{c^2 \abs{\mathbf{r}-\mathbf{r}'}} + \\
-      \left(\tensor{\mathrm{I}} - 3\hat{\mathbf{r}}\hat{\mathbf{r}}^\dagger\right) \cdot \qty(
+      \left(\tensor{\mathrm{I}} -  \bar{\mathbf{r}}\bar{\mathbf{r}}^\dagger\right) \cdot \frac{\partial_t^2 \mathbf{P}(\mathbf{r}', t_R)}{c^2 \abs{\mathbf{r}-\mathbf{r}'}} + \\
+      \left(\tensor{\mathrm{I}} - 3\bar{\mathbf{r}}\bar{\mathbf{r}}^\dagger\right) \cdot \qty(
         \frac{\partial_t   \mathbf{P}(\mathbf{r}', t_R)}{c \abs{\mathbf{r}-\mathbf{r}'}^2} +
         \frac{             \mathbf{P}(\mathbf{r}', t_R)}{  \abs{\mathbf{r}-\mathbf{r}'}^3}
       )
@@ -33,5 +33,5 @@ where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
   \end{gathered}
   \label{eq:integral operator}
 \end{equation}
-with $\hat{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
+with $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
 Thus, in a system composed of multiple \qds{}, \cref{eq:integral operator} couples the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
