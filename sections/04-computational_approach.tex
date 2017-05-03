@@ -29,7 +29,7 @@ In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(k)}$ denotes th
   \label{eq:projections}
 \end{subequations}
 Here, $\langle \cdot, \cdot \rangle$ stands for a projection (inner product) operation.
-As $\mathcal{Z}$ represents a block Toeplitz and lower triangular space/time matrix (the uniform time stepping results in its Toeplitz nature), \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
+As we have elected to use a uniform $\Delta t$, $\mathcal{Z}$ represents a block Toeplitz and lower triangular space/time matrix and \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
 
 To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouville}, we take
 \begin{equation}
