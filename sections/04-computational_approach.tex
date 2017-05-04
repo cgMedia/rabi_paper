@@ -17,14 +17,15 @@ Accordingly, we have elected to use a set of backwards-looking Lagrange polynomi
 These functions  reliably interpolate smooth functions with controllable error and have a long history of use in studies of electromagnetic systems~\cite{SHANKER,SHANKER,SHANKER}.
 Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the $\vb{S}_\ell$ and $T_m$ basis functions produces a marching-on-in-time system of the form
 \begin{equation}
-  \sum_{m = 0}^{k} \mathcal{Z}^{(m)} \mathcal{A}^{(k - m)} = \mathcal{F}^{(k)}.
+  \mathcal{L}^{(k)} + \sum_{m = 0}^{k} \mathcal{Z}^{(m)} \mathcal{A}^{(k - m)} = \mathcal{F}^{(k)}.
   \label{eq:zmatrix}
 \end{equation}
 In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(k)}$ denotes the (spatial) collection of $\tilde{\alpha}_{\ell k}$ and
 \begin{subequations}
   \begin{align}
+    \mathcal{L}^{(m)}_{\ell} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\vb{E}}_0(\vb{r}, m \, \Delta t) \big\rangle \\
     \mathcal{Z}^{(m)}_{\ell \ell'} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathfrak{F}}\{ \mathbf{S}_{\ell'}(\mathbf{r}) T(m \, \Delta t) \} \big\rangle \\
-    \mathcal{F}^{(m)}_\ell &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, m \, \Delta t) - \tilde{\mathbf{E}}_0(\vb{r}, m \, \Delta t) \big\rangle.
+    \mathcal{F}^{(m)}_\ell &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, m \, \Delta t) \big\rangle.
   \end{align}
   \label{eq:projections}
 \end{subequations}

@@ -2,15 +2,15 @@
 \begin{table}
   \begin{ruledtabular}
     \begin{tabular}{lll}
-      Quantity                 & Symbol         & Value                        \\ \hline
-      Speed of light           & $c$            & \SI{300}{\micro\meter \per \pico\second} \\
-      Transition frequency     & $\omega_0$     & $\SI{1500}{\milli\eV}/\hbar$ \\
-      Transition dipole moment & $\vb{d}$       & $\SI{10}{\elementarycharge\bohr} \vu{x}$ \\
-      Relaxation times         & $T_{1}, T_{2}$ & \SIlist{10;20}{\pico\second} \\
-      Laser frequency          & $\omega_L$     & $\SI{1500}{\milli\eV}/\hbar$ \\
-      Pulse width 			   & $\sigma/\omega_L$ & \SI{1}{\pico\second} \\
-      Wavevector               & $\vb{k}$       & \SI{7.602}{\per\micro\meter} \\
-      %Number density           & $n$            & $< \SI{1.6e4}{\micro\meter\tothe{-3}}$ \\
+      Quantity                 & Symbol            & Value                        \\ \hline
+      Speed of light           & $c$               & \SI{300}{\micro\meter \per \pico\second} \\
+      Transition frequency     & $\omega_0$        & $\SI{1500}{\milli\eV}/\hbar$ \\
+      Transition dipole moment & $\vb{d}$          & \SI{10}{\elementarycharge\bohr} \\
+      Relaxation times         & $T_{1}, T_{2}$    & \SIlist{10;20}{\pico\second} \\
+      Laser frequency          & $\omega_L$        & $\SI{1500}{\milli\eV}/\hbar$ \\
+      Laser wavevector         & $\vb{k}_L$        & $\omega_L/c$ ($\propto \vb{d}$) \\
+      Pulse width              & $\sigma/\omega_L$ & \SI{1}{\pico\second} \\
+      %Number density          & $n$               & $< \SI{1.6e4}{\micro\meter\tothe{-3}}$ \\
       %\hline
       %Speed of light           & $c$            & \SI{299.792458}{\micro\meter\per\pico\second} \\
       %Reduced Planck constant  & $\hbar$        & \SI{0.65821193}{\milli\eV \pico\second} \\
@@ -24,7 +24,7 @@ Here we detail the results of investigations into coupled \qd{} behavior with th
 Our algorithm reliably handles tens of thousands of \qds{} and can simulate ten picoseconds of system dynamics in two days on a single processor.
 We perform simulations of systems of \qds{} randomly distributed throughout a simulation volume experiencing a laser pulse of the form
 \begin{equation}
-	\tilde{\mathbf{E}}_0(\vb{r}, t) = \tilde{\mathbf{E}}_0 e^{-(\vb{k} \cdot \vb{r} - \omega_L t)^2/(2\sigma^2)}
+	\tilde{\mathbf{E}}_0(\vb{r}, t) = \tilde{\mathbf{E}}_0 e^{-(\vb{k}_L \cdot \vb{r} - \omega_L t)^2/(2\sigma^2)}
 \end{equation}
 \Cref{table:parameters} gives approximate values of the system parameters.
 
