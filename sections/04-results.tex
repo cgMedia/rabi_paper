@@ -77,10 +77,31 @@ While the behavior observed in \cref{fig:density stats}(b) arises largely from t
 
 \begin{figure*}
   \centering
+  \subfloat{
+    \begin{tikzpicture}
+      \begin{axis}[
+          hide axis,
+          scale only axis,
+          height=0pt,
+          width=0pt,
+          colormap/viridis,
+          colorbar horizontal,
+          point meta min=0.11,
+          point meta max=0.16,
+          colorbar style={
+              title= {$\abs{\rho_{01}}^2$},
+              width=8cm,
+              xtick={0.11, 0.12, 0.13, 0.14, 0.15, 0.16},
+              xticklabels={$\le 0.11$, $0.12$, $0.13$, $0.14$, $0.15$, $0.16\le$}
+          }]
+          \addplot [draw=none] coordinates {(0,0)};
+      \end{axis}
+    \end{tikzpicture}
+  } \\
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_0.png}} \\
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_1.png}} \\
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_2.png}} \\
-  \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_3.png}}
+  \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_3.png}} \\
   \caption{\label{fig:tubes}
     Time evolution of $\abs{\tilde{\rho}_{01}}^2$ for \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \times \SI{0.2}{\micro\meter} \times \SI{4}{\micro\meter}$ cylinder.
     The outlier blue/red particles correspond to adjacent \qds{} that couple strongly due to the $\vb{r}^{-3}$ term in \cref{eq:radiated envelope}.
