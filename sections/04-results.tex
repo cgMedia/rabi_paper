@@ -5,9 +5,11 @@
       Quantity                 & Symbol         & Value                        \\ \hline
       Speed of light           & $c$            & \SI{300}{\micro\meter \per \pico\second} \\
       Transition frequency     & $\omega_0$     & $\SI{1500}{\milli\eV}/\hbar$ \\
-      Transition dipole moment & $\abs{\vb{d}}$ & \SI{10}{\elementarycharge\bohr} \\
+      Transition dipole moment & $\vb{d}$       & $\SI{10}{\elementarycharge\bohr} \vu{x}$ \\
       Relaxation times         & $T_{1}, T_{2}$ & \SIlist{10;20}{\pico\second} \\
       Laser frequency          & $\omega_L$     & $\SI{1500}{\milli\eV}/\hbar$ \\
+      Pulse width 			   & $\sigma/\omega_L$ & \SI{1}{\pico\second} \\
+      Wavevector               & $\vb{k}$       & \SI{7.602}{\per\micro\meter} \\
       %Number density           & $n$            & $< \SI{1.6e4}{\micro\meter\tothe{-3}}$ \\
       %\hline
       %Speed of light           & $c$            & \SI{299.792458}{\micro\meter\per\pico\second} \\
@@ -15,12 +17,17 @@
       %Vacuum permeability      & $\mu_0$        & \SI{2.013e-4}{\milli\eV \pico\second\squared \per \elementarycharge \per \micro\meter}
     \end{tabular}
   \end{ruledtabular}
-  \caption{\label{table:parameters}Approximate simulation parameters.}
+  \caption{\label{table:parameters}Simulation parameters.}
 \end{table}
 
-Here we detail the results of investigations into coupled \qd{} behavior with the model presented here.
+Here we detail the results of investigations into coupled \qd{} behavior with the model presented thus far.
 Our algorithm reliably handles tens of thousands of \qds{} and can simulate ten picoseconds of system dynamics in two days on a single processor.
-We perform simulations of systems of \qds{} randomly distributed throughout a simulation volume at densities similar to those found in experiments, and \cref{table:parameters} gives approximate values of the system parameters.
+We perform simulations of systems of \qds{} randomly distributed throughout a simulation volume experiencing a laser pulse of the form
+\begin{equation}
+	\tilde{\mathbf{E}}_0(\vb{r}, t) = \tilde{\mathbf{E}}_0 e^{-(\vb{k} \cdot \vb{r} - \omega_L t)^2/(2\sigma^2)}
+\end{equation}
+\Cref{table:parameters} gives approximate values of the system parameters.
+
 
 \begin{figure}
   \input{figures/density_stats}
@@ -103,7 +110,8 @@ While the behavior observed in \cref{fig:density stats}(b) arises largely from t
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_2.png}} \\
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_3.png}} \\
   \caption{\label{fig:tubes}
-    Time evolution of $\abs{\tilde{\rho}_{01}}^2$ for \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \times \SI{0.2}{\micro\meter} \times \SI{4}{\micro\meter}$ cylinder.
+    Snapshots of $\abs{\tilde{\rho}_{01}}^2$ at $t = t_1, t_2, t_3, t_4$ for \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \times \SI{0.2}{\micro\meter} \times \SI{4}{\micro\meter}$ cylinder.
+    The cylinder experiences a Gaussian pulse of width $\sigma = \SI{1}{\pico\second}$ and wavelength $\lambda = \SI{0.827}{\micro\meter}$.
     The outlier blue/red particles correspond to adjacent \qds{} that couple strongly due to the $\vb{r}^{-3}$ term in \cref{eq:radiated envelope}.
     The $\vb{r}^{-1}$ term also produces variations in $\abs{\tilde{\rho}_{01}}^2$ on the order of $\lambda$, seen here as regions of enhanced and suppressed polarization (most apparent at the ends of the cylinder).
   }
