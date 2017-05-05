@@ -1,30 +1,35 @@
 \section{\label{section:introduction}Introduction}
 
-\subsection{Why study quantum dots?}
+%\subsection{Why study quantum dots?}
 Semiconductor structures containing a large number of \qds{} offer ideal environments for exploring light-matter interactions.
 Often, these structures exhibit new phenomena due to geometrical randomness and non-linearities in the underlying system dynamics.
 Optical excitations (excitons) produce characteristic Rabi oscillations~\cite{Stievater2001,Kamada2001,Htoon2002} in \qds{} analogous to those observed in atomic systems.
-As \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate considerable secondary fields that act to couple the system together.
+As \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate considerable secondary fields that act to couple the system more strongly than equivalent atomic species.\textcolor{red}{Better phrase?}
 We therefore expect---at least in some regions of the sample---these secondary fields to produce modified collective behavior in the exciton dynamics.
-\textcolor{red}{Can we say something more concrete than what we expect?}
-Researchers in atomic and solid-state optics have thoroughly investigated light-matter interactions in ensembles of two level systems, producing several variants of the Maxwell-Bloch equations~\cite{Gross1982} to describe characteristic features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
-The interplay between long-range radiative and short-range dipolar interactions in these formulations introduces a van der Waals dephasing mechanism~\cite{Coffey1978} \textcolor{red}{to do what?}.
-The direct investigation of such competition within the Maxwell-Bloch equations is hampered by the fact that those are defined using spatial averages in a continuum formulations, often limited to geometries of reduced dimensionality, in which the short-range dynamics is not described.
-However, novel algorithmic approaches, as well as current computing capabilities, enable a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
+\textcolor{red}{Should we say something more concrete than what we expect? Or is that most appropriate here?}
 
-In this paper, we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism, in which the effect of the radiation is studied at the level of individual \qds{}.
-We describe three dimensional systems that extend over dimensions comparable to the light wavelength containing up to $10^4$ \qds{}.
-We use a full-wave approach without resorting to a continuum treatment of macroscopic fields~\cite{} or mesh-based strategies (such as finite-difference time-domain method)~\cite{Vanneste2001,Fratalocchi2008}, techniques undermined by their computational overhead and numerical sensitivities~\cite{Baczewski2013}.
-Our integral equation-based approach together with a technique to evolve the  state of the \qd{}, facilitates fast and accurate field calculations by allowing direct communication of field quantities between \qds{}.
-This approach has been successfully used in other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems characterized by localized centers and nonlinear wave propagation.
-Specifically, an time domain integral equation based full wave model used to propagate fields between \qds{} affords three salient advantages:
-\begin{inparaenum}[(i)]
-  \item directly propagating fields between points removes the need for a computational grids to propagate fields, thereby improving accuracy by eliminating numerical dispersion,
-  \item the propagator explicitly includes the Sommerfeld radiation condition \cite{Stratton2007}, and
-  \item an integral equation methodology models both near and far fields to very high accuracy (unlike differential equation methods that rely on an underlying grid).
-\end{inparaenum}
-These  integral equations are paired with a  highly-tuned predictor-corrector scheme to provide an accurate account of the propagation and phase effects between \qds{}, even for very close particles.
-The entire system steps through time to provide a self-consistent transient solution. 
+%\subsection{What tools exist?}
+Researchers in atomic and solid-state optics have developed numerous variations of the Maxwell-Bloch equations~\cite{Gross1982} to describe features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
+Solution strategies for these equations have typically fallen to continuum models~\cite{Rehler1971,MacGillivray1976} or, more recently, mesh-based PDE solvers~\cite{Vanneste2001,Fratalocchi2008,Jiang2000,Andreasen2009,Bachelard2015}.
+These techniques work well for optically large and small systems, alternately, though neither accurately models the interplay between long- and short-range interactions~\cite{Baczewski2013}---an effect we know introduces additional dephasing mechanisms~\cite{Coffey1978}.
+Moreover, the complexity of continuum models and the computational cost of mesh-based solvers make them ill-suited to modeling higher dimensional systems.
+
+%The interplay between long-range radiative and short-range dipolar interactions in these formulations introduces a van der Waals dephasing mechanism~\cite{Coffey1978}.
+%The direct investigation of such competition within the Maxwell-Bloch equations is hampered by the fact that those are defined using spatial averages in a continuum formulations, often limited to geometries of reduced dimensionality, in which the short-range dynamics is not described.
+%However, novel algorithmic approaches, as well as current computing capabilities, enable a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
+
+%\subsection{What are we doing?}
+In this work we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism.
+By constructing the Maxwell-Bloch equations with an integral kernel to describe radiation, we recover dynamics at the level of individual \qds{} and model optically large systems containing $10^4$ particles in three dimensions.
+This approach successfully models other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems characterized by localized centers and nonlinear wave propagation.
+%Specifically, an time domain integral equation based full wave model used to propagate fields between \qds{} affords three salient advantages:
+%\begin{inparaenum}[(i)]
+  %\item directly propagating fields between points removes the need for a computational grids to propagate fields, thereby improving accuracy by eliminating numerical dispersion,
+  %\item the propagator explicitly includes the Sommerfeld radiation condition \cite{Stratton2007}, and
+  %\item an integral equation methodology models both near and far fields to very high accuracy (unlike differential equation methods that rely on an underlying grid).
+%\end{inparaenum}
+%These  integral equations are paired with a  highly-tuned predictor-corrector scheme to provide an accurate account of the propagation and phase effects between \qds{}, even for very close particles.
+%The entire system steps through time to provide a self-consistent transient solution. 
 
 By explicitly describing each \qd{} in the system, we will numerically demonstrate  that the collective Rabi oscillation can induce significant coupling in sufficiently close \qds{}.
 This laser-induced inter-dot coupling manifests itself in different forms:
@@ -38,10 +43,11 @@ This laser-induced inter-dot coupling manifests itself in different forms:
 % We characterize this radiation localization effect using the inverse participation ratio~\cite{Schwartz2007} of the dot polarization.
 % This effect could be used, for instance, to selectively identify multiplets of dots that are dynamically coupled during Rabi oscillations.
 \textcolor{red}{I do not like this -- presents data and explanation before material is presented}
+\textcolor{blue}{What would you like to say here? Anything?}
 
-The structure of this paper as follows: \cref{section:formulation} contains the formulation of our semi-classical approach describing the \qds{} and how they dynamically couple due light-induced effects.
-Here we focus on effects that arise from the non-equilibrium nature of the oscillations and consider only the homogeneous case of identical \qds{} that do not couple in equilibrium.
-\Cref{section:computational approach} contains the details of the our efficient computational method that allows for 3D simulations with over $10^4$ \qds{} in reasonable time.
-We share our efficient computational method, which could be used in other solid state or atomic systems, in \cite{githubpage}.
-Examples of our numerical experiments showing the effects (i)-(iii) described above are shown in \cref{section:results}.
-We draw conclusions and discuss some future directions in \cref{section:conclusion}.
+%\subsection{What's in this paper?}
+We structure the remainder of this paper as follows: \cref{section:problem statement} motivates the physical model of an ensemble of two-level systems that interact through a \textcolor{red}{(semi)}classical electric field.
+\Cref{section:formulation,section:computational approach} present the details of our algorithm in the context of a global rotating-wave approximation.
+Subsequently, \cref{section:results} contains the results of our investigation where we observe polarization featuers not present in noninteracting systems at both sub- and super-wavelength scales.
+\Cref{section:conclusion} contains concluding remarks where we speculate on the mechanisms underpinning the observed polarization features as well as comment on our future work in this area.
+Finally, we present an implementation of the model described here at~\cite{githubpage}.
