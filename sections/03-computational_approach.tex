@@ -49,11 +49,11 @@ and several iterated corrector steps,
 \begin{equation}
   \begin{aligned}
     \tilde{\rho}_\ell(t_{m + 1}) &\leftarrow \mathcal{C}_{m+1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m+1}) \\
-                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}),
+                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}).
   \end{aligned}
   \label{eq:corrector}
 \end{equation}
-where the $\mathcal{P}_w^{\qty(0, 1)}$ and $\mathcal{C}_w^{\qty(0, 1)}$ coefficients arise from a least-squares solution to a system of complex-valued exponentials on a semidisk in the left complex plane.
+We precompute $\mathcal{P}_w^{\qty(0, 1)}$ and $\mathcal{C}_w^{\qty(0, 1)}$ coefficients with a least-squares procedure based on spectral and error considerations given in~\cite{Glaser2009}.
 
 To summarize, each step of our solution strategy proceeds as follows:
 \begin{enumerate}
