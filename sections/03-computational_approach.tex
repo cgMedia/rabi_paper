@@ -6,15 +6,15 @@
 \end{figure}
 To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qds{} at $N_t$ equally-spaced timesteps, we begin with a suitable representation of $\tilde{\vb{P}}(\vb{r}, t)$ in terms of spatial and temporal basis functions, i.e.~
 \begin{equation}
-  \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \tilde{\alpha}_{\ell m} \vb{S}_\ell(\vb{r}) T_m(t)
+  \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \tilde{\alpha}_{\ell m} \vb{S}_\ell(\vb{r}) T(t - m \, \Delta t)
   \label{eq:basis function representation}
 \end{equation}
-with $T_m(t) \equiv T(t - m \, \Delta t)$.
 As the wavelength of any radiation in the system far exceeds the dimensions of the \qds{} under consideration, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$.
 Such a discretization additionally discretizes \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes with retardation.
-Furthermore, we require the $T_m(t)$ to have finite support as well as causal and interpolatory properties so as to recover $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$ at the current timestep.
+Furthermore, we require the $T(t)$ to have finite support as well as causal and interpolatory properties so as to recover $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$ at every timestep.
 Accordingly, we have elected to use a set of backwards-looking Lagrange polynomials of order $\ge 4$, forming a temporal basis set with functions similar to the one shown in \cref{fig:interpolation basis}.
 These functions  reliably interpolate smooth functions with controllable error and have a long history of use in studies of electromagnetic systems~\textcolor{red}{\cite{SHANKER,SHANKER,SHANKER}}.
+
 Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the $\vb{S}_\ell$ and $T_m$ basis functions produces a marching-on-in-time system of the form
 \begin{equation}
   \mathcal{L}^{(k)} + \sum_{m = 0}^{k} \mathcal{Z}^{(m)} \mathcal{A}^{(k - m)} = \mathcal{F}^{(k)}.
@@ -23,13 +23,13 @@ Combining \cref{eq:radiated envelope,eq:basis function representation} and proje
 In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(k)}$ denotes the (spatial) collection of $\tilde{\alpha}_{\ell k}$ and
 \begin{subequations}
   \begin{align}
-    \mathcal{L}^{(m)}_{\ell} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\vb{E}}_0(\vb{r}, m \, \Delta t) \big\rangle \\
+    \mathcal{L}^{(m)}_{\ell} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\vb{E}}_L(\vb{r}, m \, \Delta t) \big\rangle \\
     \mathcal{Z}^{(m)}_{\ell \ell'} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathfrak{F}}\{ \mathbf{S}_{\ell'}(\mathbf{r}) T(m \, \Delta t) \} \big\rangle \\
     \mathcal{F}^{(m)}_\ell &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, m \, \Delta t) \big\rangle.
   \end{align}
   \label{eq:projections}
 \end{subequations}
-Here, $\langle \cdot, \cdot \rangle$ stands for a projection (inner product) operation.
+with $\langle \cdot, \cdot \rangle$ representing a projection operation.
 As we have elected to use a uniform $\Delta t$, $\mathcal{Z}$ represents a block Toeplitz and lower triangular space/time matrix and \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
 
 To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouville}, we take
@@ -37,7 +37,7 @@ To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouvil
   \tilde{\alpha}_{\ell m} \equiv \tilde{\rho}_{\ell, 01}(t = m \, \Delta t)
   \label{eq:polarization definition}
 \end{equation}
-as the off-diagonal matrix elements (coherences) of $\tilde{\rho}_{\ell}$ characterize the dipole radiating at $\vb{r}_\ell$.
+as the off-diagonal matrix elements (coherences) of $\tilde{\rho}_{\ell}$ directly characterize the dipole radiating at $\vb{r}_\ell$ in a rotating frame.
 Consequently, determining $\mathcal{A}^{(m + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t = m \, \Delta t$ to $t = \qty(m + 1) \, \Delta t$.
 For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009}.
 Defining $t_m \equiv m \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,

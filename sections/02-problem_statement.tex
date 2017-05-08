@@ -18,8 +18,8 @@ Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxat
 
 To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of coherent fields and negligible quantum  statistics effects.
 Such an approximation preserves the discrete two-level energy structure of each \qd{}, however electromagnetic quantities behave like their classical analogues.
-We define the total electric field at any point as $\vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \mathfrak{F}\{ \vb{P}(\vb{r}, t) \}$
-where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t)$ a polarization distribution arising from $\hat{\rho}$, and
+We define the total electric field at any point as $\vb{E}(\vb{r}, t) = \vb{E}_L(\vb{r}, t) + \mathfrak{F}\{ \vb{P}(\vb{r}, t) \}$
+where $\vb{E}_L(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t)$ a polarization distribution arising from $\hat{\rho}$, and
 \begin{equation}
   \begin{gathered}
     \mathfrak{F}\{\vb{P}(\vb{r}, t)\} \equiv
@@ -40,7 +40,7 @@ In the systems under consideration here, $\omega_0$ lies in the optical frequenc
 As such, na\"ively integrating \cref{eq:liouville} to resolve the Rabi dynamics that occur on the order of \SI{1}{\pico\second} becomes computationally infeasible.
 By introducing $\tilde{\rho} = \hat{U} \hat{\rho} \hat{U}^\dagger$ where $\hat{U} = \mathrm{diag}(1, e^{i \omega_L t})$, we may instead write \cref{eq:liouville} as
 \begin{equation}
-  \pdv{\tilde{\rho}}{t} = \frac{-i}{\hbar} \commutator{\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V}}{\tilde{\rho}} - \hat{\mathcal{D}}\qty[\tilde{\rho}], \quad \hat{V} \equiv \hat{U} \pdv{\hat{U}^\dagger}{t}
+  \dv{\tilde{\rho}}{t} = \frac{-i}{\hbar} \commutator{\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V}}{\tilde{\rho}} - \hat{\mathcal{D}}\qty[\tilde{\rho}], \quad \hat{V} \equiv \hat{U} \dv{\hat{U}^\dagger}{t}
   \label{eq:rotating liouville}
 \end{equation}
 which will contain only terms proportional to $e^{i (\omega_0 \pm \omega_L) t}$ assuming a monochromatic incident field.

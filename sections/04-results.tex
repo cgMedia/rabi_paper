@@ -24,7 +24,7 @@ Here we detail the results of investigations into coupled \qd{} behavior with th
 Our algorithm reliably handles tens of thousands of \qds{} and can simulate ten picoseconds of system dynamics in two days on a single processor.
 We perform simulations of systems of \qds{} randomly distributed throughout a simulation volume experiencing a laser pulse of the form
 \begin{equation}
-  \tilde{\mathbf{E}}_0(\vb{r}, t) = \tilde{\mathbf{E}}_0 e^{-(\vb{k}_L \cdot \vb{r} - \omega_L t)^2/(2\sigma^2)}.
+  \tilde{\mathbf{E}}_L(\vb{r}, t) = \tilde{\mathbf{E}}_0 e^{-(\vb{k}_L \cdot \vb{r} - \omega_L t)^2/(2\sigma^2)}.
   \label{eq:pulse envelope}
 \end{equation}
 \Cref{table:parameters} provides the physical system parameters unless otherwise stated.
@@ -41,7 +41,7 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
 
 \Cref{fig:density stats} details $\rho_{00}(t)$ for one-, two-, and 1024-particle simulations.
 The \qds{} fill a $\SI{0.4}{\micro\meter} \times \SI{0.4}{\micro\meter} \times \SI{0.4}{\micro\meter}$ box; experience a \SI{1}{\pico\second} laser pulse calibrated as a so-called $\pi$-pulse for perfectly resonant, undamped \qds{}.
-The two-particle simulations produce significant departures from the trajectories predicted by solving \cref{eq:rotating liouville} with a prescribed external $\tilde{\vb{E}}_0(\vb{r}, t)$ alone.
+The two-particle simulations produce significant departures from the trajectories predicted by solving \cref{eq:rotating liouville} with a prescribed external $\tilde{\vb{E}}_L(\vb{r}, t)$ alone.
 The interaction between two \qds{} consistently screens the external field leading to a greatly diminished Rabi rotation response without notable oscillations.
 The results of larger simulations appear considerably more interesting (\cref{fig:density stats}(b)) due to the presence of many-dot interactions.
 The highlighted trajectories in \cref{fig:density stats}(b) contain a number of frequency components not present in the incident radiation or the dynamics of a two-particle system.
