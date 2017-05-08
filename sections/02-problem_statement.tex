@@ -1,6 +1,6 @@
 \section{\label{section:problem statement}Problem Statement}
 Consider the evolution of a set of \qds{} in response to a time-varying electric field.
-If we concern ourselves only with electric dipole transitions in a resonant (or nearly-resonant) system, we may write the time-dependence of a given \qd's state as
+If we concern ourselves only with electric dipole transitions in a resonant (or nearly-resonant) system, we may write the time-dependence of a given \qd's density matrix $\hat{\rho}$ as
 \begin{equation}
   \dv{\hat{\rho}}{t} = \frac{-i}{\hbar}\commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
   \label{eq:liouville}
@@ -14,11 +14,11 @@ Formally,
   \end{align}
 \end{subequations}
 where $\chi(t) \equiv \vb{d} \cdot \hat{\vb{E}}(\vb{r}, t)/\hbar$, $\vb{d} \equiv \matrixel{1}{e \hat{\vb{r}}}{0}$, and $\ket{0}$ \& $\ket{1}$ represent the highest valence and lowest conduction states of the \qd{} under consideration.
-Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxation times~\cite{}.
+Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxation times.%~\cite{}.
 
-To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of negligible single-photon effects or other quantum correlations.
+To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of coherent fields and negligible quantum  statistics effects.
 Such an approximation preserves the discrete two-level energy structure of each \qd{}, however electromagnetic quantities behave like their classical analogues.
-As a result, we define the total electric field at any point as $\vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \mathfrak{F}\{ \vb{P}(\vb{r}, t) \}$
+We define the total electric field at any point as $\vb{E}(\vb{r}, t) = \vb{E}_0(\vb{r}, t) + \mathfrak{F}\{ \vb{P}(\vb{r}, t) \}$
 where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t)$ a polarization distribution arising from $\hat{\rho}$, and
 \begin{equation}
   \begin{gathered}
@@ -33,7 +33,7 @@ where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
   \end{gathered}
   \label{eq:integral operator}
 \end{equation}
-with $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$ and $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$.
+with $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ the  dielectric constant of the inter-dot medium.
 Thus, in a system composed of multiple \qds{}, \cref{eq:integral operator} couples the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
 
 \textcolor{red}{Merge \cref{section:problem statement,section:formulation}?}

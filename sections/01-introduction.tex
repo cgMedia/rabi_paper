@@ -1,17 +1,15 @@
 \section{\label{section:introduction}Introduction}
 
 %\subsection{Why study quantum dots?}
-Semiconductor structures containing a large number of \qds{} offer ideal environments for exploring light-matter interactions.
+Semiconductor structures containing a large number of \qds{} offer ideal environments for exploring   collective effects induced by light-matter interaction.
 Often, these structures exhibit new phenomena due to geometrical randomness and non-linearities in the underlying system dynamics.
 Optical excitations (excitons) produce characteristic Rabi oscillations~\cite{Stievater2001,Kamada2001,Htoon2002} in \qds{} analogous to those observed in atomic systems.
-As \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate considerable secondary fields that act to couple the system more strongly than equivalent atomic species.\textcolor{red}{Better phrase?}
-We therefore expect---at least in some regions of the sample---these secondary fields to produce modified collective behavior in the exciton dynamics.
-\textcolor{red}{Should we say something more concrete than what we expect? Or is that most appropriate here?}
+As \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate  secondary fields that are sufficiently strong so as to couple the system more strongly than equivalent atomic species. We can therefore expect---at least in some regions of the sample---these local secondary fields to produce modified collective behavior in the exciton dynamics. Both theoretical/computational~\cite{Slepyan2004,Slepyan2004} and experimental investigations~\cite{Asakura2013} into phenomena induced by these secondary fields have been a focus of current interest. %For recent experimental forays into the study of random quantum dots see \cite{} and references therein. 
 
 %\subsection{What tools exist?}
-Researchers in atomic and solid-state optics have developed numerous variations of the Maxwell-Bloch equations~\cite{Gross1982} to describe features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
-Solution strategies for these equations have typically fallen to continuum models~\cite{Rehler1971,MacGillivray1976} or, more recently, mesh-based PDE solvers~\cite{Vanneste2001,Fratalocchi2008,Jiang2000,Andreasen2009,Bachelard2015}.
-These techniques work well for optically large and small systems, alternately, though neither accurately models the interplay between long- and short-range interactions~\cite{Baczewski2013}---an effect we know introduces additional dephasing mechanisms~\cite{Coffey1978}.
+In the realm of theoretical/computational investigation, researchers in atomic and solid-state optics have developed numerous variations of the Maxwell-Bloch equations~\cite{Gross1982} to describe features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
+Solution strategies for these equations have typically fallen to continuum models~\cite{Rehler1971,MacGillivray1976} or, more recently, mesh-based PDE solvers~\cite{Vanneste2001,Fratalocchi2008,Jiang2000,Andreasen2009,Bachelard2015}. 
+These techniques work well for optically large and small systems, alternately, though neither accurately models the interplay between long- and short-range interactions~\cite{Baczewski2013}.%---an effect we know introduces additional dephasing mechanisms~\cite{Coffey1978}.
 Moreover, the complexity of continuum models and the computational cost of mesh-based solvers make them ill-suited to modeling higher dimensional systems.
 
 %The interplay between long-range radiative and short-range dipolar interactions in these formulations introduces a van der Waals dephasing mechanism~\cite{Coffey1978}.
@@ -19,7 +17,7 @@ Moreover, the complexity of continuum models and the computational cost of mesh-
 %However, novel algorithmic approaches, as well as current computing capabilities, enable a microscopic formulation of Maxwell-Bloch dynamics in large systems, without resorting to spatial averages.
 
 %\subsection{What are we doing?}
-In this work we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism.
+In this work we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a {\it microscopic} formalism.
 By constructing the Maxwell-Bloch equations with an integral kernel to describe radiation, we recover dynamics at the level of individual \qds{} and model optically large systems containing $10^4$ particles in three dimensions.
 This approach successfully models other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems characterized by localized centers and nonlinear wave propagation.
 %Specifically, an time domain integral equation based full wave model used to propagate fields between \qds{} affords three salient advantages:
@@ -41,13 +39,15 @@ This laser-induced inter-dot coupling manifests itself in different forms:
 \end{inparaenum}
 % This is due to the two effects described above, which effectively reduce the area pulse in some areas of the sample.
 % We characterize this radiation localization effect using the inverse participation ratio~\cite{Schwartz2007} of the dot polarization.
-% This effect could be used, for instance, to selectively identify multiplets of dots that are dynamically coupled during Rabi oscillations.
-\textcolor{red}{I do not like this -- presents data and explanation before material is presented}
-\textcolor{blue}{What would you like to say here? Anything?}
+These effects could be used, for instance, to selectively identify multiplets of dots that are dynamically coupled during Rabi oscillations.
+%\textcolor{red}{I do not like this -- presents data and explanation before material is presented}
+%\textcolor{blue}{What would you like to say here? Anything?}
 
 %\subsection{What's in this paper?}
-We structure the remainder of this paper as follows: \cref{section:problem statement} motivates the physical model of an ensemble of two-level systems that interact through a \textcolor{red}{(semi)}classical electric field.
+We structure the remainder of this paper as follows: \cref{section:problem statement} motivates the physical model of an ensemble of two-level systems that interact through a 
+%\textcolor{red}{(semi)}
+classical electric field.
 \Cref{section:formulation,section:computational approach} present the details of our algorithm in the context of a global rotating-wave approximation.
-Subsequently, \cref{section:results} contains the results of our investigation where we observe polarization featuers not present in noninteracting systems at both sub- and super-wavelength scales.
+Subsequently, \cref{section:results} contains the results of our investigation where we observe polarization features not present in noninteracting systems at both sub- and super-wavelength scales.
 \Cref{section:conclusion} contains concluding remarks where we speculate on the mechanisms underpinning the observed polarization features as well as comment on our future work in this area.
 Finally, we present an implementation of the model described here at~\cite{githubpage}.
