@@ -36,4 +36,29 @@ where $\vb{E}_0(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
 with $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ the  dielectric constant of the inter-dot medium.
 Thus, in a system composed of multiple \qds{}, \cref{eq:integral operator} couples the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
 
-\textcolor{red}{Merge \cref{section:problem statement,section:formulation}?}
+In the systems under consideration here, $\omega_0$ lies in the optical frequency band ($\sim \SI{1500}{\milli\eV\per\hbar}$).
+As such, na\"ively integrating \cref{eq:liouville} to resolve the Rabi dynamics that occur on the order of \SI{1}{\pico\second} becomes computationally infeasible.
+By introducing $\tilde{\rho} = \hat{U} \hat{\rho} \hat{U}^\dagger$ where $\hat{U} = \mathrm{diag}(1, e^{i \omega_L t})$, we may instead write \cref{eq:liouville} as
+\begin{equation}
+  \pdv{\tilde{\rho}}{t} = \frac{-i}{\hbar} \commutator{\hat{U} \hat{\mathcal{H}} \hat{U}^\dagger - i \hbar \hat{V}}{\tilde{\rho}} - \hat{\mathcal{D}}\qty[\tilde{\rho}], \quad \hat{V} \equiv \hat{U} \pdv{\hat{U}^\dagger}{t}
+  \label{eq:rotating liouville}
+\end{equation}
+which will contain only terms proportional to $e^{i (\omega_0 \pm \omega_L) t}$ assuming a monochromatic incident field.
+Ignoring the high-frequency quantities under the assumption that such terms will integrate to approximately zero in solving \cref{eq:rotating liouville} over any appreciable timescale produces the familiar rotating-wave approximation\cite{Allen1975}---as the system no longer contains any optical frequencies, numerical differential equation solvers require orders of magnitude fewer timesteps to solve \cref{eq:rotating liouville}.
+
+Due to the quantum mechanical transitions at play in producing secondary radiation, we may assume similarly monochromatic radiated fields.
+As such, a similar transformation applies to the source distribution in \cref{eq:integral operator}.
+Writing $\vb{P}(\vb{r}, t) = \tilde{\vb{P}}(\vb{r}, t)e^{i \omega_L t}$ and similarly ignoring high-frequency terms, the radiated field envelope becomes
+\begin{widetext}
+\begin{equation}
+  \begin{gathered}
+    \tilde{\mathfrak{F}}\{ \tilde{\vb{P}}(\vb{r}, t) \} \equiv \frac{-1}{4\pi \varepsilon} \int
+    \qty(\tensor{\mathrm{I}} -  \bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
+    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
+    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
+    \, \dd[3]{\vb{r'}}.
+  \end{gathered}
+  \label{eq:radiated envelope}
+\end{equation}
+\end{widetext}
+Critically, \cref{eq:radiated envelope} maintains the phase relationship between sources oscillating at $\omega_L$ via the factors of $e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}$ that appear.
