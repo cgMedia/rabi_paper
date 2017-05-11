@@ -48,10 +48,14 @@ Most of these additional \qd{} populations deviate very little from those produc
 However, as we have filled the cube randomly, some regions of the system contain localized clusters of \qds{} that produce the suppression effect detailed above (for two adjacent particles) or populations with higher frequency oscillations (in the case of clusters with three or more \qds{}).
 Specifically, the two ``original'' \qds{} acquire an out-of-phase oscillation with respect to each other as well as a lower frequency in-phase oscillation of the pair about a decaying envelope.
 
+\begin{center}
+  \textcolor{red}{\rule{5cm}{1.4pt} \\ \textsc{To be revised}}
+\end{center}
+
 \begin{figure}
   \centering
-  \subfloat[Spatial distribution of polarization at \textcolor{red}{fixed $t$}. Each point depicts $\abs{\tilde{\rho}_{01}}^2$ at that location wtih both size and color.]{\input{figures/visit}} \\
-  \subfloat[\label{fig:ipr}Inverse participation ratio]{\input{figures/visit_ipr}}
+  \subfloat[\label{fig:nearfield box}Spatial distribution of polarization at $t = \SI{12}{\pico\second}$. Each point depicts $\abs{\tilde{\rho}_{01}}^2$ at that location wtih both size and color.]{\input{figures/visit}} \\
+  \subfloat[\label{fig:ipr}Inverse participation ratio for the system shown in \cref{fig:nearfield box}. The dashed line indicates the sample time for (a).]{\input{figures/visit_ipr}}
   \caption{\label{fig:polarization vis}
     1024 \qds{} illuminated by a $\pi$-pulse largely follow a trajectory determined by the pulse, though exceptionally close pairs/groups can maintain a polarized state far longer than the rest of the system.
   }
@@ -72,11 +76,20 @@ to provide a quantitative description of these phenomena.
 \Cref{fig:ipr} shows this quantity for the system in \cref{fig:polarization vis}.
 The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors. Moreover, this dynamical localization effect features oscillations, indicating that many-dot effects contribute to the dynamics within a relatively narrow spectral region.
 
-\Cref{fig:tubes,fig:tube projection} depict $\abs{\rho_{01}(\vb{r})}^2$ for \num{10000} \qds{} distributed randomly throughout a right cylinder at various times.
-The cylinder has a radius of \SI{0.2}{\micro\meter} and a length of \SI{4}{\micro\meter}, making it several wavelengths long but far shorter than the incident pulse.
-The incident $\vb{k}_L$ lies along the cylindrical axis, perpindicular to $\vb{d}$.
+\begin{center}
+  \textcolor{red}{\textsc{To be revised} \\ \rule{5cm}{1.4pt}}
+\end{center}
+
+\Cref{fig:tubes} depicts the evolution of $\abs{\rho_{01}(\vb{r})}^2$ as an indicator of $\tilde{\vb{P}}$ for a cylinder containing \num{10000} \qds{}.
+The cylinder has a radius of \SI{0.2}{\micro\meter} and a length of \SI{4}{\micro\meter}, and the incident $\vb{k}_L$ lies along the cylindrical axis (again perpendicular to $\vb{d}$ so as to maximize the long-distance interaction between \qds{}).
+This simulation captures the suppression effects of \cref{fig:density stats,fig:nearfield box} as a small number of \qds{} remain in an unexcited state while the cylinder polarizes around them.
+Additionally, due to the length of the cylinder, larger regions of enhanced polarization begin to appear as the system polarizes (\cref{fig:polarization fluctuation})---an effect we did not observe in sub-wavelength structures.
+We liken these nodes to standing waves in a cavity that arise from the far-field interaction term of \cref{eq:radiated envelope}.
+Finally, we note that because $\vb{d}$ points in the same direction for every \qd{}, the cylinder emits radiation in preferred directions leading to further variations in $\hat{\tilde{P}}$ around the cylinder (\cref{fig:end tubes}).
+
+
 We observe effects from both near- and far-field radiation patterns; adjacent \qds{} strongly couple just like those in \cref{fig:density stats,fig:polarization vis}, though long-range effects additionally produce wavelength-scale patterns in the polarization intensity.
-Identical simulations run without interactions ($\mathcal{Z}^{(m)}_{ij} = 0$) produce completely homogeneous polarization distributions as the pulse varies little over the length of the cylinder.
+Identical simulations run without interactions (i.e.~$\mathcal{Z} = 0$ everywhere) produce completely homogeneous polarization distributions as the pulse varies little over the length of the cylinder.
 
 \begin{figure*}
   \centering
@@ -106,22 +119,24 @@ Identical simulations run without interactions ($\mathcal{Z}^{(m)}_{ij} = 0$) pr
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_2.png}} \\
   \subfloat{\includegraphics[width=\textwidth]{figures/tube/tube_print_3.png}} \\
   \caption{\label{fig:tubes}
-    Coloration of $\abs{\tilde{\rho}_{01}}^2$ at $t =$ \SIlist{4.95; 5; 5.05; 5.10}{\pico\second}. A \SI{1}{\pico\second} pulse delayed by \SI{5}{\pico\second} illuminates \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \times \SI{0.2}{\micro\meter} \times \SI{4}{\micro\meter}$ cylinder.
-    We observe nearfield coupling phenomena in small groups of \qds{} that appear irregularly bright or dark; the farfield term of \cref{eq:radiated envelope} also produces localized hotspots of enhanced polarization.
+    Coloration of $\abs{\tilde{\rho}_{01}}^2$ at $t_1 = \SI{-0.05}{\pico\second}$, $t_2 = \SI{0}{\pico\second}$, $t_3 = \SI{0.05}{\pico\second}$, and $t_4 = \SI{0.10}{\pico\second}$ relative to the peak of a \SI{1}{\pico\second}-wide $\pi$-pulse.
+    \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \text{ (radius)} \times \SI{4}{\micro\meter}$ cylinder oriented along $\vb{k}_L$ demonstrate near-field the effects of \cref{fig:density stats} as distinct, outlying bright/dark \qds{}.
+    Additionally, the size of the system allows for wavelengh-scale phenomena that appear here as five standing nodes of enhanced polarization.
   }
 \end{figure*}
 
 \begin{figure}
   \centering
-  \subfloat[\label{fig:polarization fluctuation}Projection of the cylinder in \cref{fig:tubes} at $t = \SI{4.95}{\pico\second}$ onto the $z$-axis.]{\input{figures/z_polarization_distribution.tex}} \\
-  \subfloat[Projections of the cylinders in \cref{fig:tubes} onto the $xy$-plane.]{
+  \subfloat[\label{fig:polarization fluctuation}Projection of the cylinder in \cref{fig:tubes} at $t_3$ onto the cylindrical axis.]{\input{figures/z_polarization_distribution.tex}} \\
+  \subfloat[\label{fig:end tubes}Projections of the cylinders in \cref{fig:tubes} onto the $xy$-plane.]{
     \includegraphics[width=0.24\linewidth]{figures/tube/end_print_0.png}
     \includegraphics[width=0.24\linewidth]{figures/tube/end_print_1.png}
     \includegraphics[width=0.24\linewidth]{figures/tube/end_print_2.png}
     \includegraphics[width=0.24\linewidth]{figures/tube/end_print_3.png}
   }
   \caption{\label{fig:tube projection}
-    $z = 0$ projections of the cylinders in \cref{fig:tubes}.
+    Polarization projections of the cylinders in \cref{fig:tubes}.
+    The projection onto the cylindrical axis reveals the five standing nodes of polarization as well as a tendancy for increased polarization near the ends of the cylinder.
     The uniform orientation of the dipole radiators breaks the cylindrical symmetry of the system, leading to radial anisotropies in the polarization intensity.
   }
 \end{figure}
