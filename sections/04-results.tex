@@ -17,7 +17,7 @@
       %Vacuum permeability      & $\mu_0$        & \SI{2.013e-4}{\milli\eV \pico\second\squared \per \elementarycharge \per \micro\meter}
     \end{tabular}
   \end{ruledtabular}
-  \caption{\label{table:parameters}Simulation parameters. \si{\elementarycharge} and \si{\bohr} denote the elementary charge and Bohr radius.}
+  \caption{\label{table:parameters}Simulation parameters; \si{\elementarycharge} and \si{\bohr} denote the elementary charge and Bohr radius.}
 \end{table}
 
 Here we detail the results of investigations into coupled \qd{} behavior with the model presented thus far.
@@ -28,7 +28,6 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
   \label{eq:pulse envelope}
 \end{equation}
 \Cref{table:parameters} provides the physical system parameters unless otherwise stated.
-
 
 \begin{figure}
   \input{figures/density_stats}
@@ -48,52 +47,44 @@ Most of these additional \qd{} populations deviate very little from those produc
 However, as we have filled the cube randomly, some regions of the system contain localized clusters of \qds{} that produce the suppression effect detailed above (for two adjacent particles) or populations with higher frequency oscillations (in the case of clusters with three or more \qds{}).
 Specifically, the two ``original'' \qds{} acquire an out-of-phase oscillation with respect to each other as well as a lower frequency in-phase oscillation of the pair about a decaying envelope.
 
-\begin{center}
-  \textcolor{red}{\rule{5cm}{1.4pt} \\ \textsc{To be revised}}
-\end{center}
-
 \begin{figure}
   \centering
   \input{figures/visit}
-  \caption{\label{fig:nearfield box}Spatial distribution of $\abs{\tilde{\rho}_{01}}^2$ for 1024 \qds{} as an indicator of polarization. 
-    At $t = \SI{2}{\pico\second}$ relative to the peak of a \SI{1}{\pico\second}-wide $\pi$-pulse, the color and size of each \qd{} indicates the polarization at that location.
-    Following a $\pi$-pulse, a single \qd{} would have no remnant polarization; here, due to the interactions between particles, clusters of \qds{} remain in a highly-polarized state depending on their separation.
+  \caption{\label{fig:nearfield box}Spatial distribution of $\abs{\tilde{\rho}_{01}}$ for 1024 \qds{} as an indicator of polarization. 
+    Recorded at $t = \SI{2}{\pico\second}$ relative to the peak of a \SI{1}{\pico\second}-wide $\pi$-pulse, the color and size of each sphere indicates the location of each \qd{} and its polarization.
+    Following a $\pi$-pulse, a single \qd{} would have no remnant polarization; here, due to the near-field interactions between particles, clusters of \qds{} remain in highly-polarized states depending on their separation.
   }
 \end{figure}
 
 \begin{figure}
   \input{figures/visit_ipr}
-  \caption{\label{fig:ipr}Inverse participation ratio for the system shown in \cref{fig:nearfield box}. The dashed line indicates the sample time for (a).}
+  \caption{\label{fig:ipr}Inverse participation ratio (IPR) for the system shown in \cref{fig:nearfield box}. The dashed line indicates the sample time for \cref{fig:nearfield box}.}
 \end{figure}
 
-\Cref{fig:nearfield box} details the polarization distribution in a simulation in both space and time.
-Here, ten thousand \qds{} randomly fill a $\SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter}$ box and inherit the remainder of their parameters from the simulation detailed above.
-This simulation contains coupling/screening features similar to those in \cref{fig:density stats},
-though \cref{fig:visit} further reveals the mechanism behind these phenomena.
-Regions of high polarization (indicated as large points) appear clustered together, suggesting the coupling/screening behavior depends strongly on the geometry or ``randomness'' of a particular region: \qds{} in regions of anomalously high density demonstrate significantly richer behavior---a proximity induced localization effect.
+\Cref{fig:nearfield box} further illustrates the near-field coupling between \qds{}.
+Here, 1024 \qds{} randomly fill an \SI{8e-3}{\micro\meter\cubed} cube and the same \SI{1}{\pico\second} Gaussian $\pi$-pulse illuminates the system.
+Without any inter-dot interactins, such a pulse would perfectly transition every \qd{} from $\ket{0}$ to $\ket{1}$, leaving behind no polarization after the pulse has passed.
+As the system in \cref{fig:nearfield box} has experienced most of the pulse, the majority of the \qds{} behave this way.
+A number of particles remain polarized well after the pulse has passed through the system, however, due to their apparent proximity.
 
 Borrowing from standard measures of localization (in which one calculates various integrals of $\vb{E}$ over the simulation volume), we have adapted the inverse participation ratio (IPR)  of the dot polarization as
 \begin{equation}
-  \text{IPR}(t) = \frac{\sum_\ell \abs{\vb{p}_\ell(t)}^4}{\qty(\sum_\ell \abs{\vb{p}_\ell(t)}^2)^2}
+  \text{IPR}(t) = \frac{\sum_\ell \abs{\tilde{\vb{p}}_\ell(t)}^4}{\qty(\sum_\ell \abs{\tilde{\vb{p}}_\ell(t)}^2)^2}
   \label{eq:ipr}
 \end{equation}
-to provide a quantitative description of these phenomena.
-\Cref{fig:ipr} shows this quantity for the system in \cref{fig:polarization vis}.
-The maximum IPR occurs some time after the pulse has passed through the system, suggesting strongly coupled \qds{} retain their polarization longer than their uncoupled neighbors. Moreover, this dynamical localization effect features oscillations, indicating that many-dot effects contribute to the dynamics within a relatively narrow spectral region.
-
-\begin{center}
-  \textcolor{red}{\textsc{To be revised} \\ \rule{5cm}{1.4pt}}
-\end{center}
+to provide a quantitative description of these phenomena~\cite{Schwartz2007}.
+\Cref{fig:ipr} shows this quantity for the system in \cref{fig:nearfield box}.
+The maximum IPR occurs some time after the pulse has passed through the system, indicating strongly-coupled \qds{} retain their polarization longer than their neighbors.
+Moreover, this dynamical localization effect features oscillations which suggests many-dot effects contribute to the dynamics within a relatively narrow spectral region.
 
 \Cref{fig:tubes} depicts the evolution of $\abs{\rho_{01}(\vb{r})}^2$ as an indicator of $\tilde{\vb{P}}$ for a cylinder containing \num{10000} \qds{}.
 The cylinder has a radius of \SI{0.2}{\micro\meter} and a length of \SI{4}{\micro\meter}, and the incident $\vb{k}_L$ lies along the cylindrical axis (again perpendicular to $\vb{d}$ so as to maximize the long-distance interaction between \qds{}).
 This simulation captures the suppression effects of \cref{fig:density stats,fig:nearfield box} as a small number of \qds{} remain in an unexcited state while the cylinder polarizes around them.
 Additionally, due to the length of the cylinder, larger regions of enhanced polarization begin to appear as the system polarizes (\cref{fig:polarization fluctuation})---an effect we did not observe in sub-wavelength structures.
 We liken these nodes to standing waves in a cavity that arise from the far-field interaction term of \cref{eq:radiated envelope}.
-Finally, we note that because $\vb{d}$ points in the same direction for every \qd{}, the cylinder emits radiation in preferred directions leading to further variations in $\hat{\tilde{P}}$ around the cylinder (\cref{fig:end tubes}).
+Finally, we note that because $\vb{d}$ points in the same direction for every \qd{}, the cylinder emits radiation in preferred directions leading to further variations in $\tilde{\vb{P}}$ (\cref{fig:end tubes}).
 
-
-We observe effects from both near- and far-field radiation patterns; adjacent \qds{} strongly couple just like those in \cref{fig:density stats,fig:polarization vis}, though long-range effects additionally produce wavelength-scale patterns in the polarization intensity.
+We observe effects from both near- and far-field radiation patterns; adjacent \qds{} strongly couple just like those in \cref{fig:density stats,fig:nearfield box}, though long-range effects additionally produce wavelength-scale patterns in the polarization intensity.
 Identical simulations run without interactions (i.e.~$\mathcal{Z} = 0$ everywhere) produce completely homogeneous polarization distributions as the pulse varies little over the length of the cylinder.
 
 \begin{figure*}

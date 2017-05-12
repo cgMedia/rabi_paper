@@ -551,22 +551,22 @@ time     p1                 p2                 lone
   ]
   \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(pair only)}]
     \addplot+[smooth, thick, no marks] table[x = time, y = p1] {pair_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(1)}$}
+    \addlegendentry{$\rho_{00}^{\qty(1)}(t)$}
 
     \addplot+[smooth, thick, no marks] table[x = time, y = p2] {pair_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(2)}$}
+    \addlegendentry{$\rho_{00}^{\qty(2)}(t)$}
 
     \addplot[smooth, thick, dashed, no marks] table[x = time, y = lone] {pair_density_stats.dat};
-    \addlegendentry{Laser-only}
+    \addlegendentry{$\tilde{\vb{E}}_L$-only}
 
     \node[] at (axis cs: 0,0) {(a)};
 
   \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(neighborhood)}]
     \addplot+[smooth, thick, no marks] table[x = time, y = p1] {high_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(1)}$}
+    \addlegendentry{$\rho_{00}^{\qty(1)}(t)$}
 
     \addplot+[smooth, thick, no marks] table[x = time, y = p2] {high_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(2)}$}
+    \addlegendentry{$\rho_{00}^{\qty(2)}(t)$}
 
     \foreach \n in {5, ..., 46}
     {
