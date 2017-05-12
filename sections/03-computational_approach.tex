@@ -45,7 +45,7 @@ Defining $t_m \equiv m \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a wei
   \tilde{\rho}_\ell(t_{m + 1}) \leftarrow \sum_{w = 0}^{W-1} \mathcal{P}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{P}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}),
   \label{eq:predictor}
 \end{equation}
-and several iterated corrector steps,
+and iterated corrector steps,
 \begin{equation}
   \begin{aligned}
     \tilde{\rho}_\ell(t_{m + 1}) &\leftarrow \mathcal{C}_{m+1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m+1}) \\
