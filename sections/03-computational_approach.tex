@@ -6,7 +6,7 @@
 \end{figure}
 To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qds{} at $N_t$ equally-spaced timesteps, we begin with a suitable representation of $\tilde{\vb{P}}(\vb{r}, t)$ in terms of spatial and temporal basis functions, i.e.~
 \begin{equation}
-  \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \tilde{\alpha}_{\ell m} \vb{S}_\ell(\vb{r}) T(t - m \, \Delta t)
+  \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \tilde{\alpha}_{\ell m} \vb{S}_\ell(\vb{r}) T(t - m \, \Delta t).
   \label{eq:basis function representation}
 \end{equation}
 As the wavelength of any radiation in the system far exceeds the dimensions of the \qds{} under consideration, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$.
@@ -55,9 +55,9 @@ and several iterated corrector steps,
 \end{equation}
 We precompute $\mathcal{P}_w^{\qty(0, 1)}$ and $\mathcal{C}_w^{\qty(0, 1)}$ coefficients with a least-squares procedure based on spectral and error considerations given in~\cite{Glaser2009}.
 
-To summarize, each step of our solution strategy proceeds as follows:
+To summarize, one timestep of our solution strategy proceeds as follows:
 \begin{enumerate}
-  \item At step $m$, use \cref{eq:predictor,eq:polarization definition} to predict $\mathcal{A}^{(m + 1)}$.
+  \item At timestep $m$, use \cref{eq:predictor,eq:polarization definition} to predict $\mathcal{A}^{(m + 1)}$.
     This prediction depends only on the known history of the system and does not require the calculation of any electromagnetic interactions.
   \item Use \cref{eq:zmatrix} to calculate $\mathcal{F}^{(m + 1)}$.
     Having approximated $\mathcal{A}^{(m + 1)}$ in step 1, $\mathcal{F}^{(m + 1)}$ will contain information from \qds{} within $c \, \Delta t$ of each other.

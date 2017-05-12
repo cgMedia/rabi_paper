@@ -1,14 +1,18 @@
-\section{\label{section:conclusion}Conclusions}
-Here we have presented a robust, fine-grained algorithm to solve for the dynamics of an ensemble of \qds{} that are coupled in response to an external laser pulse.
-By making use of an integral equation kernel to propagate radiated fields, our model eschews inefficient radiation meshes in favor of a more efficient point-to-point communication strategy, facilitating simulations of many thousands of \qds{} in three dimensions.
-Our simulations predict very tightly coupled dynamics in dense \qd{} systems---these systems produce a number of clusters that evolve with frequencies not present in the incident field, and we have shown this behavior depends critically on the presence of many-body interactions.
-Additionally, many \qds{} interact so as to screen out the majority of the incident field, thereby changing very little from their initial configuration. For area pulses that are multiple of $\pi$, the effective reduction of the pulse area induces a dynamic localization of the polarization in regions of the sample where many-dot effects are stronger.
+\section{\label{section:conclusion}Conclusions \& future work}
+Here we developed a robust, fine-grained algorithm to solve for the dynamics of an ensemble of \qds{} that couple in response to external light fields.
+By making use of an integral equation kernel to propagate radiated fields, our model facilitates simulations of thousands of \qds{} in three dimensions with accurate bookkeeping of both near and far radiation fields.
+Our simulations predict a ``suppression'' effect between adjacent \qds{} that screens out the incident laser pulse;
+we interpret this effect as a dynamical detuning that shifts the effective $\omega_0$ of the affected \qds{} and observe additional oscillatory behavior in clusters of more particles.
+\textcolor{red}{These effects could prove useful in\ldots}
+Additionally, in larger systems of densely-packed \qds{}, we see significant \textcolor{red}{localization effects} that present as regions of enhanced polarization over lengthscales comparable to that of the incident wavelength.
+\textcolor{blue}{Anything else to say?}
 
-Given prior work in this area, we predict that our approach can reproduce superradiant effects, which can be described using Maxwell-Bloch semi-classical approaches \cite{Gross1982}, such as pulse ringings \cite{Burnham1969,MacGillivray1976} occurring in systems containing many millions of dots of size comparable or larger than the optical wavelength.
-A microscopic numerical approach such as the one proposed here will be able to investigate the role of many-dot interactions in these phenomena.
-Unfortunately, the na\"ive $n^2$ calculation between every pair of \qds{} given here presents a significant computational bottleneck in trying to investigate these dynamics.
-The primary focus of our ongoing research includes the development of an accelerated computational technique extending the approach introduced in this paper to further reduce this cost so as to investigate these systems.
-Additionally, the framework presented here readily extends to model \qds{} with richer structure including energy degeneracies or biexcitonic transitions.
+
+Current semi-classical Maxwell-Bloch techniques predict superradiant effects~\cite{Gross1982} within a continuum formulation.
+We expect that our approach---when extended to systems containing millions of \qds{}---will aid in investigating the role of many-dot interactions in these phenomena.
+Unfortunately, the na\"ive $\mathcal{O}\qty(n^2)$ interaction calculation presented here hampers attempts to extend these calculations to such systems.
+Our ongoing research includes the development of accelerated computational techniques that exploit the structure of $\mathcal{Z}$ to reduce the big-$\mathcal{O}$ scaling of \cref{eq:zmatrix}.
+Additionally, the technique presented here readily extends to model atomic \& molecular systems with richer structure---such as energy degeneracies or biexcitonic transitions---that we hope to investigate soon.
 
 \acknowledgments
 We gratefully acknowledge support from the National Science Foundation grant ECCS-1408115, and extend our thanks to the developers of
