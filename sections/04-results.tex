@@ -54,14 +54,19 @@ Specifically, the two ``original'' \qds{} acquire an out-of-phase oscillation wi
 
 \begin{figure}
   \centering
-  \subfloat[\label{fig:nearfield box}Spatial distribution of polarization at $t = \SI{12}{\pico\second}$. Each point depicts $\abs{\tilde{\rho}_{01}}^2$ at that location wtih both size and color.]{\input{figures/visit}} \\
-  \subfloat[\label{fig:ipr}Inverse participation ratio for the system shown in \cref{fig:nearfield box}. The dashed line indicates the sample time for (a).]{\input{figures/visit_ipr}}
-  \caption{\label{fig:polarization vis}
-    1024 \qds{} illuminated by a $\pi$-pulse largely follow a trajectory determined by the pulse, though exceptionally close pairs/groups can maintain a polarized state far longer than the rest of the system.
+  \input{figures/visit}
+  \caption{\label{fig:nearfield box}Spatial distribution of $\abs{\tilde{\rho}_{01}}^2$ for 1024 \qds{} as an indicator of polarization. 
+    At $t = \SI{2}{\pico\second}$ relative to the peak of a \SI{1}{\pico\second}-wide $\pi$-pulse, the color and size of each \qd{} indicates the polarization at that location.
+    Following a $\pi$-pulse, a single \qd{} would have no remnant polarization; here, due to the interactions between particles, clusters of \qds{} remain in a highly-polarized state depending on their separation.
   }
 \end{figure}
 
-\Cref{fig:polarization vis} details the polarization distribution in a simulation in both space and time.
+\begin{figure}
+  \input{figures/visit_ipr}
+  \caption{\label{fig:ipr}Inverse participation ratio for the system shown in \cref{fig:nearfield box}. The dashed line indicates the sample time for (a).}
+\end{figure}
+
+\Cref{fig:nearfield box} details the polarization distribution in a simulation in both space and time.
 Here, ten thousand \qds{} randomly fill a $\SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter} \times \SI{0.8}{\micro\meter}$ box and inherit the remainder of their parameters from the simulation detailed above.
 This simulation contains coupling/screening features similar to those in \cref{fig:density stats},
 though \cref{fig:visit} further reveals the mechanism behind these phenomena.
