@@ -1,8 +1,23 @@
 \begin{tikzpicture}
+  \pgfplotsset{
+    colormap={spectral}{
+      rgb255=(94, 79, 162)
+      rgb255=(50, 136, 189)
+      rgb255=(102, 194, 165)
+      rgb255=(171, 221, 164)
+      rgb255=(230, 245, 152)
+      rgb255=(255, 255, 191)
+      rgb255=(254, 224, 139)
+      rgb255=(253, 174, 97)
+      rgb255=(244, 109, 67)
+      rgb255=(213, 62, 79)
+      rgb255=(158, 1, 66)
+    }
+  }
   \begin{axis}[grid=major,
-    %xmin = -0.2, xmax = 0.2,
-    %ymin = -0.2, ymax = 0.2,
-    %zmin = -0.2, zmax = 0.2,
+    xmin = -0.2, xmax = 0.2,
+    ymin = -0.2, ymax = 0.2,
+    zmin = -0.2, zmax = 0.2,
     x dir=reverse, %indicate left-handed coordinate system
     3d box,
     colormap/bluered,
@@ -12,13 +27,14 @@
       ymax = 0.5,
       plot graphics/ymin=0,
       plot graphics/ymax=0.5,
+      colormap name=spectral
     }
   ]
     \addplot3 graphics[points={% important
-        (-0.15, 0.15, 0.2) => (273, 2160)
-        (0.15, 0.15, 0.2)  => (1825, 1898)
-        (0.15, -0.15, 0.2) => (1826, 264)
-        (0.15, 0.15, -0.2) => (2862, 2596)
-      }] {figures/render_no_box.png};
+        (0.15, 0.15, -0.15) => (1836, 2072-581)
+        (0.15, 0.15, 0.15)  => (948, 2072-840)
+        (0.15, -0.15, 0.15) => (948, 2072-1899)
+        (-0.10, 0.15, 0.15) => (357, 2072-571)
+      }] {figures/new_no_box.png};
   \end{axis}
 \end{tikzpicture}
