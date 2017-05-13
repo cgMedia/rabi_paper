@@ -4,12 +4,12 @@ Semiconductor structures containing a large number of \qds{} offer ideal environ
 Often, these structures exhibit new phenomena due to geometrical randomness and non-linearities in the underlying system dynamics.
 Optical excitations (excitons) undergo characteristic Rabi oscillations~\cite{Stievater2001,Kamada2001,Htoon2002} in \qds{} analogous to those observed in atomic systems---as \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate secondary fields that couple the system more strongly than equivalent atomic species.
 We can therefore expect---at least in some regions of the sample---these local secondary fields will produce modified collective behavior in the exciton dynamics.
-Phenomena induced by these secondary fields have received considerable theoretical/computaitonal~\cite{Slepyan2002,Slepyan2004} and experimental~\cite{Asakura2013} attention as they may provide avenues toward novel solid-state devices.
+Phenomena induced by these secondary fields have received considerable theoretical/computational~\cite{Slepyan2002,Slepyan2004} and experimental~\cite{Asakura2013} attention as they may provide new insight on the coherent dynamics of excitons in \qd{} systems.
 
 In the realm of theoretical/computational investigation, researchers in atomic and solid-state optics have developed numerous variations of the Maxwell-Bloch equations~\cite{Gross1982} to describe features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
-Early solution strategies for these equations fell to continuum models~\cite{Rehler1971,MacGillivray1976} that recover effects arising from far-field interactions but cannot adequately describe near-field regimes.
+Early solution strategies for these equations fell to continuum models~\cite{Rehler1971,MacGillivray1976} that recover effects arising from far-field interactions, but cannot adequately describe near-field regimes.
 More recently, mesh-based PDE solvers~\cite{Vanneste2001,Fratalocchi2008,Bachelard2015} added a large degree of fidelity to these models, though the finite size of the mesh means they still have trouble resolving short-range effects without unduly increasing the computational cost.
-Additionally, the nature of these meshes make them prohibitively expensive to extend into three and higher dimensions for optically-large systems.
+Additionally, the nature of these meshes make them prohibitively expensive to extend into three dimensions for optically-large systems.
 In this work we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism.
 By constructing the Maxwell-Bloch equations with an integral kernel and backwards-looking temporal basis functions to describe radiation, we recover near- and far-electric fields with full fidelity across the simulation while allowing for dynamics at the level of individual \qds{}.
 Our implementation---based on successful models of other electromagnetic \cite{otherpapersfromshanker} and acoustic \cite{Glosser2016} systems---readily tracks $10^4$ particles distributed over an optically large region in three dimensions.
@@ -21,10 +21,10 @@ This laser-induced inter-dot coupling manifests itself in different forms:
   We interpret this as the consequence of a time-dependent energy shift that brings the pair temporarily out of resonance with the external driving field.
   \item In addition to this screening, we observe oscillations in the free-induction decay for larger multiplets of \qds{}.
   \item Optical pulses of integer $\pi$ area, for which we expect no polarization in uncoupled systems following the pulse, produce patterns of residual localized polarization that remain in the system.
-  \item The long-range interactions in optically-large systems produce wavelength-scale regions of enhanced and suppressed polarization analogous to standing waves in a cavity.
+  \item The long-range interactions in optically-large systems produce wavelength-scale regions of enhanced and suppressed polarization.
 \end{inparaenum}
-These effects could, for instance, help identify multiplets of dots that dynamically couple during Rabi oscillations.
-\textcolor{red}{or do what with walvelength-scale effects?}
+These effects could, for instance, help identify multiplets of dots that dynamically couple during Rabi oscillations, or help understand nonlinear pulse propagation effects in these media.  
+%\textcolor{red}{or do what with walvelength-scale effects?}
 
 We structure the remainder of this paper as follows: \cref{section:problem statement} motivates the physical model of an ensemble of two-level systems that interact through a classical electric field.
 \Cref{section:computational approach} present the details of our algorithm in the context of a global rotating-wave approximation and we offer an implementation of this algorithm at~\cite{githubpage}.

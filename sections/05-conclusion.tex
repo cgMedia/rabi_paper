@@ -2,17 +2,14 @@
 Here we developed a robust, fine-grained algorithm to solve for the dynamics of an ensemble of \qds{} that couple in response to external light fields.
 By making use of an integral equation kernel to propagate radiated fields, our model facilitates simulations of thousands of \qds{} in three dimensions with accurate bookkeeping of both near and far radiation fields.
 Our simulations predict a ``suppression'' effect between adjacent \qds{} that screens out the incident laser pulse;
-we interpret this effect as a dynamical detuning that shifts the effective $\omega_0$ of the affected \qds{} and observe additional oscillatory behavior in clusters of more particles.
-\textcolor{red}{These effects could prove useful in\ldots}
-Additionally, in larger systems of densely-packed \qds{}, we see significant \textcolor{red}{localization effects} that present as regions of enhanced polarization over lengthscales comparable to that of the incident wavelength.
-\textcolor{blue}{Anything else to say?}
+we interpret this effect as a dynamical detuning that shifts the effective $\omega_0$ of the affected \qds{}. Moreover, we observe additional oscillatory behavior in clusters of more particles, and effects of polarization localization. These effects could prove useful to identify optically quantum dot "molecules" in an extended sample by detecting a residual localized polarization following a $\pi$ pulse.
+Finally, in larger systems of densely-packed \qds{}, we see significant localization that present as regions of enhanced polarization over length-scales comparable to that of the incident wavelength.
+%\textcolor{blue}{Anything else to say?}
 
-
-Current semi-classical Maxwell-Bloch techniques predict superradiant effects~\cite{Gross1982} within a continuum formulation.
-We expect that our approach---when extended to systems containing millions of \qds{}---will aid in investigating the role of many-dot interactions in these phenomena.
-Unfortunately, the na\"ive $\mathcal{O}\qty(n^2)$ interaction calculation presented here hampers attempts to extend these calculations to such systems.
+Current semi-classical Maxwell-Bloch techniques predict superradiant effects~\cite{Gross1982,PhysRevA.4.302,PhysRevA.4.854} within a continuum formulation. We expect that our approach---when extended to systems containing a larger number of \qds{}---will aid in investigating the role of many-dot interactions in these phenomena that are relevant, for instance, in nano-laser applications~\cite{jahnke2016giant}.
+Unfortunately, the na\"ive $\mathcal{O}\qty(n^2)$ interaction calculation presented here hampers attempts to extend these calculations to systems with $n \gg 10^4$.
 Our ongoing research includes the development of accelerated computational techniques that exploit the structure of $\mathcal{Z}$ to reduce the big-$\mathcal{O}$ scaling of \cref{eq:zmatrix}.
-Additionally, the technique presented here readily extends to model atomic \& molecular systems with richer structure---such as energy degeneracies or biexcitonic transitions---that we hope to investigate soon.
+Additionally, the technique presented here readily extends to model atomic, molecular \& semiconductor systems with richer structure---such as energy degeneracies or biexcitonic transitions.
 
 \acknowledgments
 We gratefully acknowledge support from the National Science Foundation grant ECCS-1408115, and extend our thanks to the developers of

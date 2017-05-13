@@ -33,7 +33,7 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
   \input{figures/density_stats}
   \caption{\label{fig:density stats}Population dynamics of adjacent \qds{} (top, shown with the trajectory of a \qd{} driven exclusively by the external laser in black) and a 1024-particle neighborhood (dots (1) and (2) maintain their separation and orientation between simulations).
     The interaction between particles gives a greatly diminished response to the external pulse through a dynamical detuning of the two-dot system.
-    The majority of the neighboring particles in the 1024-dot system follow trajectories nearly identical to that prescribed by the laser (omitted for clarity); many-body effects, however, produce significant oscillatory modes in the evolution of selected \qds{} (shown in gray).
+    The majority of the neighboring particles in the 1024-dot system follow trajectories nearly identical to that prescribed by the laser (omitted for clarity); many-dot effects, however, produce significant oscillatory modes in the evolution of selected \qds{} (shown in gray).
     Note that $\rho_{00}^{\qty(1)}$ and $\rho_{00}^{\qty(2)}$ appear to have \emph{two} coherent modes in the presence of multiple dots: a high-frequency oscillation between the pair, as well as a low-frequency oscillation of the group about a decaying envelope.
 }
 \end{figure}
@@ -63,7 +63,7 @@ Specifically, the two ``original'' \qds{} acquire an out-of-phase oscillation wi
 
 \Cref{fig:nearfield box} further illustrates the near-field coupling between \qds{}.
 Here, 1024 \qds{} randomly fill an \SI{8e-3}{\micro\meter\cubed} cube and the same \SI{1}{\pico\second} Gaussian $\pi$-pulse illuminates the system.
-Without any inter-dot interactins, such a pulse would perfectly transition every \qd{} from $\ket{0}$ to $\ket{1}$, leaving behind no polarization after the pulse has passed.
+Without any inter-dot interactions, such a pulse would perfectly transition every \qd{} from $\ket{0}$ to $\ket{1}$, leaving behind no polarization after the pulse has passed.
 As the system in \cref{fig:nearfield box} has experienced most of the pulse, the majority of the \qds{} behave this way.
 A number of particles remain polarized well after the pulse has passed through the system, however, due to their apparent proximity.
 
@@ -78,7 +78,7 @@ The maximum IPR occurs some time after the pulse has passed through the system, 
 Moreover, this dynamical localization effect features oscillations which suggests many-dot effects contribute to the dynamics within a relatively narrow spectral region.
 
 \Cref{fig:tubes} depicts the evolution of $\abs{\rho_{01}(\vb{r})}^2$ as an indicator of $\tilde{\vb{P}}$ for a cylinder containing \num{10000} \qds{}.
-The cylinder has a radius of \SI{0.2}{\micro\meter} and a length of \SI{4}{\micro\meter}, and the incident $\vb{k}_L$ lies along the cylindrical axis (again perpendicular to $\vb{d}$ so as to maximize the long-distance interaction between \qds{}).
+The cylinder has a radius of \SI{0.2}{\micro\meter} and a length of \SI{4}{\micro\meter}, and the incident $\vb{k}_L$ lies along the cylindrical axis (again perpendicular to $\vb{d}$ so as to maximize the long-distance interaction between \qds{}). Note that we are modeling \qds{} as point objects, and the size of the spheres in the figure was chosen to best visualize the polarization of each dot. 
 This simulation captures the suppression effects of \cref{fig:density stats,fig:nearfield box} as a small number of \qds{} remain in an unexcited state while the cylinder polarizes around them.
 Additionally, due to the length of the cylinder, larger regions of enhanced polarization begin to appear as the system polarizes (\cref{fig:polarization fluctuation})---an effect we did not observe in sub-wavelength structures.
 We liken these nodes to standing waves in a cavity that arise from the far-field interaction term of \cref{eq:radiated envelope}.
@@ -117,10 +117,10 @@ Identical simulations run without interactions (i.e.~$\mathcal{Z} = 0$ everywher
   \caption{\label{fig:tubes}
     Coloration of $\abs{\tilde{\rho}_{01}}^2$ at $t_1 = \SI{-0.05}{\pico\second}$, $t_2 = \SI{0}{\pico\second}$, $t_3 = \SI{0.05}{\pico\second}$, and $t_4 = \SI{0.10}{\pico\second}$ relative to the peak of a \SI{1}{\pico\second}-wide $\pi$-pulse.
     \num{10000} \qds{} randomly distributed throughout a $\SI{0.2}{\micro\meter} \text{ (radius)} \times \SI{4}{\micro\meter}$ cylinder oriented along $\vb{k}_L$ demonstrate near-field the effects of \cref{fig:density stats} as distinct, outlying bright/dark \qds{}.
-    Additionally, the size of the system allows for wavelengh-scale phenomena that appear here as five standing nodes of enhanced polarization.
+    Additionally, the size of the system allows for wavelengh-scale phenomena that appear here as five standing regions of enhanced polarization.
   }
+  
 \end{figure*}
-
 \begin{figure}
   \centering
   \subfloat[\label{fig:polarization fluctuation}Projection of the cylinder in \cref{fig:tubes} at $t_3$ onto the cylindrical axis.]{\input{figures/z_polarization_distribution.tex}} \\
@@ -132,7 +132,7 @@ Identical simulations run without interactions (i.e.~$\mathcal{Z} = 0$ everywher
   }
   \caption{\label{fig:tube projection}
     Polarization projections of the cylinders in \cref{fig:tubes}.
-    The projection onto the cylindrical axis reveals the five standing nodes of polarization as well as a tendancy for increased polarization near the ends of the cylinder.
+    The projection onto the cylindrical axis reveals the five standing nodes of polarization as well as a tendency for increased polarization near the ends of the cylinder.
     The uniform orientation of the dipole radiators breaks the cylindrical symmetry of the system, leading to radial anisotropies in the polarization intensity.
   }
 \end{figure}
