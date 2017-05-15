@@ -14,7 +14,7 @@ Formally,
   \end{align}
 \end{subequations}
 where $\chi(t) \equiv \vb{d} \cdot \hat{\vb{E}}(\vb{r}, t)/\hbar$, $\vb{d} \equiv \matrixel{1}{e \hat{\vb{r}}}{0}$, and $\ket{0}$ \& $\ket{1}$ represent the highest valence and lowest conduction states of the \qd{} under consideration.
-Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxation times.%~\cite{}.
+Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxation times.
 
 To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of coherent fields and negligible quantum  statistics effects.
 Such an approximation preserves the discrete two-level energy structure of each \qd{}, however electromagnetic quantities behave like their classical analogues.
@@ -24,16 +24,15 @@ where $\vb{E}_L(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
   \begin{gathered}
     \mathfrak{F}\{\vb{P}(\vb{r}, t)\} \equiv
       \frac{-1}{4\pi \epsilon} \int
-      \left(\tensor{\mathrm{I}} -  \bar{\mathbf{r}}\bar{\mathbf{r}}^\dagger\right) \cdot \frac{\partial_t^2 \mathbf{P}(\mathbf{r}', t_R)}{c^2 \abs{\mathbf{r}-\mathbf{r}'}} + \\
-      \left(\tensor{\mathrm{I}} - 3\bar{\mathbf{r}}\bar{\mathbf{r}}^\dagger\right) \cdot \qty(
-        \frac{\partial_t   \mathbf{P}(\mathbf{r}', t_R)}{c \abs{\mathbf{r}-\mathbf{r}'}^2} +
-        \frac{             \mathbf{P}(\mathbf{r}', t_R)}{  \abs{\mathbf{r}-\mathbf{r}'}^3}
-      )
-    \, \mathrm{d}^3 \mathbf{r'}
+      \left(\tensor{\mathrm{I}} -  \bar{\vb{r}}\bar{\vb{r}}^\dagger\right) \cdot \frac{\partial_t^2 \vb{P}(\vb{r}', t_R)}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
+      \left(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger\right) \cdot \qty(
+        \frac{\partial_t   \vb{P}(\vb{r}', t_R)}{c \abs{\vb{r}-\vb{r}'}^2} +
+        \frac{             \vb{P}(\vb{r}', t_R)}{  \abs{\vb{r}-\vb{r}'}^3}
+      ) \dd[3]{\vb{r}}
   \end{gathered}
   \label{eq:integral operator}
 \end{equation}
-with $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ the  dielectric constant of the inter-dot medium.
+with $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ as the dielectric constant of the inter-dot medium.
 Thus, in a system composed of multiple \qds{}, \cref{eq:integral operator} couples the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
 
 In the systems under consideration here, $\omega_0$ lies in the optical frequency band ($\sim \SI{1500}{\milli\eV\per\hbar}$).
