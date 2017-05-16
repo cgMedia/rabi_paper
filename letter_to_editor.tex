@@ -1,0 +1,43 @@
+\documentclass{tufte-handout}
+
+\usepackage{newpxtext,newpxmath}
+
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{microtype}
+\usepackage{siunitx}
+\usepackage{textcomp}
+\usepackage{wasysym}
+
+% Set up the drop-caps
+\usepackage{Rothdn, lettrine}
+\renewcommand\LettrineFontHook{\Rothdnfamily}
+
+\begin{document}
+
+\hfill\today\\
+\vspace{0.2cm}
+
+\noindent Dear editor, \\
+\vspace{0.2cm}
+
+We wish to submit the attached manuscript for consideration as a regular article in Physical Review A.
+In it, we study computationally the behavior of a large number of electromagnetically-coupled quantum dots under intense laser excitation within a semiclassical formulation.
+As a departure from previous methods, our novel algorithm uses an integral kernel to describe radiation accurately at all distances.
+This allows for fully three-dimensional investigations into short and long-range interaction effects simultaneously.
+We detail the results of simulations using our approach for systems of up to \num{10000} particles.
+We observe significant coupling effects between extremely close quantum dots whereby they both exhibit a diminished response to an incident light pulse; we attribute this effect to a dynamical detuning effect that shifts the transition frequency of the pair beyond the spectrum of the incident laser.
+In extended geometries spanning several wavelengths, we also observe regions of enhanced polarization that do not occur in simulations without particle interactions.
+We believe that Physical Review A is the appropriate journal for this manuscript because our results could help understand nonlinear pulse propagation effects in quantum dot (or similar) media with applications in nanolasers or other similar devices.
+Moreover, our coded algorithms (which we have made available alongside this publication) could easily extend to model other atomic or molecular systems.
+Thank you for receiving our manuscript and considering it for review.
+We appreciate your time and look forward to your response.
+
+\vspace{0.6in}
+\noindent Regards,\\
+\noindent Connor Glosser, Balasubramaniam Shanker, and Carlo Piermarocchi
+
+\end{document}
