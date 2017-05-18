@@ -12,7 +12,7 @@ More recently, mesh-based PDE solvers~\cite{Vanneste2001,Fratalocchi2008,Bachela
 Additionally, the nature of these meshes make them prohibitively expensive to extend into three dimensions for optically-large systems.
 In this work we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism.
 By constructing the Maxwell-Bloch equations with an integral kernel and backwards-looking temporal basis functions to describe radiation, we recover near- and far-electric fields with full fidelity across the simulation while allowing for dynamics at the level of individual \qds{}.
-Our implementation---based on successful models of other electromagnetic~\cite{otherpapersfromshanker} and acoustic~\cite{Glosser2016} systems---accommodates $10^4$ particles distributed over optically-large regions in three dimensions.
+Our implementation---based on successful models of other electromagnetic~\textcolor{orange}{\cite{otherpapersfromshanker}} and acoustic~\cite{Glosser2016} systems---accommodates $10^4$ particles distributed over optically-large regions in three dimensions.
 
 As we explicitly track the evolution of each \qd{} in the system, we will numerically demonstrate that the collective Rabi oscillation can induce significant coupling in sufficiently close \qds{}.
 This laser-induced inter-dot coupling manifests itself in different forms:
@@ -26,6 +26,6 @@ This laser-induced inter-dot coupling manifests itself in different forms:
 These effects could, for instance, help identify multiplets of dots that dynamically couple during Rabi oscillations, or help understand nonlinear pulse propagation effects in these media.
 
 We structure the remainder of this paper as follows: \cref{section:problem statement} motivates the physical model of an ensemble of two-level systems that interact through a classical electric field.
-\Cref{section:computational approach} present the details of our algorithm in the context of a global rotating-wave approximation and we offer an implementation of this algorithm at~\cite{githubpage}.
+\Cref{section:computational approach} presents the details of our algorithm in the context of a global rotating-wave approximation and we offer an implementation of this algorithm at~\textcolor{orange}{\cite{githubpage}}.
 \Cref{section:results} contains the results of our investigation where we observe polarization features not present in noninteracting systems at both sub- and super-wavelength scales.
 Finally, \cref{section:conclusion} contains concluding remarks where we speculate on the mechanisms underpinning the observed polarization features as well as comment on our future work in this area.
