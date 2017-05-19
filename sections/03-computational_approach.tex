@@ -9,10 +9,24 @@ To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qd
   \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \tilde{\alpha}_{\ell m} \vb{S}_\ell(\vb{r}) T(t - m \, \Delta t).
   \label{eq:basis function representation}
 \end{equation}
-As the wavelength of any radiation in the system far exceeds the dimensions of the \qds{} under consideration, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$.
-Such a discretization additionally discretizes \cref{eq:rotating liouville}, forming a set of $N_s$ first-order differential equations coupled through radiative processes with retardation.
+As the wavelength of any radiation in the system far exceeds the dimensions of the \qds{} under consideration, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$ where $\vb{d}_\ell$ and $\vb{r}_\ell$ denote the dipole moment and position of dot $\ell$.
 Furthermore, we require the $T(t)$ to have finite support as well as causal and interpolatory properties so as to recover $\tilde{\vb{P}}$, $\partial_t \tilde{\vb{P}}$, and $\partial^2_t \tilde{\vb{P}}$ at every timestep.
-Accordingly, we have elected to use a set of backwards-looking Lagrange polynomials of order $\ge 4$, forming a temporal basis set with functions similar to the one shown in \cref{fig:interpolation basis}.
+Accordingly, we have elected to use
+\begin{equation}
+  T(t) = \sum_{j = 0}^p \lambda_j(t)
+  \label{eq:basis sum}
+\end{equation}
+where
+\begin{equation}
+  \lambda_j(t) =
+  \begin{cases}
+    \frac{(1 - \tau)_j}{j!} \frac{(1 + \tau)_{p-j}}{(p-j)!} & j-1 \le \tau < j \\
+    0 & \text{otherwise,}
+  \end{cases}
+  \label{eq:basis piece}
+\end{equation}
+$(a)_k \equiv \Gamma(a + k)/\Gamma(a)$ denotes the Pochhammer rising factorial, and $\tau \equiv t/\Delta t$.
+Such a $T(t)$ consists of shifted, backwards-looking Lagrange polynomials of order $p$ (we require $p \ge 3$ to recover a twice-differentiable function), forming a temporal basis set with functions similar to the one shown in \cref{fig:interpolation basis}.
 These functions  reliably interpolate smooth functions with controllable error and have a long history of use in studies of electromagnetic systems~\cite{Manara1997,Bluck1997}.
 
 Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the $\vb{S}_\ell$ and $T_m$ basis functions produces a marching-on-in-time system of the form
