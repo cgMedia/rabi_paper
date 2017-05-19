@@ -31,22 +31,22 @@ These functions  reliably interpolate smooth functions with controllable error a
 
 Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the $\vb{S}_\ell$ and $T_m$ basis functions produces a marching-on-in-time system of the form
 \begin{equation}
-  \mathcal{L}^{(k)} + \sum_{m = 0}^{k} \mathcal{Z}^{(m)} \mathcal{A}^{(k - m)} = \mathcal{F}^{(k)}.
+  \mathcal{L}^{(m)} + \sum_{k = 0}^{m} \mathcal{Z}^{(k)} \mathcal{A}^{(m - k)} = \mathcal{F}^{(m)}.
   \label{eq:zmatrix}
 \end{equation}
-In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(k)}$ denotes the (spatial) collection of $\tilde{\alpha}_{\ell k}$ and
+In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(m)}_\ell \equiv \tilde{\alpha}_{\ell m}$ and
 \begin{subequations}
   \begin{align}
     \mathcal{L}^{(m)}_{\ell} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\vb{E}}_L(\vb{r}, m \, \Delta t) \big\rangle \\
-    \mathcal{Z}^{(m)}_{\ell \ell'} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathfrak{F}}\{ \mathbf{S}_{\ell'}(\mathbf{r}) T(m \, \Delta t) \} \big\rangle \\
-    \mathcal{F}^{(m)}_\ell &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, m \, \Delta t) \big\rangle.
+    \mathcal{Z}^{(k)}_{\ell \ell'} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathfrak{F}}\{ \mathbf{S}_{\ell'}(\mathbf{r}) T(k \, \Delta t) \} \big\rangle \\
+    \mathcal{F}^{(m)}_\ell &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\mathbf{E}}(\vb{r}, m \, \Delta t) \big\rangle
   \end{align}
   \label{eq:projections}
 \end{subequations}
-with $\langle \cdot, \cdot \rangle$ representing the scalar product of two functions.
-As we have elected to use a uniform $\Delta t$, $\mathcal{Z}$ represents a block Toeplitz and lower triangular space/time matrix and \cref{eq:zmatrix} provides a means of calculating $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
+(where $\langle \cdot, \cdot \rangle$ denotes the scalar product of two functions).
+As we have elected to use a uniform $\Delta t$, the summation in \cref{eq:zmatrix} represents a discrete convolution that will produce $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
 
-To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouville}, we take
+To link $\tilde{\alpha}_{\ell m}$ with the density matrix in \cref{eq:rotating liouville}, we take
 \begin{equation}
   \tilde{\alpha}_{\ell m} \equiv \tilde{\rho}_{\ell, 01}(t = m \, \Delta t)
   \label{eq:polarization definition}
