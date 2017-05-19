@@ -1,15 +1,15 @@
 \section{\label{section:introduction}Introduction}
 
-Semiconductor structures containing a large number of \qds{} offer ideal environments for exploring collective effects induced by light-matter interaction.
+Semiconductor structures containing a large number of \qds{} offer ideal environments for exploring collective effects induced by light-matter interactions.
 Often, these structures exhibit new phenomena due to geometrical randomness and nonlinearities in the underlying system dynamics.
-Optical excitations (excitons) undergo characteristic Rabi oscillations~\cite{Stievater2001,Kamada2001,Htoon2002} in \qds{} analogous to those observed in atomic systems---as \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate secondary fields that couple the system more strongly than equivalent atomic species.
+Additionally, optical excitations (excitons) undergo characteristic Rabi oscillations~\cite{Stievater2001,Kamada2001,Htoon2002} in \qds{} analogous to those observed in atomic systems; as \qds{} have stronger dipolar transitions than atoms, these light-induced oscillations generate secondary fields that couple the system more strongly than equivalent atomic species.
 We can therefore expect---at least in some regions of the sample---these local secondary fields will produce modified collective behavior in the exciton dynamics.
 Phenomena induced by these secondary fields have received considerable theoretical/computational~\cite{Slepyan2002,Slepyan2004} and experimental~\cite{Asakura2013} attention as they may provide new insight on the coherent dynamics of excitons in \qd{} systems.
 
 In the realm of theoretical/computational investigation, researchers in atomic and solid-state optics have developed numerous variations of the Maxwell-Bloch equations~\cite{Gross1982} to describe features such as ringing in pulse propagation~\cite{Burnham1969,MacGillivray1976} or emission fluctuations~\cite{Haake1979}.
 Early solution strategies for these equations fell to continuum models~\cite{Rehler1971,MacGillivray1976} that recover effects arising from far-field interactions, but cannot adequately describe near-field regimes.
 More recently, mesh-based PDE solvers~\cite{Vanneste2001,Fratalocchi2008,Bachelard2015} added a large degree of fidelity to these models, though the finite size of the mesh means they still have trouble resolving short-range effects without unduly increasing the computational cost.
-Additionally, the nature of these meshes make them prohibitively expensive to extend into three dimensions for optically-large systems.
+Additionally, the nature of these meshes make them prohibitively expensive to extend into higher dimensional geometries for optically-large systems.
 In this work we develop a computational framework to discover signatures of collective effects in strongly-driven \qds{} within a microscopic formalism.
 By constructing the Maxwell-Bloch equations with an integral kernel to describe radiation, we recover near- and far-electric fields with full fidelity across the simulation while allowing for dynamics at the level of individual \qds{}.
 Our methodology---based on successful models of other electromagnetic~\cite{Shanker2000,Pray2012,Pray2014} and acoustic~\cite{Ergin1999a,Ergin1999b,Glosser2016} systems---accommodates $10^4$ particles distributed over optically-large regions in three dimensions.

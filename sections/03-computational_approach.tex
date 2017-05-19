@@ -27,9 +27,9 @@ where
 \end{equation}
 $(a)_k \equiv \Gamma(a + k)/\Gamma(a)$ denotes the Pochhammer rising factorial, and $\tau \equiv t/\Delta t$.
 Such a $T(t)$ consists of shifted, backwards-looking Lagrange polynomials of order $p$ (we require $p \ge 3$ to recover a twice-differentiable function), forming a temporal basis set with functions similar to the one shown in \cref{fig:interpolation basis}.
-These functions  reliably interpolate smooth functions with controllable error and have a long history of use in studies of electromagnetic systems~\cite{Manara1997,Bluck1997}.
+These functions  reliably interpolate smooth functions with controllable error and have a long history of use in studies of radiative systems~\cite{Manara1997,Bluck1997}.
 
-Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the $\vb{S}_\ell$ and $T_m$ basis functions produces a marching-on-in-time system of the form
+Combining \cref{eq:radiated envelope,eq:basis function representation} and projecting the resulting field onto the spatiotemporal basis functions produces a marching-on-in-time system of the form
 \begin{equation}
   \mathcal{L}^{(m)} + \sum_{k = 0}^{m} \mathcal{Z}^{(k)} \mathcal{A}^{(m - k)} = \mathcal{F}^{(m)}.
   \label{eq:zmatrix}
@@ -43,7 +43,7 @@ In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(m)}_\ell \equiv
   \end{align}
   \label{eq:projections}
 \end{subequations}
-(where $\langle \cdot, \cdot \rangle$ denotes the scalar product of two functions).
+where $\langle \cdot, \cdot \rangle$ denotes the scalar product of two functions.
 As we have elected to use a uniform $\Delta t$, the summation in \cref{eq:zmatrix} represents a discrete convolution that will produce $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
 
 To link $\tilde{\alpha}_{\ell m}$ with the density matrix in \cref{eq:rotating liouville}, we take
@@ -63,21 +63,19 @@ and iterated corrector steps,
 \begin{equation}
   \begin{aligned}
     \tilde{\rho}_\ell(t_{m + 1}) &\leftarrow \mathcal{C}_{m+1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m+1}) \\
-                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}).
+                                 &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}),
   \end{aligned}
   \label{eq:corrector}
 \end{equation}
+to advance the system by $\Delta t$.
 Such a scheme has significantly better convergence properties than Runge-Kutta integrators for equations of the type seen in \cref{eq:rotating liouville}.
-
-%We precompute $\mathcal{P}_w^{\qty(0, 1)}$ and $\mathcal{C}_w^{\qty(0, 1)}$ coefficients with a least-squares procedure based on spectral and error considerations given in~\cite{Glaser2009}.
-%\textcolor{orange}{These coefficients play the same role as $1/3$ and $1/6$ in a standard fourth-order Runge-Kutta implementation.}
 
 To summarize, one timestep of our solution strategy proceeds as follows:
 \begin{enumerate}
   \item At timestep $m$, use \cref{eq:predictor,eq:polarization definition} to predict $\mathcal{A}^{(m + 1)}$.
     This prediction depends only on the known history of the system and does not require the calculation of any electromagnetic interactions.
   \item Use \cref{eq:zmatrix} to calculate $\mathcal{F}^{(m + 1)}$.
-    Having approximated $\mathcal{A}^{(m + 1)}$ in step 1, $\mathcal{F}^{(m + 1)}$ will contain information from \qds{} within $c \, \Delta t$ of each other.
+    Having extrapolated $\mathcal{A}^{(m + 1)}$ in step 1, $\mathcal{F}^{(m + 1)}$ will contain information from \qds{} within $c \, \Delta t$ of each other.
   \item Produce $\partial_t \tilde{\rho}(t_{m + 1})$ (and thus $\partial_t \mathcal{A}^{(m + 1)}$) by evaluating \cref{eq:rotating liouville} with the $\mathcal{F}^{(m+1)}$ found in step 2.
   \item Correct $\mathcal{A}^{(m + 1)}$ with \cref{eq:corrector} and $\partial_t \mathcal{A}^{(m + 1)}$ found in step 3.
     Repeat steps 2 through 4 until $\mathcal{A}^{(m + 1)}$ has sufficiently converged, then set $m \leftarrow m + 1$.

@@ -5,7 +5,7 @@ If we concern ourselves only with electric dipole transitions in a resonant (or 
   \dv{\hat{\rho}}{t} = \frac{-i}{\hbar}\commutator{\hat{\mathcal{H}}(t)}{\hat{\rho}} - \hat{\mathcal{D}}\qty[\hat{\rho}].
   \label{eq:liouville}
 \end{equation}
-Here, $\hat{\mathcal{H}}(t)$ represents a local Hamiltonian that governs the internal two-level structure of the \qd{} as well as its interaction with an external electromagnetic field, while $\hat{\mathcal{D}}$ provides dissipation terms that account for emission effects phenomenologically.
+Here, $\hat{\mathcal{H}}(t)$ represents a local Hamiltonian that governs the internal two-level structure of the \qd{}, as well as its interaction with an external electromagnetic field, and $\hat{\mathcal{D}}$ provides dissipation terms that account for emission effects phenomenologically.
 Formally,
 \begin{subequations}
   \begin{align}
@@ -43,7 +43,7 @@ By introducing $\tilde{\rho} = \hat{U} \hat{\rho} \hat{U}^\dagger$ where $\hat{U
   \label{eq:rotating liouville}
 \end{equation}
 which will contain only terms proportional to $e^{i (\omega_0 \pm \omega_L) t}$ assuming a monochromatic incident field.
-Ignoring the high-frequency quantities under the assumption that such terms will integrate to approximately zero in solving \cref{eq:rotating liouville} over any appreciable timescale produces the familiar rotating-wave approximation~\cite{Allen1975}---as the system no longer contains any optical frequencies, numerical differential equation solvers require orders of magnitude fewer timesteps to solve \cref{eq:rotating liouville}.
+Ignoring the high-frequency quantities under the assumption that such terms will integrate to approximately zero in solving \cref{eq:rotating liouville} over any appreciable timescale produces the familiar rotating-wave approximation~\cite{Allen1975}---as the system no longer contains any optical frequencies, one can construct far more efficient numerical solution strategies for \cref{eq:rotating liouville}.
 
 Due to the quantum mechanical transitions at play in producing secondary radiation, we may assume similarly monochromatic radiated fields.
 As such, a similar transformation applies to the source distribution in \cref{eq:integral operator}.
