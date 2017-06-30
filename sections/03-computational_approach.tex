@@ -62,7 +62,7 @@ Defining $t_m \equiv m \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a wei
 and iterated corrector steps,
 \begin{equation}
   \begin{aligned}
-    \tilde{\rho}_\ell(t_{m + 1}) &\leftarrow \mathcal{C}_{W}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m+1}) \\
+    \tilde{\rho}_\ell(t_{m + 1}) &\leftarrow \mathcal{C}_{-1}^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m+1}) \\
                                  &+ \sum_{w = 0}^{W - 1} \mathcal{C}_w^{\qty(0)} \tilde{\rho}_\ell(t_{m-w}) + \mathcal{C}_w^{\qty(1)} \, \partial_t \tilde{\rho}_\ell(t_{m-w}),
   \end{aligned}
   \label{eq:corrector}
