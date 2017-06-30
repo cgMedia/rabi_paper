@@ -24,15 +24,15 @@ where $\vb{E}_L(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
   \begin{gathered}
     \mathfrak{F}\{\vb{P}(\vb{r}, t)\} \equiv
       \frac{-1}{4\pi \epsilon} \int
-      \left(\tensor{\mathrm{I}} -  \bar{\vb{r}}\bar{\vb{r}}^\dagger\right) \cdot \frac{\partial_t^2 \vb{P}(\vb{r}', t_R)}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
-      \left(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger\right) \cdot \qty(
+      \left(\tensor{\mathrm{I}} -  \outerprod{\bar{\vb{r}}}{\bar{\vb{r}}} \right) \cdot \frac{\partial_t^2 \vb{P}(\vb{r}', t_R)}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
+      \left(\tensor{\mathrm{I}} - 3\outerprod{\bar{\vb{r}}}{\bar{\vb{r}}} \right) \cdot \qty(
         \frac{\partial_t   \vb{P}(\vb{r}', t_R)}{c \abs{\vb{r}-\vb{r}'}^2} +
         \frac{             \vb{P}(\vb{r}', t_R)}{  \abs{\vb{r}-\vb{r}'}^3}
       ) \dd[3]{\vb{r}}'.
   \end{gathered}
   \label{eq:integral operator}
 \end{equation}
-Here, $\tensor{\mathrm{I}}$ denotes the identity dyad, $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ gives the dielectric constant of the inter-dot medium.
+Here, $\tensor{\mathrm{I}}$ denotes the identity dyad, $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $\otimes$ represents the tensor product (i.e.\ $\qty(\outerprod{\vb{a}}{\vb{b}})_{ij} = a_i b_j$), $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ gives the dielectric constant of the inter-dot medium.
 Thus, in a system composed of multiple \qds{}, \cref{eq:integral operator} couples the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
 
 In the systems under consideration here, $\omega_0$ lies in the optical frequency band ($\sim \SI{1500}{\milli\eV\per\hbar}$).
@@ -52,9 +52,9 @@ Writing $\vb{P}(\vb{r}, t) = \tilde{\vb{P}}(\vb{r}, t)e^{i \omega_L t}$ and simi
 \begin{equation}
   \begin{gathered}
     \tilde{\mathfrak{F}}\{ \tilde{\vb{P}}(\vb{r}, t) \} \equiv \frac{-1}{4\pi \varepsilon} \int
-    \qty(\tensor{\mathrm{I}} -  \bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
-    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
-    \qty(\tensor{\mathrm{I}} - 3\bar{\vb{r}}\bar{\vb{r}}^\dagger) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
+    \qty(\tensor{\mathrm{I}} -  \outerprod{\bar{\vb{r}}}{\bar{\vb{r}}} ) \cdot \frac{\qty(\partial_t^2 \tilde{\vb{P}}(\vb{r}', t_R) + 2 i \omega_L \partial_t \tilde{\vb{P}}(\vb{r}', t_R) - \omega_L^2 \tilde{\vb{P}}(\vb{r}', t_R)) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c^2 \abs{\vb{r}-\vb{r}'}} + \\
+    \qty(\tensor{\mathrm{I}} - 3\outerprod{\bar{\vb{r}}}{\bar{\vb{r}}} ) \cdot \frac{\qty(\partial_t \tilde{\vb{P}}(\vb{r}', t_R) + i \omega_L \tilde{\vb{P}}(\vb{r}', t_R))e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{c \abs{\vb{r}-\vb{r}'}^2} +
+    \qty(\tensor{\mathrm{I}} - 3\outerprod{\bar{\vb{r}}}{\bar{\vb{r}}} ) \cdot \frac{                \tilde{\vb{P}}(\vb{r}', t_R) e^{-i \omega_L \abs{\vb{r} - \vb{r}'}/c}}{\abs{\vb{r}-\vb{r}'}^3}
     \, \dd[3]{\vb{r'}}.
   \end{gathered}
   \label{eq:radiated envelope}
