@@ -6,7 +6,7 @@
 \end{figure}
 To solve \cref{eq:rotating liouville,eq:radiated envelope} for each of $N_s$ \qds{} at $N_t$ equally-spaced timesteps, we begin with a suitable representation of $\tilde{\vb{P}}(\vb{r}, t)$ in terms of spatial and temporal basis functions, i.e.~
 \begin{equation}
-  \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \tilde{\alpha}_{\ell m} \vb{S}_\ell(\vb{r}) T(t - m \, \Delta t).
+  \tilde{\vb{P}}(\vb{r}, t) = \sum_{\ell=0}^{N_s - 1} \sum_{m = 0}^{N_t - 1} \mathcal{A}_{\ell}^{(m)} \vb{S}_\ell(\vb{r}) T(t - m \, \Delta t).
   \label{eq:basis function representation}
 \end{equation}
 As the wavelength of any radiation in the system far exceeds the dimensions of the \qds{} under consideration, we take $\vb{S}_\ell(\vb{r}) \equiv \vb{d}_\ell \delta(\vb{r} - \vb{r}_\ell)$ where $\vb{d}_\ell$ and $\vb{r}_\ell$ denote the dipole moment and position of dot $\ell$.
@@ -34,7 +34,7 @@ Combining \cref{eq:radiated envelope,eq:basis function representation} and proje
   \mathcal{L}^{(m)} + \sum_{k = 0}^{m} \mathcal{Z}^{(k)} \mathcal{A}^{(m - k)} = \mathcal{F}^{(m)}.
   \label{eq:zmatrix}
 \end{equation}
-In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(m)}_\ell \equiv \tilde{\alpha}_{\ell m}$ and
+In this (block $N_s \times N_s$) matrix equation
 \begin{subequations}
   \begin{align}
     \mathcal{L}^{(m)}_{\ell} &= \big\langle \mathbf{S}_\ell(\vb{r}), \tilde{\vb{E}}_L(\vb{r}, m \, \Delta t) \big\rangle \\
@@ -45,14 +45,13 @@ In this (block $N_s \times N_s$) matrix equation, $\mathcal{A}^{(m)}_\ell \equiv
 \end{subequations}
 where $\langle \cdot, \cdot \rangle$ denotes the scalar product of two functions.
 As we have elected to use a uniform $\Delta t$, the summation in \cref{eq:zmatrix} represents a discrete convolution that will produce $\mathcal{F}^{(m)}$ given only $\mathcal{A}^{(m' \le m)}$.
-
-To link $\tilde{\alpha}_{\ell m}$ with the density matrix in \cref{eq:rotating liouville}, we take
+To link $\mathcal{A}^{(m)}$ with the density matrix in \cref{eq:rotating liouville}, we take
 \begin{equation}
-  \tilde{\alpha}_{\ell m} \equiv \tilde{\rho}_{\ell, 01}(t = m \, \Delta t)
+  \mathcal{A}^{(m)}_\ell \equiv \tilde{\rho}_{\ell, 01}(t = m \, \Delta t)
   \label{eq:polarization definition}
 \end{equation}
 as the off-diagonal matrix elements (coherences) of $\tilde{\rho}_{\ell}$ directly characterize the dipole radiating at $\vb{r}_\ell$ under the rotating-wave approximation.
-Consequently, determining $\mathcal{A}^{(m + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t = m \, \Delta t$ to $t = \qty(m + 1) \, \Delta t$ for every \qd{} in the system.
+Consequently, determining $\mathcal{A}^{(m + 1)}$ amounts to integrating \cref{eq:rotating liouville} from $t_i = m \, \Delta t$ to $t_f = \qty(m + 1) \, \Delta t$ for every \qd{} in the system.
 For this, we make use of the predictor/corrector scheme detailed in~\cite{Glaser2009}.
 Defining $t_m \equiv m \, \Delta t$ and approximating $\tilde{\rho}(t)$ as a weighted sum of complex exponentials, the predictor/corrector scheme proceeds with an extrapolation predictor step,
 \begin{equation}
