@@ -6,7 +6,7 @@
       Speed of light           & $c$               & \SI{300}{\micro\meter \per \pico\second} \\
       Transition frequency     & $\omega_0$        & $\SI{1500}{\milli\eV}/\hbar$ \\
       Transition dipole moment & $\vb{d}$          & \SI{10}{\elementarycharge\bohr} (uniform) \\
-      Relaxation times         & $T_{1}, T_{2}$    & \SIlist{10;20}{\pico\second} \\
+      Decoherence times        & $T_{1}, T_{2}$    & \SIlist{10;20}{\pico\second} \\
       Laser frequency          & $\omega_L$        & $\SI{1500}{\milli\eV}/\hbar$ \\
       Laser wavevector         & $\vb{k}_L$        & $\omega_L/c$ ($\vb{k}_L \cdot \vb{d} = 0$) \\
       Pulse width              & $\sigma/\omega_L$ & \SI{1}{\pico\second} \\
@@ -17,7 +17,9 @@
       %Vacuum permeability      & $\mu_0$        & \SI{2.013e-4}{\milli\eV \pico\second\squared \per \elementarycharge \per \micro\meter}
     \end{tabular}
   \end{ruledtabular}
-  \caption{\label{table:parameters}Simulation parameters; \si{\elementarycharge} and \si{\bohr} denote the elementary charge and Bohr radius.}
+  \caption{\label{table:parameters}Simulation parameters; \si{\elementarycharge} and \si{\bohr} denote the elementary charge and Bohr radius.
+    The decoherence times here, while shorter than those typical of optical resonance experiments, preserve dynamical emission phenomena while affording a shorter computation time.
+  }
 \end{table}
 
 Here we detail the results of investigations into coupled \qd{} behavior with the model presented thus far.
