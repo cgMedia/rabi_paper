@@ -6,11 +6,13 @@ Moreover, we observe additional oscillatory behavior and localization effects in
 These effects could prove useful to identify optically quantum dot ``molecules'' in an extended sample by detecting residual localized polarization following integral $\pi$ pulse(s)---we expect that an experimental $\pi$-pulse calibrated to a single \qd{} with a scanning-type polarization measurement~\cite{Asakura2013} would reveal signatures of these effects in dense samples.
 Finally, in larger systems of densely-packed \qds{}, we see significant localization that present as regions of enhanced polarization over length scales comparable to that of the incident wavelength.
 
-Current semi-classical Maxwell-Bloch techniques predict superradiant effects within a continuum formulation~\cite{Gross1982,PhysRevA.4.302,PhysRevA.4.854}.
-We expect that our approach---when extended to systems containing a larger number of \qds{}---will aid in investigating the role of many-dot interactions in systems such as nanolasers~\cite{jahnke2016giant} that exploit these phenomena.
+It is known that semi-classical approaches can describe some superradiant effects within a continuum formulation~~\cite{Gross1982,PhysRevA.4.302,PhysRevA.4.854}. Superradiant effects in quantum dots ensembles were first investigated theoretically in Ref.~\cite{Temnov2005}. Experimental observations were reported in Ref.~\cite{Scheibner2007}, and have since spurred several theoretical analyses (see e.g. ~\cite{Temnov2009,Chen2008}). While our semiclassical approach describes collective effects due to the secondary field emission from quantum dots, these effects are included only in the Hamiltonian term on the right hand side of the Liouville equation in eq. 1, and not in the dissipator  $\hat{\mathcal{D}}\qty[\hat{\rho}]$.  In future work, we plan to extend our microscopic approach to include collective effects also in the dissipator of the Liouville equation, and so describe superradiant features.  We expect that our approach---when extended to systems containing a larger number of \qds{}---will aid in investigating the role of many-dot interactions in systems such as nanolasers~\cite{jahnke2016giant} that exploit these phenomena.
 Unfortunately, the na\"ive $\mathcal{O}\qty(N_s^2)$ interaction calculation presented here hampers attempts to extend these calculations to systems with $N_s \gg 10^4$.
 Our ongoing research includes the development of accelerated computational techniques that exploit the structure of $\mathcal{Z}$ to reduce the big-$\mathcal{O}$ scaling of \cref{eq:zmatrix}.
 Additionally, the technique presented here readily extends to model atomic, molecular, and semiconductor systems with richer structure (e.g.\ systems with energy degeneracies or biexcitonic transitions).
 
 \acknowledgments
 We gratefully acknowledge support from the National Science Foundation grant ECCS-1408115, and extend our thanks to the developers of Eigen~\cite{Eigen}, VisIt~\cite{VisIt}, and NumPy/SciPy~\cite{NumPy,SciPy} for the software used in our simulation and analysis.
+\vspace{.5 cm}
+
+
