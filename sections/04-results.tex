@@ -158,6 +158,18 @@ As the pulse varies little over the length of the cylinder, identical simulation
 Following a \SI{1}{\pico\second} pulse, the slab displays both the short-range (dark, adjacent \qds{}) and long-range (regions of enhanced/diminished polarization) phenomena observed in \cref{fig:tubes}, though the variation in these effects appears less pronounced than in \cref{fig:tubes}.
 
 
+\subsection{Inhomogeneous broadening}
+
+\begin{figure*}
+  \centering
+  \input{figures/inhomogeneous/inhomog_aggregate.tex}
+  \caption{\label{fig:broadened} 
+    $z$-distribution of polarization $\abs{\tilde{\rho}_{01}}$ for identical tubular geometries.
+    Here, $\vu{k} \propto \vu{z}$.
+    In each simulation, \num{10000} \qds{} had random Gaussian noise (of width \SIlist{0.0;0.2;0.4;0.6}{\milli\eV}) added to a resonant $\omega_0$.
+    Induced patterns in the polarization remain for mild detunings $\lesssim \SI{0.5}{\milli\eV}$ but have completely washed out at \SI{0.6}{\milli\eV}.
+  }
+\end{figure*}
 
 %\begin{figure}
   %\centering
