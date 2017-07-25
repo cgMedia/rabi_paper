@@ -17,9 +17,9 @@ where $\chi(t) \equiv \vb{d} \cdot \hat{\vb{E}}(\vb{r}, t)/\hbar$, $\vb{d} \equi
 Finally, the $T_1$ and $T_2$ constants characterize average emission and relaxation times.
 
 To account for the interactions between \qds{}, we turn to a semiclassical description of the system under the assumption of coherent fields and negligible quantum  statistics effects.
-Such an approximation preserves the discrete two-level energy structure of \emph{individual} \qds{}, however electromagnetic quantities behave like their classical analogues.
+Such an approximation preserves the discrete two-level energy structure of \emph{individual} \qds{} though electromagnetic quantities behave like their classical analogues.
 We define the total electric field at any point as $\vb{E}(\vb{r}, t) = \vb{E}_L(\vb{r}, t) + \mathfrak{F}\{ \vb{P}(\vb{r}, t) \}$
-where $\vb{E}_L(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t)$ a polarization distribution arising from  the off-diagonal elements (coherences) of $\hat{\rho}$, and~\cite{Landau2013,Rothwell2009}
+where $\vb{E}_L(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t)$ a polarization distribution arising from  the off-diagonal elements (coherences) of $\hat{\rho}$, and
 \begin{equation}
   \begin{gathered}
     \mathfrak{F}\{\vb{P}(\vb{r}, t)\} \equiv
@@ -28,14 +28,15 @@ where $\vb{E}_L(\vb{r}, t)$ describes an incident laser field, $\vb{P}(\vb{r}, t
       \left(\tensor{\mathrm{I}} - 3\outerprod{\bar{\vb{r}}}{\bar{\vb{r}}} \right) \cdot \qty(
         \frac{\partial_t   \vb{P}(\vb{r}', t_R)}{c \abs{\vb{r}-\vb{r}'}^2} +
         \frac{             \vb{P}(\vb{r}', t_R)}{  \abs{\vb{r}-\vb{r}'}^3}
-      ) \dd[3]{\vb{r}}'.
+      ) \dd[3]{\vb{r}}'
   \end{gathered}
   \label{eq:integral operator}
 \end{equation}
+(see \S 72 of \cite{Landau2013}).
 Here, $\tensor{\mathrm{I}}$ denotes the identity dyad, $\bar{\vb{r}} \equiv \qty(\vb{r} - \vb{r}')/\abs{\vb{r} - \vb{r}'}$, $\otimes$ represents the tensor product (i.e.\ $\qty(\outerprod{\vb{a}}{\vb{b}})_{ij} = a_i b_j$), $t_R \equiv t - \abs{\vb{r} - \vb{r}'}/c$, and $\epsilon$ gives the dielectric constant of the inter-dot medium.
 Thus, in a system composed of multiple \qds{}, \cref{eq:integral operator} couples the evolution of each \qd{} by way of the off-diagonal matrix elements appearing in \cref{eq:hamiltonian}.
 Note that this approach does not require an instantaneous dipole-dipole Coulomb term between (charge-neutral) \qds{}; the interactions between structures occur only via the electric field which propagates through space with finite velocity.
-(See {A}$_{\text{IV}}$  and {C}$_{\text{IV}}$ of~\cite{Cohen1989} for an in-depth discussion of this point.)
+(See {A}$_{\textsc{iv}}$  and {C}$_{\textsc{iv}}$ of~\cite{Cohen1989} for in-depth discussions of this point.)
 
 
 In the systems under consideration here, $\omega_0$ lies in the optical frequency band ($\sim \SI{1500}{\milli\eV\per\hbar}$).

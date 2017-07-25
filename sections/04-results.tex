@@ -19,7 +19,7 @@
     \end{tabular}
   \end{ruledtabular}
   \caption{\label{table:parameters}Simulation parameters (unless otherwise stated); \si{\elementarycharge} and \si{\bohr} denote the elementary charge and Bohr radius.
-    The decoherence times here, while shorter than those typical of optical resonance experiments, afford a shorter computational time but realistically preserve dynamical emission phenomena.
+    The decoherence times here, while shorter than those typical of optical resonance experiments, afford a shorter computational time but preserve dynamical emission phenomena.
   }
 \end{table}
 
@@ -46,11 +46,13 @@ We perform simulations of systems of \qds{} randomly distributed throughout a si
 \Cref{fig:density stats} details $\rho_{00}(t)$ for two-, and 1024-particle simulations shown against a solution of \cref{eq:rotating liouville} for a \qd{} evolving according to $\tilde{\vb{E}}_L(\vb{r}, t)$ alone.
 The system in \cref{fig:density stats}(a) contains two \qds{} with a separation of \SI{6.3}{\nano\meter} perpendicular to their mutual $\vb{d}$ to ensure large contributions from the near-field term of \cref{eq:radiated envelope}.
 The two \qds{} in this system follow the same trajectory and both excite far less than either would in response to the incident laser alone.
+These signatures indicate the effect arises as a dynamical frqeuency shift that brings adjacent \qds{} out of resonance with the applied electric field.
 We note that this suppression effect occurred to varying degrees for all near-field arrangements of two \qds{} that we investigated.
 In \cref{fig:density stats}(b), the system contains the same two-dot arrangement as in (a), however we have added an additional 1024 \qds{} randomly distributed throughout a $\SI{6.4e-2}{\micro\meter\cubed}$ cube centered around the original pair.
 Most of these additional \qd{} populations deviate little from those produced by the laser-only pulse due to the large separation between particles.
 Nevertheless, as we have filled the cube randomly, some regions of the system contain localized clusters of \qds{} that produce the suppression effect detailed above (for two adjacent particles) or populations with higher frequency oscillations (in the case of clusters with three or more \qds{}).
 Specifically, the two ``original'' \qds{} acquire an out-of-phase oscillation with respect to each other as well as a lower frequency in-phase oscillation of the pair about a decaying envelope.
+
 
 \begin{figure}
   \centering
@@ -151,7 +153,7 @@ Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves b
     \end{axis}
   \end{tikzpicture}%\includegraphics[width=\columnwidth]{figures/wide_plate.png}} \\
   \caption{\label{fig:wide plate}
-    Coloration of $\abs{\tilde{\rho}_{01}}$ for \num{10000} \qds{} arranged in a two-dimensional geometry (in units of $\lambda$).
+    Coloration of $\abs{\tilde{\rho}_{01}}$ for \num{10000} \qds{} arranged in a finite planar geometry (in units of $\lambda$).
     The slab displays a prominent polarization pattern \SI{1.25}{\pico\second} after the peak of a \SI{1}{\pico\second} pulse.
   }
 \end{figure}
@@ -170,9 +172,9 @@ Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves b
 \end{figure*}
 
 Thusfar we have investigated only homogeneous systems (i.e. an identical $\omega_0$ for every \qd{} in the system).
-To probe the effects of inhomogeneities, \cref{fig:broadened} presents four simulations with normally-distributed transition frequencies characterized by a width parameter.
+To probe the effects of interaction-independent inhomogeneities (possibly occuring due to some experimental variation in \qd{} sizes), \cref{fig:broadened} presents four simulations with normally-distributed transition frequencies characterized by a width parameter.
 In simulations with mild detuning, we observe a distribution pattern characteristic of the enhancement phenomenon seen in \cref{fig:tubes}.
-More variation in the detuning distribution, however, quickly serves to destroy these effects leaving only a ``pulse-dominated'' trend.
+More variation in the detuning distribution, however, quickly serves to destroy these phenomena leaving only ``pulse-driven'' effects.
 
 
 %\begin{figure}
