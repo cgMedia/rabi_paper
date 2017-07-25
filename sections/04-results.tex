@@ -126,6 +126,8 @@ Additionally, due to the length of the cylinder, larger regions of enhanced pola
 We liken these nodes to standing waves in a cavity that arise from the far-field interaction term of \cref{eq:radiated envelope}.
 As the pulse varies little over the length of the cylinder, identical simulations run without interactions (i.e.~$\mathcal{Z} = 0$ everywhere) produce homogeneous polarization distributions.
 %Finally, we note that because $\vb{d}$ points in the same direction for every \qd{}, the cylinder emits radiation in preferred directions leading to further variations in $\tilde{\vb{P}}$ (\cref{fig:end tubes}).
+Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves both the short-range (dark, adjacent \qds{}) and long-range (regions of enhanced/diminished polarization) phenomena observed in \cref{fig:tubes}.
+
 
 \begin{figure}
   \centering
@@ -150,13 +152,9 @@ As the pulse varies little over the length of the cylinder, identical simulation
   \end{tikzpicture}%\includegraphics[width=\columnwidth]{figures/wide_plate.png}} \\
   \caption{\label{fig:wide plate}
     Coloration of $\abs{\tilde{\rho}_{01}}$ for \num{10000} \qds{} arranged in a two-dimensional geometry (in units of $\lambda$).
-    The slab displays a prominent polarization pattern  \SI{1.25}{\pico\second} after the peak of a \SI{1}{\pico\second} pulse.
+    The slab displays a prominent polarization pattern \SI{1.25}{\pico\second} after the peak of a \SI{1}{\pico\second} pulse.
   }
 \end{figure}
-
-\Cref{fig:wide plate} shows a polarization distribution for a two-dimensional ``slab'' geometry (the formulation remains three-dimensional).
-Following a \SI{1}{\pico\second} pulse, the slab displays both the short-range (dark, adjacent \qds{}) and long-range (regions of enhanced/diminished polarization) phenomena observed in \cref{fig:tubes}, though the variation in these effects appears less pronounced than in \cref{fig:tubes}.
-
 
 \subsection{Inhomogeneous broadening}
 
@@ -164,12 +162,18 @@ Following a \SI{1}{\pico\second} pulse, the slab displays both the short-range (
   \centering
   \input{figures/inhomogeneous/inhomog_aggregate.tex}
   \caption{\label{fig:broadened} 
-    $z$-distribution of polarization $\abs{\tilde{\rho}_{01}}$ for identical tubular geometries.
-    Here, $\vu{k} \propto \vu{z}$.
-    In each simulation, \num{10000} \qds{} had random Gaussian noise (of width \SIlist{0.0;0.2;0.4;0.6}{\milli\eV}) added to a resonant $\omega_0$.
-    Induced patterns in the polarization remain for mild detunings $\lesssim \SI{0.5}{\milli\eV}$ but have completely washed out at \SI{0.6}{\milli\eV}.
+    $z$-distribution of polarization $\abs{\tilde{\rho}_{01}}$ for the geometry in \cref{fig:tubes}.
+    In each simulation, \num{10000} \qds{} had random Gaussian noise (with width parameters of \SIlist{0.0;0.2;0.4;0.6}{\milli\eV}) added to a resonant $\hbar \omega_0 = \SI{1500}{\milli\eV}$.
+    The induced long-range patterns in the polarization remain for mild detunings $\lesssim \SI{0.5}{\milli\eV}$ but have completely washed out at \SI{0.6}{\milli\eV}.
+    Additionally, each simulation displayed the characteristic near-field coupling effects of \cref{fig:density stats} (not visible here).
   }
 \end{figure*}
+
+Thusfar we have investigated only homogeneous systems (i.e. an identical $\omega_0$ for every \qd{} in the system).
+To probe the effects of inhomogeneities, \cref{fig:broadened} presents four simulations with normally-distributed transition frequencies characterized by a width parameter.
+In simulations with mild detuning, we observe a distribution pattern characteristic of the enhancement phenomenon seen in \cref{fig:tubes}.
+More variation in the detuning distribution, however, quickly serves to destroy these effects leaving only a ``pulse-dominated'' trend.
+
 
 %\begin{figure}
   %\centering
