@@ -100,7 +100,6 @@ Moreover, this dynamical localization effect features oscillations which suggest
           point meta min=0.32,
           point meta max=0.40,
           colorbar style={
-              %title= {$\abs{\rho_{01}}^2$},
               width=0.6180339887\textwidth,
               xtick={0.32, 0.33, 0.34, 0.35, 0.36, 0.37, 0.38, 0.39, 0.40},
               xticklabels={$\le 0.32$, $0.33$, $0.34$, $0.35$, $0.36$, $0.37$, $0.38$, $0.39$, $0.40 \le$}
@@ -127,7 +126,6 @@ This simulation captures the suppression effects of \cref{fig:density stats,fig:
 Additionally, due to the length of the cylinder, larger regions of enhanced polarization begin to appear as the system polarizes---an effect we did not observe in sub-wavelength structures.
 We liken these nodes to standing waves in a cavity that arise from the far-field interaction term of \cref{eq:radiated envelope}.
 As the pulse varies little over the length of the cylinder, identical simulations run without interactions (i.e.~$\mathcal{Z} = 0$ everywhere) produce homogeneous polarization distributions.
-%Finally, we note that because $\vb{d}$ points in the same direction for every \qd{}, the cylinder emits radiation in preferred directions leading to further variations in $\tilde{\vb{P}}$ (\cref{fig:end tubes}).
 Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves both the short-range (dark, adjacent \qds{}) and long-range (regions of enhanced/diminished polarization) phenomena observed in \cref{fig:tubes}.
 
 
@@ -151,7 +149,7 @@ Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves b
       ]
       \addplot graphics [xmin=0,xmax=3,ymin=0,ymax=1] {figures/wide_plate.png};
     \end{axis}
-  \end{tikzpicture}%\includegraphics[width=\columnwidth]{figures/wide_plate.png}} \\
+  \end{tikzpicture}
   \caption{\label{fig:wide plate}
     Coloration of $\abs{\tilde{\rho}_{01}}$ for \num{10000} \qds{} arranged in a finite planar geometry (in units of $\lambda$).
     The slab displays a prominent polarization pattern \SI{1.25}{\pico\second} after the peak of a \SI{1}{\pico\second} pulse.
@@ -175,20 +173,3 @@ Thusfar we have investigated only homogeneous systems (i.e. an identical $\omega
 To probe the effects of interaction-independent inhomogeneities (possibly occuring due to some experimental variation in \qd{} sizes), \cref{fig:broadened} presents four simulations with normally-distributed transition frequencies characterized by a width parameter.
 In simulations with mild detuning, we observe a distribution pattern characteristic of the enhancement phenomenon seen in \cref{fig:tubes}.
 More variation in the detuning distribution, however, quickly serves to destroy these phenomena leaving only ``pulse-driven'' effects.
-
-
-%\begin{figure}
-  %\centering
-  %\subfloat[\label{fig:polarization fluctuation}Projection of the cylinder in \cref{fig:tubes} at $t_3$ onto the cylindrical axis.]{\input{figures/z_polarization_distribution.tex}} \\
-  %\subfloat[\label{fig:end tubes}Projections of the cylinders in \cref{fig:tubes} onto the $xy$-plane.]{
-    %\includegraphics[width=0.24\linewidth]{figures/tube/end_print_0.png}
-    %\includegraphics[width=0.24\linewidth]{figures/tube/end_print_1.png}
-    %\includegraphics[width=0.24\linewidth]{figures/tube/end_print_2.png}
-    %\includegraphics[width=0.24\linewidth]{figures/tube/end_print_3.png}
-  %}
-  %\caption{\label{fig:tube projection}
-    %Polarization projections of the cylinders in \cref{fig:tubes}.
-    %The projection onto the cylindrical axis reveals the five standing nodes of polarization as well as a tendency for increased polarization near the ends of the cylinder.
-    %The uniform orientation of the dipole radiators breaks the cylindrical symmetry of the system, leading to radial anisotropies in the polarization intensity.
-  %}
-%\end{figure}
