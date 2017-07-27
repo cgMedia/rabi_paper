@@ -15,13 +15,25 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 
-\input{definitions}
+%== PGF settings == 
 
 \pgfplotsset{compat=1.4}
 
 \usepgfplotslibrary{external}
 \usepgfplotslibrary{colorbrewer}
 \usetikzlibrary{pgfplots.groupplots}
+
+%== Definitions ==
+
+\newcommand{\qd}{quantum dot}
+\newcommand{\qds}{quantum dots}
+
+\newcommand{\Qd}{Quantum dot}
+\newcommand{\Qds}{Quantum dots}
+
+\newcommand{\outerprod}[2]{#1 \! \otimes \! #2}
+
+%=================
 
 \begin{document}
 
@@ -39,7 +51,6 @@
 \email[ ]{piermaro@msu.edu}
 \affiliation{Department of Physics \& Astronomy, Michigan State University\\567 Wilson Road, East Lansing MI 48824 USA}
 
-
 \date{\today}
 \pacs{1.1}
 
@@ -54,9 +65,7 @@
 \input{sections/03-computational_approach}
 \input{sections/04-results}
 \input{sections/05-conclusion}
-%\appendix
-%\input{sections/06-propagator}
 
-\bibliography{refs/random_lasing_reflist}
+\bibliography{random_lasing_reflist}
 
 \end{document}
