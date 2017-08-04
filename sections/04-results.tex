@@ -131,7 +131,7 @@ Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves b
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[>=latex]
     \begin{axis}[
         xtick scale label code/.code={$\cdot \lambda$},
         enlargelimits=false,
@@ -148,6 +148,7 @@ Reducing the simulation to a planar geometry (\cref{fig:wide plate}) preserves b
         }
       ]
       \addplot graphics [xmin=0,xmax=3,ymin=0,ymax=1] {figures/wide_plate.png};
+      \draw[->, white, thick] (axis cs:2.25,0.8) -- (axis cs:2.75,0.8) node[at end, anchor=west] (A) {$\vu{k}$};
     \end{axis}
   \end{tikzpicture}
   \caption{\label{fig:wide plate}
