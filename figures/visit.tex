@@ -28,7 +28,13 @@
       plot graphics/ymin=0,
       plot graphics/ymax=0.5,
       colormap name=spectral
-    }
+    },
+    xlabel style={sloped},
+    ylabel style={sloped},
+    zlabel style={sloped},
+    xlabel = {$x$ (\si{\micro\meter})},
+    ylabel = {$y$ (\si{\micro\meter})},
+    zlabel = {$z$ (\si{\micro\meter})},
   ]
     \addplot3 graphics[points={% important
         (0.15, 0.15, -0.15) => (1836, 2072-581)
