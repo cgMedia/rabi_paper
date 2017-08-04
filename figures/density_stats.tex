@@ -528,7 +528,7 @@ time     p1                 p2                 lone
 \usetikzlibrary{spy}
 
 \begin{tikzpicture}[
-    spy using outlines={circle, magnification=12, connect spies},
+    spy using outlines={circle, magnification=12, connect spies}
   ]
   \begin{groupplot}[
       group style={
@@ -551,10 +551,10 @@ time     p1                 p2                 lone
   ]
   \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(pair only)}]
     \addplot+[smooth, thick, no marks] table[x = time, y = p1] {pair_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(1)}(t)$}
+    \addlegendentry{$\rho_{00}^{\qty(1)}$ \& $\rho_{00}^{\qty(2)}$}
 
-    \addplot+[smooth, thick, no marks] table[x = time, y = p2] {pair_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(2)}(t)$}
+    %\addplot+[smooth, thick, dashed, no marks] table[x = time, y = p2] {pair_density_stats.dat};
+    %\addlegendentry{$\rho_{00}^{\qty(2)}(t)$}
 
     \addplot[smooth, thick, dashed, no marks] table[x = time, y = lone] {pair_density_stats.dat};
     \addlegendentry{$\tilde{\vb{E}}_L$-only}
@@ -563,16 +563,22 @@ time     p1                 p2                 lone
 
   \nextgroupplot[ylabel style={align=center}, ylabel={Population\\(neighborhood)}]
     \addplot+[smooth, thick, no marks] table[x = time, y = p1] {high_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(1)}(t)$}
+    \draw[->] (axis cs:3,0.67) -- (axis cs:5.9,0.67) node[at start, anchor=east] (A) {$\rho_{00}^{\qty(1)}(t)$};
+    %\addlegendentry{$\rho_{00}^{\qty(1)}(t)$}
 
     \addplot+[smooth, thick, no marks] table[x = time, y = p2] {high_density_stats.dat};
-    \addlegendentry{$\rho_{00}^{\qty(2)}(t)$}
+    \node (Bsrc) at (axis cs:0, 0.4) {$\rho_{00}^{\qty(2)}(t)$};
+    \node (Btgt) at (axis cs:7.3, 0.608) {};
+    \draw[->, to path={-| (\tikztotarget)}] (Bsrc) edge (Btgt);
+    %\addlegendentry{$\rho_{00}^{\qty(2)}(t)$}
 
     \foreach \n in {5, ..., 46}
     {
       \addplot[smooth, thick, opacity = 0.2] table[x = time, y index={\n}] {high_density_stats.dat};
     }
-    \addlegendentry{Neighborhood}
+    %\draw[<-] (axis cs:12,0.55) -- (axis cs:16, 0.55) node[at end, anchor=west] (C) {Neighborhood};
+    %\addlegendentry[black, opacity=0.2]{Neighborhood}
+    \legend{,,Neighborhood}
 
     \node[] at (axis cs: 0,0) {(b)};
 
